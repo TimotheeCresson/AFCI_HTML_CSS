@@ -1,0 +1,24 @@
+*, ::before, ::after {
+    margin: 2;
+    padding: 2;
+    box-sizing: border-box;
+}
+
+.container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.word {
+    margin: 10px;
+    font-size: 20px;
+}
+
+@media (max-width: 600px) {
+    .word {
+    margin: 15px;
+    font-size: 16px;
+    }
+  }
+ 
+    

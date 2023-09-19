@@ -1,0 +1,30 @@
+*, ::before, ::after {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+div {
+    font-size: 30px;
+    padding: 10px;
+}
+
+@media screen and (max-width: 500px) {
+    div {
+        color: black;
+        padding: 20px;
+        font-size: 15px;
+    }
+    div:hover {
+        background-color: black;
+        color: white;
+    }
+}
+@media screen and (max-width: 1900px){
+    div {
+        color: black;
+    }
+    div:hover {
+        background-color: black;
+        color: white;
+    }
+}

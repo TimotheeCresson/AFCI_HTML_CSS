@@ -1,0 +1,93 @@
+/* Sur firefox aller dans console et en haut à droite, application mobile afin de changer d'appareil (on peut sélectionner un portable ou ordi...)*/
+
+*, ::before ::after {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+/* de nos jours, il est préférable de développer un site en "mobile first"
+C'est à dire de le développer pour le format smartphone, et ensuite de l'adapter aux tablettes et ordinateurs*/
+body {
+    background-color: bisque;
+}
+h1, h2 {
+    text-align: center;
+}
+article {
+    margin: 1rem, 10px;
+    border: 1px solid grey;
+    padding: .5rem;
+}
+/*
+    Pour avoir un site responsive, c'est à dire qui s'adapte à toute taille d'écran. 
+    Le premier conseil est autant que possible, prioriser les unités tel que "%", "vh", "vw" ... qui s'adapte d'elles-même à la taille des écrans ou des éléments.
+
+    Le second est d'utiliser les médias queries.
+    Ces media queries permettent d'appliquer certaines règles, uniquement à certaines conditions, par exemple : 
+        - un break point (à partir de 600px, ou en dessous de 900px ...), Un breakpoint (ou point de rupture) se réfère à la taille imposée par la fenêtre de rendu du navigateur qui fera varier proportionnellement le rendu visuel du site web affiché. Par exemple sur un PC moderne, vous aurez une zone d affichage du navigateur de 1 400 pixels de large. Si vous réduisez votre fenêtre navigateur, vous passerez à 1 000 pixels puis 800 puis 360 simulant ainsi un smartphone.
+        - un format, paysage ou portrait
+        - le thème utilisé par l'utilisateur (sombre, clair)
+        - l'utilisation (pour une imprimante) 
+*/
+@media screen and (min-width: 500px){
+    body {
+        background-color: lightgreen;
+    }
+    article {
+        display: inline-block;
+        width: 49%;
+    }
+}                                                                /* quand on agrandit et rétrécit la page, la couleur de celle-ci change en fonction des valeurs que l'ont à mise */
+@media screen and (min-width: 900px){
+    body {
+        background-color: lightblue; 
+    }
+    article {
+        width: 32%;
+    }
+}
+@media screen and (max-width: 700px) {}
+
+/*règles spécifiques à l'impression*/
+@media print {.scroll{display: none;}}
+
+/*règles spécifiques à l'orientation*/
+@media screen and (orientation: landscape) {}
+@media screen and (orientation: portrait) {}
+
+/* Règle spécifiques à l'utilisatiob d'un thème par l'utilisateur */
+@media (prefers-color-scheme: dark) {}
+@media (prefers-color-scheme: light) {}
+
+/* --------------------------------------- Compatibilités des navigateurs --------------------- */
+
+/* 
+Le World Wide Web Consortium (W3C) s'occupe de gérer les conventions et la standardisation des technologies utilisées sur le web.
+Malgé cela, des différences existent entre les différents navigateurs. (De moins en moins car beaucoup utilise le moteur chromium) 
+
+Certaines propriétés ou sélecteurs peuvent avoir un indicateur prouvant leur fonctionnement sur un moteur unique : 
+    - "-webkit-" pour chromium
+    - "-moz-" pour firefoix
+
+    Prenons l'exemple suivant dont je souhaite modifier la scrollbar :
+*/
+div.scroll{
+    height: 200px;
+    width: 200px;
+    border: 1px solid black;
+    overflow-y: auto;
+    /* Modification de la barre de scrolling chez firefox*/
+    scrollbar-color: red pink; /*on doit mettre 2 couleurs*/
+    scrollbar-width: thin;
+}    
+
+/* Modification de la barre de scrolling chez chromium soit chrome*/
+div.scroll::-webkit-scrollbar {
+    background-color: pink;
+    width: 8px;
+}
+div.scroll::-webkit-scrollbar-thumb
+{
+    background-color: red;
+}
+/* D'autant plus sur les nouvelles propriétés, faites attention aux tableaux de compatibilité en bas de page sur */

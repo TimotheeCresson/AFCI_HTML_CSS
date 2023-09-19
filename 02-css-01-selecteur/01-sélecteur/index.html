@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Selecteur CSS</title>
+    <style> 
+    /* On peut placer le Css à trois endroits différents, le premier étant la balise style dans le head de notre page */
+    header {
+        background-color: chartreuse;
+    }
+    </style>
+    <link rel="stylesheet" href="style.css"> <!--on va utiliser cette méthode pour écire le css-->
+</head>
+<body>
+   <!-- header>(h1>a>{Super Site Grandiose !})+p>{CE site est vraiment super}     Cela permet de générer directement le paragraphe ci-dessous , cela s'appelle emmet-->
+   <header>
+    <h1>
+        <a href="https://www.google.fr/search?q=carbonade" target="_blank">Super Site Grandiose !
+
+        </a>
+    </h1>
+    <p>CE site est vraiment super</p>
+   </header>
+
+   <!-- main>(p>lorem+span*3)+article>p>{gros article très long}-->
+   <main>
+    <p>
+        <span>Lorem ipsum dolor sit amet </span> consectetur adipisicing elit. At unde fuga<span>illo omnis quia tempore voluptatem veritatis eaque </span>vero, modi ullam, <span> doloribus autem maxime, adipisci quam! Atque, error temporibus.</span>
+    </p>
+    <article>
+        <p>gros article très long</p>
+    </article>
+   </main>
+<!--footer>(h3>{Gros menu})+ul>li*6>{Menu$}-->
+<footer style="background-color: blueviolet;"> <!--éviter d'écire cela dans une autre balise-->
+    
+    <ul>
+        <h3>
+            Gros menu
+        </h3>
+        <li id="MenuImportant">Menu1</li>   
+        <li> 
+            <a href="https://www.amazon.fr/s?k=hdmi">Amazon</a>
+        </li>
+        <li class="peuImportant">Menu3</li>
+        <li>
+            <a href="https://marquiset.fr">Nolween</a>
+        </li>
+        <li class="peuImportant">Menu5</li>
+        <li>
+            <a href="https://fr.wikipedia.org/wiki/amazonie">Wiki</a>
+        </li>
+    </ul>
+</footer>
+</body>
+</html>

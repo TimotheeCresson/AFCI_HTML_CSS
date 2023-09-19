@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">  <!--deviens de moins en moins utile= permet la compatibilité sur vieille ordi-->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mon site</title> <!--ce qui apparait en haut du site à l'endroit comme nouvel onglet-->
+    <!--balise non influançant-->
+    <meta name="author" content="Timothée CRESSON">
+    <meta name="description" content="Voici mon site">
+    <meta name="keywords" content="Timothée, html, head, balises, meta tag"><!--Mot clé pour les moteurs de recherches des bots sur les sites web-->
+    <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
+</head>
+<body>
+    <!-- Balises sémantiques -->
+   <header id="firstTag">Développement Web</header> <!--cette balisage sert que pour la sémantique -->
+   <nav></nav>                                                                                     
+   <main></main>
+   <aside></aside> <!-- balise pour sémantique sur un des côtés-->
+   <footer></footer> <!--pour le pied de page -->
+
+   <!-- Balises avec règle-->
+   <section>Une section doit contenir un titre</section>
+   <article>Un article doit contenir un titre</article>
+   <p>Un paragraphe ne peut pas contenir de block (il a margin par défaut de 16 par défaut, border par défaut et padding par défaut de 0)</p>
+   <ul>
+    <li>Une unorderred list (ul) ne peut contenir que des "li" liste item </li>
+    <li>chaque li va créer un nouveau point (puce)</li>
+    <li>
+        <ul>
+            <li>
+                Un li peut contenir n'importe quel block, même une autre liste
+            </li>
+        </ul>
+    </li>
+   </ul>
+
+   <ol>
+    <li> une ordered list (ol) suit les mêmes règles qu'une "ul"</li>
+    <li> les puces sont remplacées par des chiffres</li>
+   </ol>
+   
+   <!--les titres vont de h1 à h6, par convention on essayera de garder les plus gros avant et les plus petit après-->
+   <h1>Gros titre</h1>  
+   <h6>Petit titre</h6>
+
+   <div></div> <!--la div est un block qui n'a aucune règle, sémantique ou effet, la div sert juste à diviser et structurer votre page-->
+
+   <!--Balises inline-->
+
+   <p> Lorem ipsum, <strong> sit amet consectetur adipisicing </strong>elit. Maxime quae quod natus itaque laudantium, tempora sunt molestias vitae placeat cumque dolore hic animi nisi consequuntur ipsum fugiat, delectus magnam repudiandae.</p> <!--écrire lorem pour afficher un texte aléatoire
+On peut écrire lorem*2 ou lorem*3... pour générer plusieurs pages-->
+<!--balise strong, met du sens pour personne malentendante et pour mettre un mot très important-->
+
+<!-- les sauts à la ligne ne marche pas sur html, il faut mettre une balise br-->
+Je m'appelle <br>
+Timothée CRESSON
+
+<em> développement</em> <!--met en italic et c'est un texte qui est important -->
+<i> développement</i> <!-- pour indiqué une citation et met en italic-->
+<u>développement</u> <!--met un très sous le texte-->
+
+<abbr title="HyperText Markup Language">HTML</abbr> <!--abréviation et on l'a met avec un attribut title pour mettre des petits points en dessous et dire à quoi correspond l'abréviation-->
+
+<!-- Les balises tel que strong, em, i... ne doivent pas être utilisées pour de la mise en forme.
+Elles ont chacune un sens précis qui sera indiqué aux moteurs de recherches, synthèses vocales et autres logiciels et robots-->
+
+<hr> <!-- permet de mettre un trait tout le long de la page-->
+
+<p>
+    <a href="02-tableau.html">Lorem ipsum dolor sit</a> amet, consectetur <a href="./03-formulaire.html"> elit. Dolorem fuga</a> quasi quaerat obcaecati, quis officiis quam voluptate dignissimos culpa molestias. Amet, sequi tempora ab voluptate nihil aliquam neque provident facere.
+    <a href="https://www.google.fr/search?q=pizza" target="_blank" rel="noreffer"> pizzeria </a>
+    Lorem ipsum dolor sit amet consectetur adipisicing elit. Pariatur optio praesentium at veniam! Porro ea cumque molestias earum! <a href="#firstTag">Incidunt debitis odit </a>exercitationem minima dolorum asperiores aspernatur natus, sapiente pariatur 
+</p>
+<!--Le mot-clé noreferrer de l'attribut rel des éléments <a>, <area> et <form> indique au navigateur, lorsque celui-ci ouvre la ressource cible, d'omettre l'en-tête Referer et de ne divulguer aucune information de referrer.-->
+<!--Les balises "a" servent à créer des liens interne au site, externe, ou des ancres. 
+Il est conseillé pour les liens externe au site d'utiliser l'attribut target="_blank" pour ouvrir la page dans un nouvel onglet -->
+<!-- mettre une id sur un mot permet de le retrouver en utilisant un <a href="le nom de "ID"> texte </a>
+On peut mettre plusieurs Id mais ceux-ci doivent avoir qu'une fois le même nom-->
+
+<p>
+    <span class="superSpan1 sp1"> Lorem ipsum dolor sit amet</span> consectetur, adipisicing elit. <img src="../ressource image/mail.png" alt="photo" width="200" height="200" loading="lazy" decoding="async"> Corporis repudiandae porro eveniet, nihil id odio labore saepe quod quis. Et quo ex similique omnis voluptates vel, eos neque beatae tenetur!
+    <!--attribut class sert surtout en CSS-->
+    <!--La balise ALT est un élément textuel du code HTML qui permet de décrire une image. -->
+    <!-- decoding="async"   charge quelque chose en asynchrome, si on a plusieurs image lourde, si la deuxième charge plus vite que la première, charge d'abord la deuxième-->
+    <!--loading="lazy"   Cette méthode permet d’améliorer les temps de chargement, en particulier sur les sites Internet incluant de nombreuses données telles que des images et des vidéos.-->
+      
+</p>
+<!-- cas particulier-->
+<video src="" controls loop autoplay muted poster="../ressource image/mail.png"></video> <!--on doit mettre control pour lancer la vidéo sinon ce n'est qu'une image ou sinon il faut mettre autoplay (la video se lance tout seul mais le son est désactivé(il faut mettre muted pour réactiver)
+    loop: permet de mettre la vidéo en boucle)
+poster="lien vers l'image" il faut enlever l'autoplay, permet de mettre une image de prévisualisation avant de lancer la video-->
+
+<audio src="" controls loop></audio>
+<!--Pour mettre un audio-->
+
+<video controls>
+    <source src="" type="video/mp4">
+    <source src="" type="video/x-wav">
+    <source src="" type="video/x-msvideo">
+</video>
+<!--Votre navigateur ne supporte pas les vidéos html5-->
+
+<iframe src="./02-tableau.html" frameborder="0"></iframe>
+<!--L'élément HTML <iframe> représente un contexte de navigation imbriqué qui permet en fait d'obtenir une page HTML intégrée dans la page courante
+    Pour intégrer du google map, il suffit d'aller dessus puis cliquer sur partager et prendre le lien iframe.-->
+
+    <pre> Lorem ipsum dolor sit amet consectetur adipisicing elit. Repellendus nesciunt omnis blanditiis vero odio neque, ab cumque dolorum laboriosam ex fugit cum dolor vitae, deserunt 
+        quis consequatur, praesentium enim odit?
+    Sint, voluptate provident? Aspernatur tenetur fugit, deserunt, architecto vitae dolore vero numquam voluptas eligendi ducimus minima nemo. Voluptas architecto quaerat nihil ex quas repudiandae explicabo quis! Nulla maxime commodi nihil!
+    Deleniti sit 
+    pariatur omnis beatae dolorum adipisci harum quas provident, labore numquam assumenda tenetur mollitia ad repellendus esse excepturi repudiandae officiis qui? Obcaecati qui fugit labore eos quidem enim magni.</pre>
+    <!--la balise "pre" prend en compte les sauts de ligne...-->
+
+
+</body>
+</html>
+
+
+
+
+<!--touche f1 snippets=configure user snippets puis sélectionner html  permet de créer un raccourci (utile pour de longue chose), l'exemple que j'ai écrie (suffit de marquer img et sélectionner imgA (ca donne directement <img src='' alt='' loading="lazy" decoding='async'>))-->
+ <!--$1 et $2 permet de positionner les curseur au endroits-->
+
+
+ <!-- pour documentation: W3school ou mdn-->

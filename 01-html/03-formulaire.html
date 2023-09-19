@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <form action="https://www.google.fr/search" method="get" target="_blank"> <!-- en "get" envoie à l'url, si on met "post" à la place (on envoie la requête au serveur et rien dans l'url)
+    l'intérêt du get, quand on veut partager avec quelqu'un contrairement à post: + sécurisé donc pour donner confidentiel
+action:L'URL qui traite l'envoi du formulaire.-->
+        <label for="search">Votre recherche</label> <!--L'élément HTML <label> représente une légende pour un objet d'une interface utilisateur. Il peut être associé à un contrôle en utilisant l'attribut for ou en plaçant l'élément du contrôle à l'intérieur de l'élément <label>. 
+            for: il indique l'élément de formulaire que ce label décrit-->
+        <input type="text" name="query" id="search" placeholder="votre recherche" required="required" autofocus> <!--required, demande de remplir le champ si celui ci n'est pas fait-->
+        <!--placeholder : met un texte facultatif à l'emplacement de l'écriture
+        autofocus: le curseur va directement dans la barre de champ du formulaire-->
+        <input type="submit" value="rechercher"> <!--crée un bouton rechercher-->
+    </form>   
+    
+    <form action="03-formulaire.html" method="post">
+        <label for="birthday">Date de Naissance</label>
+        <input type="date" name="birthday" id="birthday" disabled> <!--permet d'avoir un calendrier, disabled désactive l'accessibilité de toucher à ce champ-->
+        <br>
+        <label for="color">Couleur favorite :</label>
+        <input type="color" name="color" id="color"> <!--crée une interface de couleur-->
+        <br>
+        <label for="email">Votre Email :</label>
+        <input type="email" name="email" id="email">
+
+        <br>
+        <label for="pass">Votre mot de passe :</label>
+        <input type="password" name="password" id="password">
+        <br>
+        <label for="cv">Votre CV</label>
+        <input type="file" name="cv" id="cv" multiple> <!--crée un bouton parcourir
+        multiple: pour mettre plusieurs fichiers
+    chaque input doit avoir un nom différent-->
+    <br>
+        <label for="commentaire">Un commentaire peut être?</label>
+        <textarea name="commentaire" id="commentaire" cols="30" rows="10"></textarea> <!--afin a créer un espace commentaire-->
+        <br>
+        <fieldset>
+            <legend>Choisi ton langage préféré</legend>
+            <input type="radio" name="langage" id="html">
+            <label for="html" value="html">HTML</label>
+            <br>
+            <input type="radio" name="langage" id="css">
+            <label for="css" value="css">CSS</label>
+            <br>
+            <input type="radio" name="langage" id="js" checked>
+            <label for="js" value="js">Javascript</label>
+        </fieldset>
+        <!--la balise radio et checkbox est la seule balise des input qui peut être utilisé plusieurs fois avec le même nom
+        Balise radio: permet de créer un rond que l'on peut cocher 
+    checked: pré-coche la case-->
+        <br>
+        <fieldset>
+            <legend>Quels catégories appréciez vous?</legend>
+            <input type="checkbox" name="Aventure" id="Aventure">
+            <label for="Aventure">Aventure</label>
+            <br>
+            <input type="checkbox" name="Romantique" id="Romantique">
+            <label for="Romantique">Romantique</label>
+            <br>
+            <input type="checkbox" name="horreur" id="horreur" checked>
+            <label for="horreur">horreur</label>
+        </fieldset>
+        <!-- crée un carré afin de le cocher-->
+        <br>
+        <label for="repas">Choisi ton repas :</label>
+        <select name="repas" id="repas">
+        <option disabled selected>Choisir un repas</option> <!-- disabled selected: permet de le mettre en visualisation dans le champ mais une fois dans le sélecteur, le met en grisâtre et nous ne pouvons pas le sélectionner -->
+        <option value="pizza">Pizza !!!</option>
+        <option value="pasta">Pâtes !!</option>
+        <option value="burger">Burger ! </option>
+        </select>
+        <!-- crée un champ de sélection-->
+        <br>
+        <button type="submit">Envoyer</button>
+        <input type="button" value="Coucou"> <!--ne sert à rien en html, il faut mettre du javascript pour qu'il fonctionne-->
+        <br>
+    </form>
+    <div contenteditable="true">Coucou</div> <!--est un attribut à valeur contrainte qui indique si l'élément courant doit pouvoir être édité par l'utilisateur ou non.-->
+
+    <form action="#" method="get">
+        <input type="text" name="regex" placeholder="text" required pattern="^[a-zA-Z]+$" title="n'utilisez que des lettres"> <!--Appeler regex: permet de dire que ne peut écrire qu'avec des lettres et non des chiffres-->
+        <button>Envoyer</button>
+    </form>
+</body>
+</html>
+
+<!--figcaption: sert à mettre un texte sous une image-->

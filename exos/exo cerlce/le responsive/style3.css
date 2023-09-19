@@ -1,0 +1,28 @@
+*, ::before, ::after {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+.nav menu {
+    margin:auto;
+    width: 40vw;
+    display:none 
+}
+#burger {
+    display: none;
+}
+#burger + checkbox{
+    display: block;
+}
+
+label[for=burger]{
+    position: relative;
+    float: right;
+    border: 1px solid black;
+    box-shadow: 5px 5px rgba(0,0,0,0.5);
+    cursor: pointer;
+    padding: 3px;
+}
+@media screen  {
+    
+}

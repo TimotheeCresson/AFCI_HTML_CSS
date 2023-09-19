@@ -1,0 +1,37 @@
+*, ::before ::after {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background: linear-gradient(90deg, rgba(75,8,125,1) 7%, rgba(107,11,18,1) 86%);
+}
+#cercle {
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+.cercle1 {
+    background: white;
+    border-radius: 50%;
+    width: 100px;
+    height: 100px;
+}
+.cercle2 {
+    background: white;
+    border-radius: 50%;
+    width: 100px;
+    height: 100px;
+}
+.cercle3 {
+    position: absolute;
+    background: white;
+    border-radius: 50%;
+    width: 100px;
+    height: 100px;
+    top: 50%;
+    bottom: 50%;
+    right: 50%;
+    left: 50%;
+}

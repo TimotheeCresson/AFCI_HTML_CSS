@@ -1,0 +1,201 @@
+/* La syntaxe Css est la suivante :
+selecteur {propriété: valeur;} */
+header {
+    background-color: cornflowerblue; /*le dernier élément lu à la propriété*/
+}
+main {
+    background-color: aquamarine;
+}
+footer {
+    background-color: darkgoldenrod !important; /* important permet d'avoir la priorité mais ne pas en abuser*/
+}
+main p {
+    /*On sélectionne tous les "p" du site se trouvant dans "main". On parle d'enfant indirect */
+    background-color: lightsalmon;
+}
+main > p {
+    /* On sélectionne tous les "p" du site se trouvant dans un "main" sans autres balises les séparants.
+    On parle d'enfant direct */
+    background-color: olive;
+}
+/*--------------Frère direct ou Indirect----------------*/
+h3 ~ li{
+    /* Selectionne tous les li suivant un h3 */
+    background-color: yellowgreen;
+}
+h3 + li {
+    /* Selectionne tous les li juste derrière un h3*/
+    background-color: peachpuff;
+}
+/* ----------------- Pseudo classes ------------------------*/ 
+/* Les pseudo classes, sont écrites de la façon suivante ":nom" */
+li:hover {
+    /* Sélectionne les li quand le curseur les survoles */
+    background-color: deeppink;
+}
+li:nth-of-type(3) {
+    /* Sélectionne le "n"ième de son type, ici le 3ème li 
+    On utilise even pour prendre les choses 2 par 2 de façon équivalente
+    On utilise odd pour prendre toutes les instances de la même classe
+    Il existe aussi cette pseudo classe ne partant de la fin :
+    "nth-last-of-type()"
+    :nth-of-type(An+B)  :  The nth-of-type formula selects every nth element, starting the count at a specific instance of that element. (A est un nombre, n est un multiplicateur (exemple: 2n= tous les 2 classes + 3 (3veut dire à partir du 3eme donc tous les 2 rangs à partir du 3eme)*/
+    background-color: tomato;
+} 
+li:nth-child(2) {
+    /* Selectionne le "n"ième enfant, peu importe son type.
+    Ici on précise qu'il faut que le 2 ième soit un li.
+    Il existe aussi aussi cette pseudo classe en partant de la fin : 
+    "nth-last-child()*/
+    background-color: rgb(15, 15, 15);
+    color: white;
+}
+/* il existe égalment ":first-child" :  You can select the first child element. A child element is any element that is directly nested in another element. You can combine this pseudo-selector with other selectors.
+ ":only-of-type"  :  Selects the only element of its type within another element.
+ ":only-child"  :  You can select any element that is the only element inside of another one.
+ ":last-child  : You can use this selector to select an element that is the last child element inside of another element.
+Pro Tip → In cases where there is only one element, that element counts as the first-child, only-child and last-child!
+":first-of-type"   :  Selects the first element of that type within another element.*/
+
+/* :empty    :Selects elements that don't have any other elements inside of them.*/
+ 
+h1 a {
+    color: darkorange ;
+}
+h1 a:focus {
+    /* Sélectionne l'élément quand il est focus*/
+    color: fuchsia;
+}
+h1 a:active {
+    /* Sélectionne l'élément quand il est cliqué */
+    color: cyan;
+}
+h1 a:visited {
+    /* Quand un site a déjà été visité */
+    color: red;
+}
+p span:not(:nth-of-type(2)) {
+    /* :not() permet d'exlure ce qui est entre parenthèse.
+    Ici on demande tout span dans un p, sauf le second*/
+    color: magenta;
+}
+*:not(h1, a) {
+    /* 
+       "*" selectionne toutes les balises.
+       "," entre 2 sélecteurs permet d'en sélectionner plusieurs à la fois
+       font-size modifie la taille de la police 
+       Ici on sélectionne tout sauf h1 et a
+    */
+    font-size: 20px;
+}
+
+/*----------------Pseudo Eléments-----------------*/
+/* La syntaxe d'un pseudo élément est "::nom" */
+
+article p::first-letter {
+    /*Selectionne la 1ere lettre. 
+    Ici celle du p dans un article */
+    font-size: 50px;
+}
+main > p::first-line {
+    /* Selectionne la 1ère ligne. 
+    Ici celle d'un p enfant direct d'un main*/
+    font-weight: 900;
+}
+
+/* before et after servent à créer des éléments au début et à la fin d'une balise.
+Ils doivent obligatoirement contenir la propriété "content"
+Ils ne fonctionnent pas sur les élément auto fermant tel qu'un "input"*/
+h1::before {
+    content: "C'est faux ->";
+    color: yellow;
+}
+h1::after {
+    content: "<- Il ment";
+    color: darkgoldenrod;
+}
+
+/* ----------------Classes, id et attributs-----------------------*/
+
+#MenuImportant {
+    /* Pour sélectionner un élément par son id, j'utilise "#" suivi de son nom */
+font-size: 42px;
+font-weight: bold;
+color: red;
+}
+.peuImportant {
+    /* Pour sélectionner un élément par sa classe, j'utilise "." suivi de son nom */
+    font-size: 10px;
+    font-weight: 100;
+    color: rgb(8, 8, 8);
+}
+
+/* attribute selector :
+[attribute]   (exemple: [for]   a[href]
+Attributes appear inside the opening tag of an element, like this: span attribute="value". An attribute does not always have a value, it can be blank!
+A[attribute]   : Combine the attribute selector with another selector (like the tag name selector) by adding it to the end (Exemple:   li[href] : je sélectionne tous les href des li*/
+
+a[target] {
+    /* les "[]" indique que je sélectionne un élément par son attribut.
+    Ici je sélectionne tous les "a" qui ont l'attribut "target", peu importe sa valeur*/
+    font-style: italic;
+}
+a[href*="amazon"]{
+    /* [attribute="value"] on peut mettre a[attribute="value"]
+    "*=" après un attribut permet de sélectionner tous les éléments qui contiennent la valeur suivante.
+    Ici je cherche tous les a dont le href contient le mot "amazon" 
+    Dans font-family, il vaut mieux mettre 3 styles d'écriture car les navigateurs ne lisent pas tous les styles donc il cherche la 1ère, si pas prend la 2ème...*/
+    font-family: monospace,Helvetica, sans-serif;
+}
+a[href$=".fr"] {
+    /* "$=" sélectionne tous les éléments dont l'attribut termine par la valeur suivante. 
+    Ici je cherche tous les "a" dont le "href" termine par ".fr" */
+    background-color: blue;
+    color: white;
+}
+a[href^="https"]::before {
+    /* "^=" sélectionne tous les éléments dont l'attribut commence par la valeur suivante. 
+    Ici je cherche tous les "a" dont le "href" commence par "https" et leur ajoute un "before" soit ici une coche ✓*/
+    content: "\2713"; /*symbole unicode*/
+}
+
+/*----------- Autres ------------------*/
+
+article p, li:nth-child(2), header p {
+    /* une "," permet de préciser les mêmes règles pour différents sélecteurs*/
+    font-family: cursive, monospace, 'Times New Roman', Times, serif; 
+    
+}
+:where(article, header) p {
+    /*
+    Ceci est l'équivalent à : 
+    article p, header p{}
+    */
+    color: darkorchid;
+}
+
+header { /* si on met son curseur sur le sélecteur (ici header on peut voir son importance avec 3 chiffres (0, 0, 0), le premier chiffre est prioritaire sur les autres (exemple: id est plus important que classe car 1,0,0 > 0,1,0*/
+    background-color: darkcyan;
+}
+/* 
+    Par défaut, le CSS est lu de haut en bas et chaque selecteur ciblant un même élément viendra réécrire celui qui vient au dessus.
+
+    Mais il faut ajouter à cela un niveau de priorité spécifique à chaque selecteur.
+    Celui ci est représenté par 3 chiffres : 
+        0,0,0
+    
+    Le premier chiffre est prioritaire sur les suivants
+    Par exemple :
+        1,0,0 aura la priorité sur 0,9,9
+        0,1,0 aura la priorité sur 0,0,9
+        0,2,0 aura la priorité sur 0,1,0
+    
+    Chaque selecteur différent fera augmenter un chiffre spécifique.
+
+        Une balise comme "div", "header"... fera évoluer le dernier chiffre.
+            main > p vaudra 0,0,2
+        Une classe et pseudo-classe fera évoluer le second chiffre
+            div.classeCool vaudra 0,1,1
+        Un id fera évoluer le premier chiffre.
+            #important vaudra 1,0,0
+*/

@@ -1,0 +1,106 @@
+*, ::before, ::after{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+/*
+    align-content :     
+    flex-start : Les lignes sont amassées dans le haut du conteneur.
+    flex-end: Les lignes sont amassées dans le bas du conteneur.
+    center : Les lignes sont amassées dans le centre vertical du conteneur.
+    space-between : Les lignes s'affichent avec un espace égal entre eux.
+    space-around : Les lignes s'affichent avec un espace égal autour d'eux.
+    stretch : Les lignes sont étirées pour s'adapter au conteneur.
+*/
+ul{
+    /*
+        Le display flex permet de rendre des éléments plus flexible, adaptable aux différentes tailles d'écrans. 
+        ! Le display flex est à mettre sur le parent des éléments que l'on souhaite déplacer.
+    */
+    flex-direction: row;
+    display: flex;
+    /*
+        Flex fonctionne selon un axe principal et un axe secondaire.
+        Par défaut, l'axe principale est "l'horizontal" allant de gauche à droite. Mais celui-ci est modifiable via la propriété "flex-direction" : 
+            - row (par défaut) 
+            - row-reverse    :  commence de droite à gauche donc laisse de l'espace à gauche 
+            - column
+            - column-reverse    :  commence de bas en haut donc laisse de l'espace en haut  
+           column-reverse:  Remarquez que quand vous mettez la direction inversée, le début et la fin sont aussi inversés donc justify-content: flex-end et flex-start s'inversent
+    */
+   
+    height: 10vh;             
+    
+    /*
+        "justify-content" qui permet de placer les éléments sur l'axe principal. 
+        On peut les placer au début, à la fin, ou centrer sur l'axe : 
+        justify-content: start | end | center | flex-start | flex-end;
+        Mais le plus intéressant est qu'on peut les espacer avec :
+            - Space-between (espace que entre les éléments) 
+            - space-around (espace entre chacun et à gauche et à droite)
+            - space-evenly (autant d'espace entre chacun et à gauche et à droite)
+    */
+
+justify-content: space-between;
+
+    /*
+        "flex-wrap" permet d'indiquer que si l'élément manque de place, il peut créer une nouvelle ligne (ou colonne) 
+    */
+    flex-wrap: wrap;
+    /*
+        "align-items" permet de placer les éléments sur l'axe secondaire : 
+            - center
+            - flex-start 
+            - flex-end                           Remarquez que quand la direction est en colonne, justify-content change pour la verticale et align-items pour l'horizontale
+            - self-end 
+            - self-start
+        
+    */
+    align-items: center;
+    border: 1px solid black;
+}
+li {
+    width: 40vw;
+    border-radius: 5px;
+    border: 1px solid rgba(0, 0, 0, 0.5);
+    background-color: brown;
+    list-style: none;       /* Enlève les points des li*/
+    text-align: center;
+}
+li:hover{
+    /*
+        à la différence des autres, cette règle ne se place pas sur le parent mais sur un enfant.
+        Indique le facteur d'expension d'un élément
+    */
+    flex-grow: 1;
+}
+section {
+    display: flex;
+    /*
+        flex-flow est juste une fusion entre flex-direction et flex-wrap 
+    */
+    flex-flow: column wrap;
+    height: 150px;
+
+    /*
+    gap permet de faire un espacement entre les éléments
+    C'est une fusion entre row-gap et column-gap
+    */
+    gap: 10px;
+}
+article {
+    width: 40%;
+    background-color: aquamarine;
+}
+article:nth-last-of-type(3) {
+    background-color: rgb(76, 0, 255);
+
+    /*
+        Par défaut, tous les éléments ont un ordre de "0".
+        Chaque élément ayant le même ordre apparaîtra comme il a été défini dans le HTML.
+        Une valeur négative fera déplacer un élément avant les autres.
+        Une valeur positive le déplacera après les autres.
+        -1 le met en 1er et 1 le met en dernier 
+    */
+    order: -1;
+}
