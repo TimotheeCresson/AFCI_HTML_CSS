@@ -1,0 +1,70 @@
+*, ::before, ::after {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+main {
+    background-color: aqua;
+    width: 100%; 
+}
+.flexbox {
+    display: flex;
+    flex-direction: column;
+}
+.DIV {
+    height:11.1vh;
+}
+.flexbox > div:nth-child(1) {
+    background-color: transparent;
+}
+.flexbox > div:nth-child(2) {
+    background-color: green;
+}
+.flexbox > div:nth-child(3) {
+    background-color: orange;
+}   
+.flexbox > div:nth-child(4) {
+    background-color: blueviolet;
+}
+.flexbox > div:nth-child(5) {
+    background-color: blue;
+}
+.flexbox > div:nth-child(6) {
+    background-color: goldenrod
+}
+.flexbox > div:nth-child(7) {
+    background-color: brown;
+}
+.flexbox > div:nth-child(8) {
+    background-color: grey;
+}
+.flexbox > div:nth-child(9) {
+    background-color: pink;
+}
+
+@media screen and (min-width: 700px) {
+    .flexbox {
+        flex-flow: row wrap;
+    }
+    .DIV {
+        height: 20vh;
+        width: 50%;
+    }
+    .flexbox > div:nth-child(5){
+        width: 100%;
+    }
+}
+
+@media screen and (min-width: 1200px) {
+    .flexbox {
+        flex-flow: row wrap;
+    }
+    .DIV {
+        height: 30vh;
+        width: 25%;
+    }
+    .flexbox > div:nth-child(5){
+        width: 100vw;
+        height: 40vh;
+    }
+}

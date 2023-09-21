@@ -79,6 +79,8 @@ div.scroll{
     /* Modification de la barre de scrolling chez firefox*/
     scrollbar-color: red pink; /*on doit mettre 2 couleurs*/
     scrollbar-width: thin;
+    /* scroll-snap-type: x-mandatory sur le parent
+    sur les enfants: scroll-snap-align: center*/
 }    
 
 /* Modification de la barre de scrolling chez chromium soit chrome*/

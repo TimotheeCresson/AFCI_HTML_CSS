@@ -17,8 +17,8 @@ ul{
         Le display flex permet de rendre des éléments plus flexible, adaptable aux différentes tailles d'écrans. 
         ! Le display flex est à mettre sur le parent des éléments que l'on souhaite déplacer.
     */
-    flex-direction: row;
     display: flex;
+    flex-direction: row;
     /*
         Flex fonctionne selon un axe principal et un axe secondaire.
         Par défaut, l'axe principale est "l'horizontal" allant de gauche à droite. Mais celui-ci est modifiable via la propriété "flex-direction" : 
@@ -70,7 +70,7 @@ li {
 li:hover{
     /*
         à la différence des autres, cette règle ne se place pas sur le parent mais sur un enfant.
-        Indique le facteur d'expension d'un élément
+        Indique le facteur d'expansion d'un élément
     */
     flex-grow: 1;
 }

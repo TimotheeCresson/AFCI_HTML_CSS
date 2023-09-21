@@ -1,0 +1,60 @@
+*, ::before, ::after {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+main {
+    background-color: aqua;
+    width: 100%;
+    justify-content: space-around;
+}
+.flexbox {
+    display: flex;
+    flex-wrap: wrap;
+ }
+ .DIV {
+    width: 47vw;
+    height: 20vh;
+    margin: 5px 5px;
+ }
+.flexbox > div:nth-child(1) {
+    background-color: transparent;
+}
+.flexbox > div:nth-child(2) {
+    background-color: green;
+}
+.flexbox > div:nth-child(3) {
+    background-color: orange;
+}   
+.flexbox > div:nth-child(4) {
+    background-color: blueviolet;
+}
+.flexbox > div:nth-child(5) {
+    background-color: blue;
+}
+.flexbox > div:nth-child(6) {
+    background-color: goldenrod
+}
+.flexbox > div:nth-child(7) {
+    background-color: brown;
+}
+.flexbox > div:nth-child(8) {
+    background-color: grey;
+}
+@media screen and (min-width: 700px){
+    .DIV {
+        height: 50vh;
+        width: 25vw;
+        margin: 0;
+    }
+    
+}
+@media screen and (min-width: 1200px) {
+    .flexbox {
+        flex-wrap: nowrap;
+    }
+    .DIV {
+        height: 200vh;
+        margin: 0;
+    }
+}

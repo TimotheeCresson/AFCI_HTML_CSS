@@ -1,0 +1,42 @@
+*, ::before, ::after {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+.flexbox {
+    display: flex;
+    flex-direction: column;
+}
+.samesize {
+    height: 21.6vh;
+}
+header {
+    background-color: purple;
+}
+main {
+    background-color: aqua;
+    height: 35vh;
+}
+nav {
+    background-color: greenyellow;
+}
+footer {
+    background-color: green;
+}
+@media screen and (min-width: 900px) {
+    .flexbox {
+        flex-direction: row;
+    }
+    div.flexbox nav {
+        width: 15vw;
+        height: 50vh;
+        order: -1;
+    }
+    main {
+        height: 50vh;
+        width: 85%;
+    }
+    .samesize {
+        height: 25vh;
+    }
+}
