@@ -1,0 +1,35 @@
+*, ::before, ::after
+{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+body {
+    height: 100vh;
+}
+.tiles h1 {
+    text-align: center;
+    font-size: 50px;
+    font-weight: bold;
+    margin: 20px 20px;
+}
+.tiles-container {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 30px;
+    grid-template-rows: repeat(9, 150px);
+}
+.tiles-container img{
+height: 100%;
+object-fit: cover;
+margin: 30px 30px;
+align-items: center;
+}
+@media screen and (min-width: 700px) {
+    .tiles-container {
+        grid-template-columns: 1fr 1fr;
+        grid-template-rows: auto repeat(5, 1fr);
+        gap: 30px
+;
+    }
+}
