@@ -55,12 +55,18 @@ body.back {
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
+<<<<<<< HEAD
     height: 150px;
     width: 150px;
+=======
+    height: 200px;
+    width: 200px;
+>>>>>>> 0ac0835069f3d22e23c08f8f7d37691b1ec128ba
 }
 .tourne div {
     position: absolute;
     border-radius: 50%;
+<<<<<<< HEAD
     animation: rotation 2s linear infinite;
 }
 .cercle1:nth-child(1) {
@@ -93,12 +99,49 @@ body.back {
     animation-delay: 1s;
     animation-duration: 1.5s;;
     animation-iteration-count: infinite;
+=======
+    background-color: rgb(236, 231, 231);
+    background-color: black;
+    animation: rotation 3s ease-in-out infinite;
+}
+.cercle1 {
+    top:-35%;
+    height: 150px;
+    width: 150px;
+    bottom: 50px;
+    border-top: 5px solid red;
+    border-style: solid;
+    animation-delay: 0.3s;
+}
+.cercle2 {
+    height: 100px;
+    width: 100px;
+    top: -60px;
+    right: 75px;
+    border-top: 5px solid rgb(245, 86, 86);
+    border-style: solid;
+    animation-delay: 0.5s;
+}
+.cercle3 {
+    position: absolute;
+    height: 50px;
+    width: 50px;
+    right: 50%;
+    top: -50px;
+    border-top: 5px solid pink;
+    border-style: solid;
+    animation-delay: 0.8s;
+>>>>>>> 0ac0835069f3d22e23c08f8f7d37691b1ec128ba
 }
 @keyframes rotation {
     from {
        transform: rotate(0deg);
     }
     to {
+<<<<<<< HEAD
        transform: rotate(720deg);
+=======
+       transform: rotate(359deg);
+>>>>>>> 0ac0835069f3d22e23c08f8f7d37691b1ec128ba
     }
 }
