@@ -1,0 +1,104 @@
+*, ::before, ::after
+{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+body.fond {
+    height: 100vh;
+    overflow: hidden;
+}
+.bounce {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    width: 30px;
+    height: 30px;
+}
+.bounce div {
+    position: absolute;
+    border-radius: 50%;
+    background-color: black;
+    height: inherit;
+    width: inherit;
+    animation:  bounce 1s ease-in-out infinite;
+}
+.ball1:nth-child(1) {
+    animation-delay: 0.3s;
+}
+.ball2:nth-child(2) {left: -200%;
+animation-delay: 0.2s;}
+.ball3:nth-child(3) {right: 400%;
+animation-delay: 0s;}
+
+@keyframes bounce {
+    from {
+        translate: -100% 0;
+        scale: 1 1;
+    }
+    10%{scale: 1 1;}
+    50%{translate: -100% -100%;}
+    90%{scale: 1 1;}
+    to {
+        translate: -100% 0;
+        scale: 1 1;
+    }
+}
+
+/*---------------- 2ème exo ----------------*/
+body.back {
+    background-color: black;
+}
+.tourne {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    height: 150px;
+    width: 150px;
+}
+.tourne div {
+    position: absolute;
+    border-radius: 50%;
+    animation: rotation 2s linear infinite;
+}
+.cercle1:nth-child(1) {
+    height: inherit;
+    width: inherit;
+    border-top: 5px solid red;
+    border-style: solid;
+    animation-delay: 1s;
+    animation-duration: 2.3s;
+}
+.cercle2:nth-child(2) {
+    height: 125px;
+    width: 125px;
+    bottom: 20px;
+    top: 10px;
+    left: 13px;
+    border-top: 5px solid rgb(245, 86, 86);
+    border-style: solid;
+    animation-delay: 1s;
+    animation-duration: 1.8s;
+}
+.cercle3:nth-child(3) {
+    position: absolute;
+    height: 100px;
+    width: 100px;
+    left: 25px;
+    top: 20px;
+    border-top: 5px solid pink;
+    border-style: solid;
+    animation-delay: 1s;
+    animation-duration: 1.5s;;
+    animation-iteration-count: infinite;
+}
+@keyframes rotation {
+    from {
+       transform: rotate(0deg);
+    }
+    to {
+       transform: rotate(720deg);
+    }
+}
