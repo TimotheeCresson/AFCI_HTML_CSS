@@ -55,43 +55,48 @@ body.back {
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-    height: 200px;
-    width: 200px;
+    height: 150px;
+    width: 150px;
 }
 .tourne div {
     position: absolute;
     border-radius: 50%;
     background-color: rgb(236, 231, 231);
     background-color: black;
-    animation: rotation 3s ease-in-out infinite;
+    animation: rotation 3s linear infinite;
 }
 .cercle1 {
+    position: relative;
     top:-35%;
     height: 150px;
     width: 150px;
     bottom: 50px;
     border-top: 5px solid red;
     border-style: solid;
-    animation-delay: 0.3s;
+    animation-delay: 0.2s;
+    animation-duration: 1.5s;
 }
 .cercle2 {
-    height: 100px;
-    width: 100px;
-    top: -60px;
-    right: 75px;
+    position: relative;
+    height: 125px;
+    width: 125px;
+    bottom: 70px;
+    left: 13px;
     border-top: 5px solid rgb(245, 86, 86);
     border-style: solid;
-    animation-delay: 0.5s;
+    animation-delay: 0.2s;
+    animation-duration: 1s;
 }
 .cercle3 {
-    position: absolute;
-    height: 50px;
-    width: 50px;
-    right: 50%;
-    top: -50px;
+    position: relative;
+    height: 100px;
+    width: 100px;
+    right: 15%;
+    bottom: 55%;
     border-top: 5px solid pink;
     border-style: solid;
-    animation-delay: 0.8s;
+    animation-delay: 0.2s;
+    animation-duration: 0.7s;
 }
 @keyframes rotation {
     from {
