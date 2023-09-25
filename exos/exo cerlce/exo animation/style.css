@@ -55,12 +55,56 @@ body.back {
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
+<<<<<<< HEAD
     height: 150px;
     width: 150px;
+=======
+<<<<<<< HEAD
+    height: 150px;
+    width: 150px;
+=======
+    height: 200px;
+    width: 200px;
+>>>>>>> 0ac0835069f3d22e23c08f8f7d37691b1ec128ba
+>>>>>>> 841258957d61f8c99868c266f3df7342d9c38871
 }
 .tourne div {
     position: absolute;
     border-radius: 50%;
+<<<<<<< HEAD
+    animation: rotation 2s linear infinite;
+}
+.cercle1:nth-child(1) {
+    height: inherit;
+    width: inherit;
+    border-top: 5px solid red;
+    border-style: solid;
+    animation-delay: 1s;
+    animation-duration: 2.3s;
+}
+.cercle2:nth-child(2) {
+    height: 125px;
+    width: 125px;
+    bottom: 20px;
+    top: 10px;
+    left: 13px;
+    border-top: 5px solid rgb(245, 86, 86);
+    border-style: solid;
+    animation-delay: 1s;
+    animation-duration: 1.8s;
+}
+.cercle3:nth-child(3) {
+    position: absolute;
+    height: 100px;
+    width: 100px;
+    left: 25px;
+    top: 20px;
+    border-top: 5px solid pink;
+    border-style: solid;
+    animation-delay: 1s;
+    animation-duration: 1.5s;;
+    animation-iteration-count: infinite;
+=======
     background-color: rgb(236, 231, 231);
     background-color: black;
     animation: rotation 3s linear infinite;
@@ -95,14 +139,23 @@ body.back {
     bottom: 55%;
     border-top: 5px solid pink;
     border-style: solid;
+<<<<<<< HEAD
     animation-delay: 0.2s;
     animation-duration: 0.7s;
+=======
+    animation-delay: 0.8s;
+>>>>>>> 0ac0835069f3d22e23c08f8f7d37691b1ec128ba
+>>>>>>> 841258957d61f8c99868c266f3df7342d9c38871
 }
 @keyframes rotation {
     from {
        transform: rotate(0deg);
     }
     to {
+<<<<<<< HEAD
+       transform: rotate(720deg);
+=======
        transform: rotate(359deg);
+>>>>>>> 0ac0835069f3d22e23c08f8f7d37691b1ec128ba
     }
 }

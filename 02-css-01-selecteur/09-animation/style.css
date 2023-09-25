@@ -48,7 +48,7 @@ body {
     /*  La propriété animation est la fusion de toutes les propriétés d'animations vu au dessus*/
     animation: darkCloud 5s linear infinite;
 }
-.part1 { top: -35%;}
+.part1 {top: -35%;}
 .part2{left: 35%;}
 .part3{left: -35%;}
 
