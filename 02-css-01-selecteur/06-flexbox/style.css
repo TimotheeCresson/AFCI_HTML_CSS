@@ -102,5 +102,5 @@ article:nth-last-of-type(3) {
         Une valeur positive le déplacera après les autres.
         -1 le met en 1er et 1 le met en dernier 
     */
-    order: -1;
+    order: 1;
 }

@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SASS/SCSS</title>    <!-- Donne plus de possibilité au css-->  <!-- les 2 sont pareils mais juste la syntaee qui est différente-->
+    <link rel="stylesheet" href="../css/test.css">
+</head>
+<body>
+    <header>
+        <h1>
+            Les bases de SASS et SCSS
+        </h1>
+    </header>
+    <main>
+        <ul>
+            <li>
+                Pour installer SASS, on utilisera NPM. <!-- dans le terminal--> <br>
+                <code>npm install -g sass <!-- -g    est pour l'installer en général (sur l'appareil)--></code> 
+                                            <!-- si message exécution de script désactivé il faut lancer windows powershell en administrateur
+                                            aller sur https://www.windows8facile.fr/poweshell-execution-de-scripts-est-desactivee-activer/ -->
+            </li>
+            <li>
+                La commande pour compiler du sass/scss en css est <br>
+                <code>sass nomDuFichier.scss nomdufichier.css</code> <!-- sass style.scss style.css-->
+                si la commande n'est pas reconnu, tentez de mettre "npx" avant.
+                aller directe sur le terminal du dossier en question
+            </li>
+            <li>
+                Pour éviter de retaper la commande à chaque fois, on peut utiliser l'option "--watch" pour que le terminal reste en surveillance 
+                <code>sass --watch nomDuFichier.scss nomdufichier.css</code>
+            </li>
+            <li>
+                Pour surveiller tout un dossier: 
+                <code>sass --watch nomDuDossierSource/:nomDuDossierCible/</code> <!-- source: scss et cible: css       Ici npx sass --watch  sass/:css/-->
+            </li>
+            <li>
+                On peut minimiser directement le css avec: 
+                <code>sass --watch nomDuDossierSource/:nomDuDossierCible/ --style compressed</code>
+            </li>
+        </ul>
+        <section>
+            <h2>
+                SASS
+            </h2>
+            <p>
+                La principale différence entre SASS et SCSS est la syntaxe. <br>
+                En premier SASS fut créé, avec une syntaxe plus raccourci, se rapprochant de celle de Python, sans accolade ou ";".
+                Elle se base entièrement sur l'indentation. <br>
+            </p>
+        </section>
+        <section class="sass">
+            <h2>
+                SCSS
+            </h2>
+            <p>
+                Les fonctionnalités de SASS, plaisant à beaucoup de monde, mais sa syntaxe en rebutant tout autant. <br>
+                Il fut créé SCSS, qui utilise toute les fonctionnalités de SASS mais avec la syntaxe de CSS. 
+            </p>
+        </section>
+    </main>
+    <div class="test">
+        <div class="copy">&copy;</div>
+        <div class="menu">Menu</div>
+        <!--ul>li*5.truc${truc $}-->
+        <ul>
+            <li class="truc1">truc 1</li>
+            <li class="truc2">truc 2</li>
+            <li class="truc3">truc 3</li>
+            <li class="truc4">truc 4</li>
+            <li class="truc5">truc 5</li>
+        </ul>
+    </div>
+</body>
+</html>

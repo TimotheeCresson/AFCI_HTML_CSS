@@ -1,0 +1,25 @@
+/* Les dossier _.scss sont fait pour des imports  après dans test.scss on fait @use "liste"*/
+@mixin liste($li...){ /* on peut mettre autant de variables que l'on veut*/
+
+    // "@debug" permet d'afficher une information ou un message dans le terminal
+    @debug $li; 
+
+    /*
+        @for permet de faire une boucle, allant d'une certaine valeur à une autre.
+        lengh() permet de récupérer la taille d'une liste.
+    */
+    @for $i from 0 to length($li) { /* La liste allant jusqu'à 5 (truc1 ...), la liste va de 0 à 4*/
+
+        // nth() permet de récupérer un élément d'une liste
+        @debug $i, nth($li, $i+1);
+
+        // #{} permet d'afficher du texte dans mon CSS.
+        #{nth($li, $i+1)} { /* (sert comme un prompt)  ici dans ma liste li je veut l'élément qui vaut li + 1, quand 0 on récupère élément truc1 car 0 + 1 */
+            font-size: 30px +$i*10; /* le premier élément fera 30px, le 2eme 40px, le 3eme 50px, 4eme 60px et dernier 70px*/
+        } 
+    }
+}
+ul {
+    background-color: cornflowerblue;
+    @include liste(".truc1", ".truc2", ".truc3",".truc4",".truc5")
+}
