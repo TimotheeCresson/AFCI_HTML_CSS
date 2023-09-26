@@ -1,0 +1,126 @@
+*, ::before, ::after
+{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+/*
+body {
+    background:url("../../ressources/image/paysage/main-bcg.jpeg");
+    background-position: bottom;
+    background-repeat: no-repeat;
+    background-size: cover;
+    display: flex;
+}
+div.navpage {
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+h1 {
+    font-family: Catamaran;
+    color: white;
+    font-size: 2em;
+    text-align: center;
+    padding: 20px;
+}
+h2 {
+    color: green;
+    font-family: GrandHotel;
+    font-size: 2em;
+}
+.nav-button {
+    font-size: 1.2em;
+    background-color: green;
+    color: white;
+    text-align: center;
+}
+
+
+
+
+section.description {
+    display: grid;
+    background-color: lightcyan;
+    grid-template-columns: 1fr;
+    grid-template-rows: repeat(4,25%);
+    height: 80vh;
+}
+.description > div i {
+    color: green;
+    font-size: 30px;
+    padding: 10px;
+}
+.US i:first-child {
+   padding-top: 40px;
+}
+.description > div{
+    justify-content: center;
+    text-align: center;
+}
+.description > div p {
+    font-size: 0.7em;
+    margin: 2px 40px;
+    color: grey;
+}
+h5 {
+    font-size: 0.9em;
+    padding: 7px;
+} 
+*/
+
+.about {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: flex-start;
+    height: 60vh ;
+}
+.about img {
+    height: 20vh;
+    width: 95%;
+    border: 5px solid green;
+}
+h4 {
+    color: green;
+    font-family: GrandHotel;
+    font-size: 1.5em;
+}
+h3 {
+    font-family: Catamaran;
+    color: black;
+    font-size: 1.5em;
+    padding: 20px;
+}
+.textabout p{
+    padding: 10px;
+    color: grey;
+    text-align: start;
+    font-size: 0.7em;
+    margin: 0 10px;
+}
+.about button {
+    font-size: 1em;
+    background-color: green;
+    color: white;
+    padding: 5px;
+    margin: 20px;
+}
+
+
+
+
+@font-face {
+    font-family: GrandHotel;
+    src: url(../../ressources/font/GrandHotel-Regular.ttf);
+}
+@font-face {
+    font-family: Catamaran;
+    src: url(../../ressources/font/Catamaran-VariableFont_wght.ttf);
+}
+@font-face {
+    font-family: BlakaHollow;
+    src: url(../../ressources/font/BlakaHollow-Regular.ttf);
+}
