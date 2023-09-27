@@ -23,27 +23,85 @@ div.navpage {
     border-image : linear-gradient(90deg, #1e5500 0%, #9fab02 52%, #1e5500 100%) 1 
 }
 h1 {
+    position: relative;
     font-family: Catamaran;
     color: white;
     font-size: 2em;
     text-align: center;
     padding: 20px;
+    animation: h1 2s linear;
 }
 h2 {
+    position: relative;
     color: green;
     font-family: GrandHotel;
     font-size: 2em;
     text-align: center;
+    animation: h2 2s linear;
 }
 
 .nav-button {
+    position: relative;
     font-size: 1.2em;
     background-color: green;
     color: white;
     text-align: center;
+    padding: 5px;
+    animation: button 2s ease-in-out;
+}
+.nav-button:hover {
+    background-color: #9fab02;
 }
 
-
+@keyframes h2 {     
+    from { 
+        
+        left: -80%;
+    }
+    
+    30%
+    {
+        left: 0;
+    }
+    70%
+    {
+        left: 20%;
+    }
+    80%
+    {
+        left: 10%;
+    }
+    to {   
+        right: 0;
+    }
+}
+@keyframes h1 {     
+    from { 
+        
+        right: -80%;
+    }
+    
+    30%
+    {
+        right: 0;
+    }
+    70%
+    {
+        right: 20%;
+    }
+    80%
+    {
+        right: 10%;
+    }
+    to {   
+        right: 0;
+    }
+}
+@keyframes button {
+    from{scale: 1, 1;} 
+    to{scale:1 1;}
+    
+}
 
 /* -------------- Description --------------- */
 section.description {
