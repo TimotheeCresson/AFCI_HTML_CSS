@@ -4,13 +4,10 @@
     padding: 0;
     box-sizing: border-box;
 }
-/*
+
+/*------- Entête------------ */
 body {
-    background:url("../../ressources/image/paysage/main-bcg.jpeg");
-    background-position: bottom;
-    background-repeat: no-repeat;
-    background-size: cover;
-    display: flex;
+    min-height: 100vh;
 }
 div.navpage {
     height: 100vh;
@@ -18,6 +15,12 @@ div.navpage {
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    background:url("../../ressources/image/paysage/main-bcg.jpeg");
+    background-position: bottom;
+    background-repeat: no-repeat;
+    background-size: cover;
+    border-bottom: 5px solid green;
+    border-image : linear-gradient(90deg, #1e5500 0%, #9fab02 52%, #1e5500 100%) 1 
 }
 h1 {
     font-family: Catamaran;
@@ -30,7 +33,9 @@ h2 {
     color: green;
     font-family: GrandHotel;
     font-size: 2em;
+    text-align: center;
 }
+
 .nav-button {
     font-size: 1.2em;
     background-color: green;
@@ -40,73 +45,394 @@ h2 {
 
 
 
-
+/* -------------- Description --------------- */
 section.description {
     display: grid;
     background-color: lightcyan;
-    grid-template-columns: 1fr;
     grid-template-rows: repeat(4,25%);
     height: 80vh;
 }
 .description > div i {
     color: green;
-    font-size: 30px;
-    padding: 10px;
+    font-size: 2.5em;
+    padding: 20px;
+    transition-property: transform;
+    transition-duration: 0.3s;
+    transition-delay: .3ss;
+}
+.description > div i:hover {
+    transform: translateY(-30%);
+}
+.description .US:hover, .Relaxation:hover, .Energy:hover, .Recipe:hover{
+    border-bottom: 3px solid #9fab02;
 }
 .US i:first-child {
-   padding-top: 40px;
+   padding-top: 20px;
 }
 .description > div{
     justify-content: center;
     text-align: center;
 }
 .description > div p {
-    font-size: 0.7em;
+    font-size: .8em;
     margin: 2px 40px;
     color: grey;
+    transition-property: border-bottom, transform;
+    transition-duration: 0.3s;
+    transition-delay: .3ss;
+}
+.description > div p:hover {
+    border-bottom: #9fab02;
 }
 h5 {
     font-size: 0.9em;
     padding: 7px;
+    font-weight: bold;
+    letter-spacing: 0.2em;
 } 
-*/
 
+/* -------------- About our --------------- */
 .about {
     display: flex;
     flex-direction: column;
-    justify-content: space-around;
+    height: 80vh;
+    text-align: flex-start;
     align-items: flex-start;
-    height: 60vh ;
 }
 .about img {
-    height: 20vh;
-    width: 95%;
+    height: auto;
+    width: 90%;
+    margin-left: 20px;
+    margin-top: 20px;
     border: 5px solid green;
+    text-align: center;
+    transition-property: background-color, transform;
+}
+.about img:hover {
+    background-color: #9fab02;
+    transform: scale(1, 1);
 }
 h4 {
     color: green;
     font-family: GrandHotel;
     font-size: 1.5em;
+    padding-left: 20px;
+    margin-top: 30px;
+    letter-spacing: 0.2em;
+    font-weight: 600;
 }
 h3 {
     font-family: Catamaran;
     color: black;
     font-size: 1.5em;
-    padding: 20px;
+    padding-left: 20px;
+    margin-bottom: 20px;
+    letter-spacing: 0.2em;
+    font-weight: 600;
 }
 .textabout p{
     padding: 10px;
     color: grey;
-    text-align: start;
     font-size: 0.7em;
-    margin: 0 10px;
+    margin-left: 10px;
 }
 .about button {
     font-size: 1em;
     background-color: green;
     color: white;
     padding: 5px;
-    margin: 20px;
+    width: 40vw;
+    margin-left: 20px;
+}
+
+/*------------ Section Check out ----------------*/
+.checkout {
+    display: grid;
+    grid-template-rows: auto 1fr 1fr 1fr;
+    background-color: lightcyan;
+}
+.firstpartcheck{
+    display: grid;
+    grid-template-rows: auto auto auto;
+    height: 40vh;
+}
+.drink {
+    display: grid;
+    grid-template-rows: auto auto auto;
+    height: 45vh;
+}
+h4 {
+    color: green;
+    font-family: GrandHotel;
+    font-size: 1.5em;
+    padding-left: 20px;
+    margin-top: 30px;
+    letter-spacing: 0.2em;
+}
+h3 {
+    font-family: Catamaran;
+    color: black;
+    font-size: 1.5em;
+    padding-left: 20px;
+    margin-bottom: 20px;
+    letter-spacing: 0.2em;
+}
+.textcheckout p{
+    padding: 10px;
+    color: grey;
+    font-size: 0.7em;
+    margin-left: 10px;
+}
+.checkout button {
+    font-size: 1em;
+    background-color: green;
+    color: white;
+    padding: 5px;
+    width: 30vw;
+    margin: 5px 0 5px 20px
+}
+h6 {
+    font-family: Catamaran;
+    color: black;
+    font-weight: bold;
+    font-size: .9em;
+    margin: 20px 0 5px 23px;
+    letter-spacing: 0.2em;
+}
+.price {
+    color: green;
+    font-size: .8em;
+    margin: 10px 0 10px 23px;
+    letter-spacing: 0.2em;
+}
+.drink img {
+    height: auto;
+    width: 90%;
+    margin-top: 30px;
+    margin-left: 1.3em;
+    border-radius: 1em;
+    align-content: center;
+}
+
+/*---------------Cards-----------------*/
+.allcards {
+    display: grid;
+    grid-template-rows: auto 1fr 1fr 1fr;
+    justify-content: center;
+    height: 210vh;
+}
+.titlecard {
+    text-align: center;
+    margin: 30px;
+}
+.card {
+    transition-property: transform;
+    transition-delay: 2s;
+    transition-duration: 3s;
+}
+.card:hover button {
+    transform: scale(1, 1);
+}
+.backgroundcard {
+    border: 1px transparent red;
+    margin: 30px;
+    background-color: lightcyan;
+    box-shadow: 0.5em 0.5em 0.5em lightgray;
+}
+.backgroundcard img {
+    object-fit: cover;
+    height: auto;
+    width: 100%;
+    border-radius: .5em 0.5em 0 0
+}
+.textcard {
+    text-align: center;
+}
+.textcard h6 {
+    margin-top: 50px;
+}
+.textcard p {
+    padding: 10px;
+    color: grey;
+    font-size: 0.7em;
+    margin-left: 10px;
+}
+.textcard button {
+    font-size: 0.7em;
+    background-color: green;
+    color: white;
+    letter-spacing: 0.2em;
+    padding: 2px 1px 2px 1px;
+    width: 25vw;
+    margin-bottom: 30px;
+}
+.backgroundcard > i {
+    color: rgba(0, 128, 0, 0.63);
+    font-size: 1.5em;
+    padding: 20px;
+    background-color: lightgreen;
+    border-radius: 50%;
+    border: 5px solid lightcyan;
+    position: relative;
+    top: 0;
+    left: 50%;
+    transform: translate(-50%,-50%);
+}
+/*------------------Form----------------*/
+.allform{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+    height: 100vh;
+    background-color: lightcyan;
+}
+.contact p{
+    margin-left: 20px;
+    font-family: Catamaran;
+    color: black;
+    font-size: 1.2em;
+    font-weight: bold;
+}
+.form {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    width: 80%;
+    margin: 0 10% 0 10%;
+    background-color: white;
+    border-radius: .5em;
+}
+.input {
+    margin: 10px;
+    background-color: rgba(211, 211, 211, 0.404);
+    color: grey;
+    border-radius: .3em;
+    border: transparent;
+}
+.center {
+    margin-left: 43%;
+}
+.form button{
+    background-color: green;
+    color: white;
+    letter-spacing: 0.2em;
+    border-radius: 0 0 .5em .5em;
+}
+/* ----------------Footer ---------------- */
+footer{
+    background-color: black;
+    height: 30vh;
+    display: grid;
+    grid-template-rows: 1fr auto auto;
+}
+.icon {
+    display: grid;
+    grid-template-columns: 10% 10% 10%;
+    align-items: center;
+    justify-content: center;
+}
+footer p {
+    text-align: center;
+    font-size: 1.1em;
+}
+footer p span {
+    color: #1e5500;
+}
+.icon > i {
+    font-size: 25px;
+}
+.copyright {
+    display: grid;
+    grid-template-rows: 1fr 1fr;
+}
+
+
+@media screen and (min-width: 436px) {
+    section.description {
+        display: grid;
+        background-color: lightcyan;
+        grid-template-rows: 1fr 1fr;
+        grid-template-columns: 1fr 1fr;
+        height: 40vh;
+    }
+    h4 {
+        font-size: 2em;
+    }
+    h3 {
+        font-size: 2.2em;
+    }
+    .about img {
+        height: 40%;
+        width: 60%;
+    }
+    .textabout p{
+        font-size: 1em;
+    }
+    .textcheckout p{
+    font-size: 1em;
+    }
+    .drink {
+        grid-template-rows: 1fr 1fr;
+        grid-template-columns: 1fr 1fr;
+        height: 30vh;
+    }
+    .card {
+        display: grid;
+        grid-template-rows: 1fr 1fr;
+        grid-template-columns: 1fr 1fr;
+    }
+    .allcards {
+        height: 145vh;
+    }
+    .form {
+        margin-top: 20px;
+        width: 50vw;
+    }
+}
+
+@media screen and (min-width: 878px) {
+div.navpage {
+    height: 60vh;
+    }
+section.description {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.about {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: 1;
+    height: 40vh;
+}
+.about img {
+    height: 80%;
+    width: 80%;
+}
+.checkout {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    background-color: lightcyan;
+}
+.drink {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    width: 60vw;
+}
+.drink img {
+    height: 25vh;
+}
+.card {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+}
+.allform{
+    display: flex;
+    flex-direction: row;
+    align-items: flex-start;
+    height: 50vh;
+}
 }
 
 
