@@ -339,4 +339,5 @@ console.log(a4, a2);
 */
 console.log(a2, ...a2);
 a4 = [...a2];
-console.log(a4);
+a4.push("Coucou")
+console.log(a2, a4);
