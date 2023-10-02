@@ -147,3 +147,36 @@ while(number<10){
     break;
     
 }
+// Exo 5.3
+/*
+let n = prompt("Entrez un nombre ")
+
+let s = n+10
+console.log("Les nombres suivants sont :");
+while(n < s){
+    n++
+    console.log(n);
+}*/
+
+/*
+let n = prompt("Entrez un nombre ")
+let i=0
+console.log("Les nombres suivants sont :");
+while(i < 10){
+    i++
+    console.log(++n);
+}
+        -------Fonctionne-------------*/
+
+
+
+// Exo 5.4
+let n = prompt("Entrez un nombre ")
+let i;
+console.log("La table de multiplication de ce nombre est ");
+for(i=1; i<=10; i++) {
+    console.log(n," x ", i, " = ", n*i);
+}
+
+// Exo 5.5
+
