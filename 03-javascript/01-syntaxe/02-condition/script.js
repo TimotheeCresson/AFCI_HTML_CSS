@@ -61,7 +61,7 @@ console.log(message);
 
 // ? ------------------------------------- SWITCH -----------------------------------
 // prompt affiche une boite de dialogue où l'utilisateur peut rentrer un texte
-let ville = prompt("De quel ville venez-vous?")
+let ville = prompt("De quel ville venez-vous?") // La fonction prompt est reconnu comme un string donc si on additionne avec un nombre, ca va se concaténer, il faut utiliser un parseInt()
 console.log(ville);
 
 // Si l'utilisateur appui sur "annulé", la valeur retourné sera "null"

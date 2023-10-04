@@ -5,7 +5,7 @@
 /*
     While va vérifier que ce qui se trouve entre parenthèse est "true" ou "false" et répéter l'action entre accolade "tant que" c'est "true".
     ! Attention, de toujours avoir un moyen de sortir de votre boucle.
-    Le navigateur pourra facilement faire des centaines ou des milliers de de boucle, mais si il en fait à l'infinie, il plantera.
+    Le navigateur pourra facilement faire des centaines ou des milliers de boucle, mais si il en fait à l'infinie, il plantera.
 */
 
 let a = true;
@@ -27,7 +27,8 @@ while(true){
 // "do while" va effectuer son action une première fois, avant de vérifier si il doit recommencer.
 do {
     console.log("do while : b vaut ", b);
-}while(b<5)
+    b++
+}while(b<5) //(b<22)
 
 // ? --------------------------- For ----------------------------------
 
