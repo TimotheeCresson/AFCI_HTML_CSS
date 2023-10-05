@@ -103,11 +103,14 @@ console.log(lis2[2]);
 
 // TODO-------------------------------------- Exercice ------------------------------------------
 // Exo 1
+// Déplacer la modale dans le body
 const body = document.querySelector('body');
-const div = document.querySelector('div')
-body.append(div)
+const modale = document.querySelector('aside div')
+body.append(modale)
 
 // Exo 2 
+// Modifier le texte des 3 li du footer, si possible avec une boucle
+//façon 1:
 const footer = document.querySelector("footer");
 footer.append(lis2[0])
 footer.append(lis2[2])
@@ -116,10 +119,36 @@ for(i = 0; i < lis2.length; i++){
     lis2[i].textContent = "burger"
 }
 
-// Exo 3
+//façon 2:
+/*
+lis2.forEach(textChange);
+function textChange(el){
+    el.textContent = "Changer le texte"
+}*/
 
+
+
+// Exo 3
+// Remplaceer le texte des paragraphes pair
 const pair = document.querySelectorAll('main p:nth-of-type(2n+2)') // ou ('main p:nth-child(even)')
 console.log(pair);
 for(i=0; i< pair.length; i++){
     pair[i].textContent ="il était une fois il était une foisil était une foisil était une foisil était une foisil était une foisil était une foisil était une foisil était une foisil était une foisil était une foisil était une foisil était une foisil était une foisil était une fois"
 }
+/*
+const pair = document.querySelectorAll('main p') 
+for(i=0; i< pair.length; i++){
+if (i%2){
+    pair[i].textContent ="il était une fois il était une foisil était une foisil était une foisil était une foisil était une foisil était une foisil était une foisil était une foisil était une foisil était une foisil était une foisil était une foisil était une foisil était une fois"
+}} */
+/*
+for(let i=1; i< pair.length; i+=2) {
+    pair[i].textContent ="il était une fois il était une foisil était une foisil était une foisil était une foisil était une foisil était une foisil était une foisil était une foisil était une foisil était une foisil était une foisil était une foisil était une foisil était une fois"
+}
+*/
+/*
+const pair = document.querySelectorAll('main p:nth-child(even)');
+pair.forEach(textChange) 
+function textChange(el){
+    el.textContent = "Changer le texte"
+}*/
