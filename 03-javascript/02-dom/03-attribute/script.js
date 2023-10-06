@@ -77,3 +77,37 @@ console.log(a.dataset.color);
 a.dataset.color="Je ne suis pas une couleur !";
 // Modifier un élément qui n'existe pas, l'ajoute : 
 a.dataset.bidule = "je ne sert à rien"
+
+// TODO --------------------------------- EXOS ---------------------------------------
+
+// Exo 1
+
+const p = document.querySelectorAll("p");
+
+console.log(p);
+let i;
+
+for (i=0;i < p.length; i++)
+    p[i].style.fontSize = `1.${i}7rem`
+
+
+
+// Exo 2 
+
+const modale = document.querySelector("aside");
+console.log(modale);
+modale.style.transition= "transform 2s linear";
+modale.style.transform = "translate(100vw,-30vw)";
+
+// Exo 3 
+/* 
+const f = M
+
+
+
+const modale2 = document.querySelector("div");
+let random = Math.floor(Math.random()*16777215).toString(16);   /* le 16777215 est les 3 255 des couleurs multiplié */
+
+modale2.style.backgroundColor = "#"+random;
+//Solution 2 
+/* div.style.backgroundColor = `rgb(${randNumer(255)},${randNumer(255)},${randNumer(255)})` */  /*Voir correction Cours*/
