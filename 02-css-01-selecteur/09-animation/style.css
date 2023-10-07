@@ -165,3 +165,5 @@ body.scroll {
     /*animation-timeline: scroll();*/
     animation-timeline: scroll(), auto;
 }
+
+/* site auto prefixer pour avoir les webkit en copiant collant notre css pour que cela fonctionne sur tous les sites*/

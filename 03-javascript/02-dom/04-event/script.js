@@ -71,7 +71,7 @@ input1.addEventListener("input", (e)=>{
     /*
     Sur tous les éléments HTML de formulaire, on trouvera l'attribut "value" qui permet de récupérer son contenue (sa valeur)
    */
-    console.log(e.target.value);
+    
     if(e.target.value !="")
         btn1.textContent = e.target.value; /* écrit le texte que l'on écrit dans la console */
     else
@@ -85,3 +85,31 @@ input1.addEventListener("input", (e)=>{
         ElementHTML.addEventListener("event", function,{option:valeur});
 */
 btn1.addEventListener("click",()=>h1.textContent=input1.value,{once:true}); // Quand l'on écrit dans le texte clique moi! et quon valide, le h1 deivent ce qu'on l'a écrit mais marche qu'une fois (once)
+
+/*
+// test Exo de moi même
+
+const div3 = document.querySelector('.div3');
+const input3 = div3.querySelector('input');
+const btn3 = div3.querySelector('button');
+console.log(btn3);
+
+// façon 1:
+
+btn3.addEventListener('mouseover', (e)=>{
+if(e.target.style.backgroundColor === "")
+    btn3.style.backgroundColor = "red";
+else btn3.addEventListener('mouseleave', (e)=>{
+    btn3.style.backgroundColor = "";
+}) 
+})
+
+//façon 2: 
+
+btn3.onmouseenter = (e)=>{
+    if(e.target.style.backgroundColor === "")
+        e.target.style.backgroundColor="red";
+    else btn3.onmouseleave = (e)=> {
+        e.target.style.backgroundColor="";
+}}
+*/
