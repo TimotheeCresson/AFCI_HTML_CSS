@@ -26,7 +26,7 @@ h1.addEventListener("click", test)
 let x=0;
 h1.addEventListener("click", function(e){
     let r = Math.floor(Math.random()*360);  // 360 pour 360 deg
-    e.target.style.transform = `rotate(${r}deg)`;       // e est la fonction test que nous avons déclarer plus haut 
+    e.target.style.transform = `rotate(${r}deg)`;       // e est la fonction test que nous avons déclarer plus haut, nous sommes obligés de mettre e car "e" pour événement
     x++;
     if(x===5)e.target.style.color = "red"; // Au bout de 5 click, le h1 devient rouge
 })

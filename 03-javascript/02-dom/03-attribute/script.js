@@ -97,7 +97,7 @@ for (i=0;i < p.length; i++)
 const modale = document.querySelector("aside");
 console.log(modale);
 modale.style.transition= "transform 2s linear";
-modale.style.transform = "translate(100vw,-30vw)";
+modale.style.transform = "translate(100vw,-50vw)";
 
 // Exo 3 
 /* 
