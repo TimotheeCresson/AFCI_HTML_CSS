@@ -78,13 +78,9 @@ input1.addEventListener("input", (e)=>{
         btn1.textContent = "Clique moi !"; /* Le bouton change : il devient le texte que l'on écrit */
 })
 
+/* Voir ce lien https://quirksmode.org/js/introevents.html */
+
 //? ---------------------------- Options ----------------------------
-/*
-    On peut ajouter des options à notre addEventListener
-    Pour cela on ajoutera un objet "{}"
-        ElementHTML.addEventListener("event", function,{option:valeur});
-*/
-btn1.addEventListener("click",()=>h1.textContent=input1.value,{once:true}); // Quand l'on écrit dans le texte clique moi! et quon valide, le h1 deivent ce qu'on l'a écrit mais marche qu'une fois (once)
 
 /*
 // test Exo de moi même
@@ -112,4 +108,54 @@ btn3.onmouseenter = (e)=>{
     else btn3.onmouseleave = (e)=> {
         e.target.style.backgroundColor="";
 }}
+*/
+
+
+/*
+    On peut ajouter des options à notre addEventListener
+    Pour cela on ajoutera un objet "{}" en 3e argument
+        ElementHTML.addEventListener("event", function,{option:valeur});
+*/
+btn1.addEventListener("click",()=>h1.textContent=input1.value,{once:true}); // Quand l'on écrit dans le texte clique moi! et quon valide, le h1 deivent ce qu'on l'a écrit mais marche qu'une fois (once)
+
+const div4 = document.querySelector('.div4');
+const gp = document.querySelector('.grandParent');
+const pa = document.querySelector('.parent');
+const en = document.querySelector('.enfant');
+
+/*
+    Si plusieurs événements sont déclenchés par une même action (par exemple un clique),
+    alors l'ordre sera défini, du parent le plus proche au plus éloigné
+
+    JS fonctionne en 2 phases, une phase de "capture" où il vérifie les événements à déclencher allant des parents vers les enfants.
+    Et une phase de "bulle" qui remonte en activant les événements.
+*/
+
+/* De base on a
+div4.addEventListener("click", ()=>console.log("div4"),{capture:true});
+gp.addEventListener("click", ()=>console.log("gp"));        
+pa.addEventListener("click", ()=>console.log("pa"));
+en.addEventListener("click", ()=>console.log("en"));
+// dans la console on obtient en , pa, gp et div 4
+*/
+
+div4.addEventListener("click", ()=>console.log("div4"),{capture:true}); // capture fait que la div 4 est en première dans console (on a div4, en, pa, gp)
+gp.addEventListener("click", ()=>console.log("gp"));        
+pa.addEventListener("click", (e)=>{
+    e.stopPropagation();              // Ici avec stop Propagation il ne fait pas les instructions lorsque l'on remonte donc on aura pas gp car on a de base div4, en, pa et gp donc gp ne sera pas lu
+    console.log("pa");
+});
+en.addEventListener("click", ()=>console.log("en"));
+/*
+    L'option "{capture:true}" permet d'activer l'événement lors de la phase de capture, donc avant ceux en phase de bulle.
+
+    Ajouter un "event.stopPropagation()" dans une fonction, permet d'empêcher l'éxécution des événements qui devraient être activé par la suite.
+*/
+
+const menu5 = document.querySelector('.menu5 a');
+menu5.addEventListener("click", e=>e.preventDefault())
+/*
+    "event.prevantDefault()" permet d'annuler l'action par défaut de cet événement. 
+        Un clique sur un lien ne redirigera pas.
+        Une soumission de formulaire ne sera pas effectué...
 */
