@@ -19,7 +19,7 @@ console.log(date);
 //Cet objet contient tous un tas de méthodes pour récupérer les différentes informations sur la date et l'heure : (on optient le 2022-2023 au niveau du footer, get full year optient l'année dans laquelle nous sommes soit 2023) 
 copyright.textContent = date.getFullYear();
 
-// .toLocateTimeString() nous rend l'heure, les minutes et les secondes sous forme de string (on obtient l'heure et les secondes actuelles):
+// .toLocaleTimeString() nous rend l'heure, les minutes et les secondes sous forme de string (on obtient l'heure et les secondes actuelles):
 mainTime.textContent= date.toLocaleTimeString();
 
 
@@ -67,7 +67,7 @@ const seconde = document.querySelector(".seconde");
 clock ()
 function clock() {
     const time = new Date();
-    const heures = time.getHours()*6;
+    const heures = time.getHours()*9;
     const minutes= time.getMinutes()*6;
     const secondes = time.getSeconds()*30;
     

@@ -47,30 +47,33 @@ footer{
     position: absolute;
     top: 50%;
     left: 50%;
-    transform: translate(50%, 50%);
     background-color: black;
     border-radius: 50%;
     transform: translate(-50%, -50%);
     width: 20px;
     height: 20px;
 }
-.seconde, .minute, .heure{
+.heure, .minute, .seconde {
     position: absolute;
     background-color: black;
-    width: 2px;
-    height: 16.7rem;
-    right: 6px;
-    bottom: 19px;
-    margin: auto;
+    bottom: 0; /* Aligner le bas de l'aiguille avec le bas de l'horloge */
+    left: 50%; /* Centrer horizontalement */
+    transform-origin: 40% 97%; /* Origine de la transformation au bas de l'aiguille */
 }
-.seconde {
-    background-color: red;
-}
-.heure{
+.heure {
     height: 8rem;
     width: 0.5rem;
+    margin-left: -0.25rem; /* La moitié de la largeur pour centrer horizontalement */
 }
+
 .minute {
     height: 13rem;
     width: 0.4rem;
+    margin-left: -0.2rem; /* La moitié de la largeur pour centrer horizontalement */
+}
+
+.seconde {
+    height: 16.7rem;
+    width: 0.2rem;
+    margin-left: -0.1rem; /* La moitié de la largeur pour centrer horizontalement */
 }

@@ -13,7 +13,7 @@ console.dir(h1);
 */
 h1.style.backgroundColor = "rgb(123, 45, 98)";
 h1.style.fontStyle ="italic";
-h1.style.textShadow = "5px 5px rgba(0,0,0,0.3)";
+
 h1.style.fontSize = "5rem";
 
 // Si on se trompe sur le nom de la propriété, aucune erreur n'est envoyé :
