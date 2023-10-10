@@ -53,12 +53,14 @@ footer{
     width: 20px;
     height: 20px;
 }
+
 .heure, .minute, .seconde {
     position: absolute;
     background-color: black;
     bottom: 0; /* Aligner le bas de l'aiguille avec le bas de l'horloge */
     left: 50%; /* Centrer horizontalement */
-    transform-origin: 40% 97%; /* Origine de la transformation au bas de l'aiguille */
+    bottom: 50%;
+    transform-origin: bottom center; /* Origine de la transformation au bas de l'aiguille */
 }
 .heure {
     height: 8rem;
@@ -67,13 +69,12 @@ footer{
 }
 
 .minute {
-    height: 13rem;
+    height: 12.5rem;
     width: 0.4rem;
-    margin-left: -0.2rem; /* La moitié de la largeur pour centrer horizontalement */
 }
 
 .seconde {
-    height: 16.7rem;
+    height: 17.2rem;
     width: 0.2rem;
-    margin-left: -0.1rem; /* La moitié de la largeur pour centrer horizontalement */
+    background: linear-gradient(red , rgba(255, 255, 255, 0.671), rgba(255, 255, 255, 0.671), blue);
 }

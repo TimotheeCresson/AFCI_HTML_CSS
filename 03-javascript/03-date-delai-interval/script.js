@@ -67,13 +67,13 @@ const seconde = document.querySelector(".seconde");
 clock ()
 function clock() {
     const time = new Date();
-    const heures = time.getHours()*9;
+    const heures = time.getHours()*30;
     const minutes= time.getMinutes()*6;
-    const secondes = time.getSeconds()*30;
+    const secondes = time.getSeconds()*6;
     
 
-    heure.style.transform = `rotateZ(${heures +(minutes / 12)}deg)`
-    minute.style.transform = `rotateZ(${minutes}deg)`
-    seconde.style.transform = `rotateZ(${secondes}deg)`
+    heure.style.transform = `rotate(${heures +(minutes / 12)}deg)`
+    minute.style.transform = `rotate(${minutes}deg)`
+    seconde.style.transform = `rotate(${secondes}deg)`
 }
 setInterval(clock, 1000)
