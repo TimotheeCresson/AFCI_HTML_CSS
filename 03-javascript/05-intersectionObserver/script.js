@@ -9,7 +9,7 @@ const
         */
         // root: main
         /* 
-            le rootMargin permet de changer à partir d'où se fait la detection.
+            le rootMargin permet de changer à partir d'où se fait la détection.
             Une valeur positive, viendra détecter l'élément avant qu'il soit visible.
             Une valeur négative, viendra détecter l'élément alors qu'il est déjà présent.
         */
@@ -99,3 +99,18 @@ function indicatorAnimation()
         indicator.style.transform = `scaleX(0)`;
     }
 }
+/*
+    On peut arrêter l'observation d'un élément avec :
+        variableObserver.unobserve(ElementHTML)
+    ici on aurait:
+        observer.unobserve(main);
+
+    On peut arrêter toute observation avec : 
+        variableObserver.disconnect()
+
+    Chaque observer étant lié à une fonction callback, 
+    si on a plusieurs observation au fonctionnement totalement différent, 
+    il vaut mieux faire un nouvel observer pour chacun.
+
+    Avec un fonctionnement ressemblant, il existe aussi le "MutationObserver" qui détecte les changements dans le DOM.
+*/
