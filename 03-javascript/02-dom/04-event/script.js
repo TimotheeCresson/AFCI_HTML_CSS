@@ -55,7 +55,7 @@ menu1.onclick = ""   // l'événement de grossisement mit avant ne fonctionne pl
 /* 
     Pour le addEventListener, on utilisera removeEventListener, en lui donnant les même paramètres: 
 */
-h1.removeEventListener("click", test); // retire le texte apparaissant dans la console lorsque l'on clique
+ // retire le texte apparaissant dans la console lorsque l'on clique
 // Petit défaut, on ne peut retirer que les event utilisant une fonction nommé.
 
 //? ------------------------ Input Event ------------------------

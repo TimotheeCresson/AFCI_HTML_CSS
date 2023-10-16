@@ -1,0 +1,28 @@
+*, ::before, ::after
+{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+:root {
+    --fond: "";
+}
+body {
+    background-color: var(--fond);
+}
+div {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+}
+.greenTheme {
+    background-color: green;
+}
+.orangeTheme {
+    background-color: orange;
+}
+.blueTheme {
+    background-color: blue;
+}

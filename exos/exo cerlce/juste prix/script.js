@@ -30,9 +30,11 @@ restart.addEventListener('click', restartGame);
         texte.textContent = "",
         guessInput.focus()
     }
-
-
-
+    function restartGame() {
+        startGame();
+    }
+    startGame();
+        
 
 function guessing() {
     const userGuess = parseInt(guessInput.value);
@@ -66,18 +68,13 @@ function guessing() {
     else {
         texte.textContent ="Désolé, vous avez perdu"; 
         texte.style.textShadow = "1px 1px 5px red"
+        devine.classList.remove("hidden")
+        restart.classList.remove("hidden")
     }
+    guessInput.value="";
 }
 }
-function restartGame() {
-    startGame();
-}
-startGame();
-    
 
-
-    
-       
 
 
 

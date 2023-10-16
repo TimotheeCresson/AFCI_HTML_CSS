@@ -64,7 +64,7 @@ const heure = document.querySelector(".heure");
 const minute = document.querySelector(".minute");
 const seconde = document.querySelector(".seconde");
 
-clock ()
+
 function clock() {
     const time = new Date();
     const heures = time.getHours()*30;
