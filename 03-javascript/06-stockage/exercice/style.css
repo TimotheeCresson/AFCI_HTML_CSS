@@ -10,12 +10,22 @@
 body {
     background-color: var(--fond);
 }
-div {
+.div {
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
     gap: 20px;
+}
+.div2 {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+}
+.div2 label {
+    margin-top: 60px;
 }
 .greenTheme {
     background-color: green;
@@ -25,4 +35,8 @@ div {
 }
 .blueTheme {
     background-color: blue;
+}
+.langueh1 {
+    font-size: 20px;
+    color: red;
 }

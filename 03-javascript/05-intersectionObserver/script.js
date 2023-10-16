@@ -5,7 +5,7 @@ const
     options = {
         /* 
             l'option root permet de choisir à partir de quel élément HTML se fait l'observation.
-            Par défaut c'est le scrolling du document qui et prit en compte.
+            Par défaut c'est le scrolling du document qui est prit en compte.
         */
         // root: main
         /* 
@@ -36,7 +36,15 @@ const observer = new IntersectionObserver(setIndicator, options);
     L'observer a besoin qu'on lui indique quel élément HTML observer :
     "variableObserver.observe(ElementHTML);"
     Un observer peut observer autant d'élément que souhaité.
-    Par exemple avec un querySelectorAll et une boucle.
+    Par exemple avec un querySelectorAll, on doit faire une boucle afin de récupérer chaque élément du querySelectorAll
+    ex :
+        mainp = main.querySelectorAll("p")
+        mainp.forEach((p) => {
+            p.style.visibility ="hidden";
+            observer.observe(p)
+            console.log(p);
+        });
+
 */
 observer.observe(main);
 /* 

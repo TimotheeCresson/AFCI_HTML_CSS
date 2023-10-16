@@ -13,20 +13,20 @@ select.addEventListener("click", changeTheme )
 function changeTheme() {
     let selection = select.value;
     if (selection = greenColor.value) {
-        document.documentElement.style.setProperty("--fond", "green");
+        body.style.backgroundColor = "green"
     }
     else if (selection = orangeColor.value) {
-        document.documentElement.style.setProperty("--fond", "orange");
+        body.style.backgroundColor = "orange"
     }
     else if (selection = blueColor.value) {
-        document.documentElement.style.setProperty("--fond", "blue");
+        body.style.backgroundColor = "blue"
     }
     else 
-    document.documentElement.style.setProperty("--fond", "white");
+    body.style.backgroundColor = "white"
 }
 
-changeTheme();
 */
+
 
 select.addEventListener("change", change )
 
@@ -69,7 +69,6 @@ const Color = () => {
     console.log(randomColor);
     body.style.backgroundColor = "#" + randomColor;
     localStorage.setItem("thème", `# ${randomColor}` )
-    button.value = localStorage.getItem("thème") === `# ${randomColor}`;
 }
 button.addEventListener("click", Color)
 
@@ -79,3 +78,31 @@ button.addEventListener("click", Color)
 
 
 // Selecteur de langue et titre qui change
+
+const select2 = document.querySelector(".langueSelect") 
+const french = document.querySelector(".French") 
+const english = document.querySelector(".English") 
+const spanish = document.querySelector(".Spanish") 
+const frenchTitle = document.querySelector(".frenchTitle") 
+const englishTitle = document.querySelector(".englishTitle") 
+const spanishTitle = document.querySelector(".spanishTitle") 
+
+console.log(frenchTitle);
+select2.addEventListener ("change", languageChange)
+
+function languageChange() {
+    let selectLanguage = select2.value
+    switch (selectLanguage) {
+        case "French":
+        frenchTitle.textContent = "Français";
+        break;
+        case "English":
+        englishTitle.textContent = "Anglais";
+        break;
+        case "Spanish":
+        spanishTitle.textContent = "Anglais";
+        break;
+        default: 
+        ""
+    }
+}

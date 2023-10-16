@@ -6,7 +6,7 @@ dark.addEventListener("input", changeTheme);
 function changeTheme() {
     /*
         Une première façon de changer un thème, est de modifié la classe du body.
-        Ayant du CSS déjà prévu pour cela, le rest changera avec 
+        Ayant du CSS déjà prévu pour cela, le reste changera avec 
     */
     //document.body.classList.toggle("dark", dark.checked);
 

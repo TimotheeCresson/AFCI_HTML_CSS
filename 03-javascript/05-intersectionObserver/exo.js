@@ -4,7 +4,7 @@ const
 main = document.querySelector("main"),
     mainp = main.querySelectorAll("p"),
     options = {
-        threshold : 0.5
+        threshold : 0.5,
     };
 
 const observer = new IntersectionObserver(setIndicator, options);
@@ -13,7 +13,7 @@ const observer = new IntersectionObserver(setIndicator, options);
 mainp.forEach((p) => {
     p.style.visibility ="hidden";
     observer.observe(p)
-    console.log(p);
+    //console.log(p);
 });
 
 function setIndicator(entries, observer) {
@@ -26,12 +26,33 @@ function setIndicator(entries, observer) {
 }
 
 // exo 2
+const lastpObserver = new IntersectionObserver (lastpIndicator, {})
 
-/*
-if(let i=0; i < 10; i++) {
-
+function lastpIndicator(entries) {
+    const lastp = entries[0]
+    if(!lastp.isIntersecting) return
+        loadNewP ()
+    lastpObserver.unobserve(lastp.target)
+    lastpObserver.observe(document.querySelector("main p:last-child"))
 }
-*/
+lastpObserver.observe(document.querySelector("main p:last-child"))
+
+main.forEach(newP => {
+    observer.observe(newP)
+});
+
+
+function loadNewP() {
+for(let i=0; i < 10; i++) {
+    const newP = document.createElement("p");
+    newP.textContent = "new P"
+    observer.observe(newP)
+    main.append(newP)
+}
+}
+
+
+
 
 
 
