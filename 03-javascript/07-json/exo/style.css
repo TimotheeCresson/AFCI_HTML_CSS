@@ -1,0 +1,77 @@
+*, ::before, ::after
+{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+body {
+    display: flex;
+    flex-direction: column;
+}
+header {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    background-color: rgb(143, 151, 224);
+    margin: auto 80px;
+    overflow: hidden;
+}
+label {
+    display: block;
+    color: white;
+    font-size: 20px;
+    text-align: center;
+    margin: 20px 0 5px 0;
+    font-weight: bold;
+}
+#todoList {
+    height: 3.5vh;
+    margin-bottom: 20px;
+    width: 40vw;
+}
+#todoList:hover {
+    border: 1px solid lightblue;
+    outline: 0.125rem solid lightblue;
+    outline-offset: 0.15rem;
+}
+#btn {
+    width: 9vw;
+    height: 3.5vh;
+    font-size: 0.7em;
+    background-color: lightsalmon;
+}
+ul {
+    background-color: lightgray;
+    margin: auto 80px;
+    list-style: none;
+}
+ul li{
+    padding: 0 0 10px 0;
+    font-size: 15px;
+    padding-left: 10px;
+}
+li.done {
+    text-decoration: line-through;
+    background-color: gray;
+}
+li::before {
+    content: "\002714";
+    display: none;
+    padding: 0 5px 0 10px
+}
+li.done::before
+{
+    display: inline-block;
+}
+button {
+    position: absolute;
+    right: 80px;
+    background-color: transparent;
+    width: 5vw;
+    height: 3vh;
+    border: none;
+}
+.deletebutton:hover {
+    background-color: rgb(143, 151, 224);
+}

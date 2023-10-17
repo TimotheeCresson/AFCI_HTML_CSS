@@ -1,24 +1,26 @@
 "use strict"
-const body = document.querySelector ("body")
-const select = document.querySelector("#themeSelect")
-const greenColor = document.querySelector(".greenTheme")
-const orangeColor = document.querySelector(".orangeTheme")
-const blueColor = document.querySelector(".blueTheme")
+const body = document.querySelector ("body");
+const select = document.body.querySelector(".div #themeSelect");
+const greenColor = document.querySelector(".greenTheme");
+const orangeColor = document.querySelector(".orangeTheme");
+const blueColor = document.querySelector(".blueTheme");
 console.log(select);
 
 
 console.log(greenColor);
 /*
+if(select) {
 select.addEventListener("click", changeTheme )
+}
+
 function changeTheme() {
-    let selection = select.value;
-    if (selection = greenColor.value) {
+    if (greenColor.value == "green") {
         body.style.backgroundColor = "green"
     }
-    else if (selection = orangeColor.value) {
+    else if (orangeColor.value == "orange") {
         body.style.backgroundColor = "orange"
     }
-    else if (selection = blueColor.value) {
+    else if (blueColor.value == "blue") {
         body.style.backgroundColor = "blue"
     }
     else 
@@ -28,7 +30,7 @@ function changeTheme() {
 */
 
 
-select.addEventListener("change", change )
+select.addEventListener("change", change );
 
 function change() {
     let selection = select.value;
@@ -52,7 +54,7 @@ function change() {
             //document.documentElement.style.setProperty("--fond", "white");
             body.style.backgroundColor = "white"
             localStorage.removeItem("theme");
-}
+    }
 }
 const theme = localStorage.getItem("theme");
 if (theme){
@@ -62,13 +64,18 @@ if (theme){
 
 
 
-const button = document.querySelector(".button")
 
+const button = document.querySelector(".button")
 const Color = () => {
-    let randomColor = (Math.floor(Math.random()*0xFFFFFF)).toString(16).padStart(6, "0"); 
+    const randomColor = (Math.floor(Math.random()*0xFFFFFF)).toString(16).padStart(6, "0"); 
     console.log(randomColor);
     body.style.backgroundColor = "#" + randomColor;
-    localStorage.setItem("thème", `# ${randomColor}` )
+    localStorage.setItem("random", `#${randomColor}` )
+    localStorage.removeItem("theme");
+}
+const recupAlea = localStorage.getItem("random")
+if (recupAlea) {
+    body.style.backgroundColor = recupAlea
 }
 button.addEventListener("click", Color)
 
@@ -77,32 +84,32 @@ button.addEventListener("click", Color)
 
 
 
+
+
 // Selecteur de langue et titre qui change
 
-const select2 = document.querySelector(".langueSelect") 
+const select2 = document.querySelector("#langueSelect") 
 const french = document.querySelector(".French") 
 const english = document.querySelector(".English") 
 const spanish = document.querySelector(".Spanish") 
-const frenchTitle = document.querySelector(".frenchTitle") 
-const englishTitle = document.querySelector(".englishTitle") 
-const spanishTitle = document.querySelector(".spanishTitle") 
-
-console.log(frenchTitle);
-select2.addEventListener ("change", languageChange)
+const Title = document.querySelector(".Title") 
+console.log(Title);
+console.log(select2);
 
 function languageChange() {
     let selectLanguage = select2.value
     switch (selectLanguage) {
         case "French":
-        frenchTitle.textContent = "Français";
+        Title.textContent = "Français";
         break;
         case "English":
-        englishTitle.textContent = "Anglais";
+        Title.textContent = "Anglais";
         break;
         case "Spanish":
-        spanishTitle.textContent = "Anglais";
+        Title.textContent = "Spanish";
         break;
         default: 
-        ""
+        Title.textContent = "";
     }
 }
+select2.addEventListener ("change", languageChange)
