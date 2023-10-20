@@ -2,6 +2,7 @@
 const header = document.querySelector("header")
 const url = "./hero.json";
 const heroes = document.querySelector("#heroes")
+let previousOption = null;
 /*
 Fetch est toujours en asynchrone.
 Par défaut, il est en GET
@@ -12,33 +13,68 @@ fetch est suivi d'un ".then()" qui contiendra la fonction callback à lancé une
 
 fetch(url).then(members);
 console.log(members);
+
+
+
+
+
 function members(response) {
     console.log(response);
     if (response.ok) {
         response.json()
             .then(data=>{
                 data.members.forEach(heroesName => {
+                
                     const option = document.createElement("option");
                     option.value = heroesName.name;
                     option.textContent = heroesName.name 
                     heroes.append(option);
                     heroes.removeAttribute("disabled");
                     console.log(option);
-
                     
 
-
+                    
                     option.addEventListener('click', optionMembers)
+
                     function optionMembers() {
-                        const card = document.createElement("div");
-                        header.append(card);
-                        const inCard = document.createElement("ul")
-                        card.append(inCard);
-                        const liCard = document.createElement("li")
-                        inCard.append(liCard);
-                        liCard.innerHTML +=`${data.members}`
-                        
+                        if (previousOption === option) {
+                            if (header.contains(header.querySelector("div"))) {
+                                header.removeChild(header.querySelector("div"));
+                            }
+                            previousOption = null;
+                        } else {
+                    
+                    const card = document.createElement("div");
+                    header.append(card);
+                    const inCard = document.createElement("ul")
+                    card.append(inCard);
+                    /*
+                     * for in permet de rechercher les données de heroesName est de les mettre sur mes li
+                     */
+                    
+                    for(const li in heroesName){
+                    const liCard = document.createElement("li")
+                    inCard.style.border = "1px solid black"
+                    inCard.append(liCard);
+                    console.log(heroesName.powers[0]);
+                    liCard.innerHTML = `${[li]} : ${heroesName[li]}`
                     }
+                    /**
+                     * On sélectionne le dernier li et on crée un ol en dehors de la boucle afin à en créer qu'un seul 
+                     * puis on crée une boucle for of afin de sélectionner chaque pouvoirs et dont la fonction à pour nom last
+                     * enfin on crée des li qu'on met dans notre ol et nous mettons pour texte la fonction last contenant donc les pouvoirs
+                     */
+                    const lastLi = inCard.querySelector("li:last-child")
+                    const olLast = document.createElement("ol")
+                    lastLi.textContent = "powers :"
+                    lastLi.append(olLast);
+                    for(const last of heroesName.powers){
+                        const liLast = document.createElement("li")
+                        olLast.append(liLast)
+                        liLast.textContent = last
+                    }
+                    previousOption = option; 
+                    }}
                 });
             })
             .catch(error=>console.error(error))
@@ -47,52 +83,3 @@ function members(response) {
             console.error(response.statusText);
         }
 }
-
-heroes.addEventListener("change", () => {
-                const selectedHeroes = Array.from(heroes.selectedOptions, option => option.value);
-                displayHeroCards(selectedHeroes, data.members);})
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-/*heroesSelect.addEventListener("change", () => {
-                const selectedHeroes = Array.from(heroesSelect.selectedOptions, option => option.value);
-                displayHeroCards(selectedHeroes, data.members);
-            });
-        })
-        .catch(error => console.error("Une erreur s'est produite lors de la requête fetch : " + error));
-
-    // Fonction pour afficher les cartes des héros sélectionnés sous forme de liste
-    function displayHeroCards(selectedHeroes, allHeroes) {
-        heroInfoList.innerHTML = "";
-
-        selectedHeroes.forEach(heroName => {
-            const selectedHero = allHeroes.find(hero => hero.name === heroName);
-
-            if (selectedHero) {
-                const heroItem = document.createElement("li");
-                heroItem.innerHTML = `
-                    <h2>${selectedHero.name}</h2>
-                    <p>Âge : ${selectedHero.age}</p>
-                    <p>Identité secrète : ${selectedHero.secretIdentity}</p>
-                    <p>Pouvoirs : ${selectedHero.powers.join(", ")}</p>
-                `;
-                heroInfoList.appendChild(heroItem);
-            }
-        });
-        */
