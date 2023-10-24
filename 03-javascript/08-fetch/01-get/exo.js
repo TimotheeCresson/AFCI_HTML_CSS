@@ -55,6 +55,7 @@ function members(response) {
                     for(const li in heroesName){
                     const liCard = document.createElement("li")
                     inCard.style.border = "1px solid black"
+                    inCard.style.width = "200px";
                     inCard.append(liCard);
                     console.log(heroesName.powers[0]);
                     liCard.innerHTML = `${[li]} : ${heroesName[li]}`

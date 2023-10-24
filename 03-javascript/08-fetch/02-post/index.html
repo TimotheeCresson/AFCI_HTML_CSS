@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>POST avec Fetch</title>
+    <!-- <script src="script.js" defer></script> -->
+    <script src="exo.js" defer></script>
+</head>
+<body>
+    <form method="post" enctype="multipart/form-data">  <!-- Cette attribut enctype="multipart/form-data" est obligatoire quand notre formulaire doit envoyer un fichier, pour dire qu'il doit envoyer autre chose que du texte  -->
+        <input type="file" name="file" id="file">
+        <br>
+        <input type="text" name="sub_id" id="sub_id">
+        <input type="submit" value="Envoyer">
+    </form>
+    <button class="btn">Appuyer</button>
+    <div class="result"></div>
+    <div class="age"></div> 
+</body>
+</html>
