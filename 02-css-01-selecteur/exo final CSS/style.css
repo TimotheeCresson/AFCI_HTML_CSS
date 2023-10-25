@@ -54,52 +54,51 @@ h2 {
 }
 
 @keyframes h2 {     
-    from { 
-        
-        left: -80%;
+    0%{
+        transform: translateX(-1000px);
+        opacity: 0;
     }
-    
-    30%
-    {
-        left: 0;
+    50%{
+        transform: translateX(200px);
+        opacity: 0.5;
     }
-    70%
-    {
-        left: 20%;
+    75%{
+        transform: translateX(-50px);
+        opacity: 0.75;
     }
-    80%
-    {
-        left: 10%;
-    }
-    to {   
-        right: 0;
+    100%{
+        transform: translateX(0);
+        opacity: 1;
     }
 }
 @keyframes h1 {     
-    from { 
-        
-        right: -80%;
+    0%{
+        transform: translateX(1000px);
+        opacity: 0;
     }
-    
-    30%
-    {
-        right: 0;
+    50%{
+        transform: translateX(-200px);
+        opacity: 0.5;
     }
-    70%
-    {
-        right: 20%;
+    75%{
+        transform: translateX(50px);
+        opacity: 0.75;
     }
-    80%
-    {
-        right: 10%;
-    }
-    to {   
-        right: 0;
+    100%{
+        transform: translateX(0);
+        opacity: 1;
     }
 }
 @keyframes button {
-    from{scale: 1, 1;} 
-    to{scale:1 1;}
+    0%{
+        transform: scale(1);
+    }
+    50%{
+        transform: scale(1.5);
+    }
+    100%{
+        transform: scale(1);
+    }
     
 }
 
@@ -107,13 +106,12 @@ h2 {
 section.description {
     display: grid;
     background-color: lightcyan;
-    grid-template-rows: repeat(4,25%);
-    height: 80vh;
+    grid-template-rows: repeat(4,15%);
+    gap: 50px;
 }
 .description > div i {
     color: green;
     font-size: 2.5em;
-    padding: 20px;
     transition-property: transform;
     transition-duration: 0.3s;
     transition-delay: .3ss;
@@ -124,16 +122,16 @@ section.description {
 .description .US:hover, .Relaxation:hover, .Energy:hover, .Recipe:hover{
     border-bottom: 3px solid #9fab02;
 }
-.US i:first-child {
-   padding-top: 20px;
-}
 .description > div{
     justify-content: center;
     text-align: center;
 }
+.description div:first-child {
+    margin-top: 20px;
+}
 .description > div p {
     font-size: .8em;
-    margin: 2px 40px;
+    padding: 20px 40px;
     color: grey;
     transition-property: border-bottom, transform;
     transition-duration: 0.3s;
@@ -153,7 +151,6 @@ h5 {
 .about {
     display: flex;
     flex-direction: column;
-    height: 80vh;
     text-align: flex-start;
     align-items: flex-start;
 }
@@ -206,13 +203,13 @@ h3 {
 /*------------ Section Check out ----------------*/
 .checkout {
     display: grid;
-    grid-template-rows: auto 1fr 1fr 1fr;
+    grid-template-rows: auto repeat(4, 1fr);
     background-color: lightcyan;
+    margin-top: 30px;
 }
 .firstpartcheck{
     display: grid;
     grid-template-rows: auto auto auto;
-    height: 40vh;
 }
 .drink {
     display: grid;
@@ -271,17 +268,20 @@ h6 {
     border-radius: 1em;
     align-content: center;
 }
+div.FruitSangria {
+    margin-bottom: 0;
+}
 
 /*---------------Cards-----------------*/
 .allcards {
-    display: grid;
-    grid-template-rows: auto 1fr 1fr 1fr;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
     justify-content: center;
-    height: 210vh;
 }
 .titlecard {
+    position: relative;
     text-align: center;
-    margin: 30px;
 }
 .card {
     transition-property: transform;
@@ -306,9 +306,7 @@ h6 {
 .textcard {
     text-align: center;
 }
-.textcard h6 {
-    margin-top: 50px;
-}
+
 .textcard p {
     padding: 10px;
     color: grey;
@@ -342,11 +340,9 @@ h6 {
     flex-direction: column;
     justify-content: center;
     align-items: flex-start;
-    height: 100vh;
     background-color: lightcyan;
 }
-.contact p{
-    margin-left: 20px;
+.contact div p{
     font-family: Catamaran;
     color: black;
     font-size: 1.2em;
@@ -356,13 +352,15 @@ h6 {
     display: flex;
     flex-direction: column;
     justify-content: center;
-    width: 80%;
-    margin: 0 10% 0 10%;
+    width: 350px;
+    height: 400px;
+    margin: 50px 10% 50px 10%;
     background-color: white;
     border-radius: .5em;
 }
 .input {
     margin: 10px;
+    height: 50px;
     background-color: rgba(211, 211, 211, 0.404);
     color: grey;
     border-radius: .3em;
@@ -371,9 +369,13 @@ h6 {
 .center {
     margin-left: 43%;
 }
+.form textarea {
+    height: 150px;
+}
 .form button{
     background-color: green;
     color: white;
+    height: 30px;
     letter-spacing: 0.2em;
     border-radius: 0 0 .5em .5em;
 }
@@ -385,14 +387,15 @@ footer{
     grid-template-rows: 1fr auto auto;
 }
 .icon {
-    display: grid;
+    display: flex;
     grid-template-columns: 10% 10% 10%;
     align-items: center;
-    justify-content: center;
+    justify-content: space-evenly;
 }
 footer p {
     text-align: center;
     font-size: 1.1em;
+    color: white;
 }
 footer p span {
     color: #1e5500;
@@ -400,19 +403,18 @@ footer p span {
 .icon > i {
     font-size: 25px;
 }
-.copyright {
-    display: grid;
-    grid-template-rows: 1fr 1fr;
-}
 
 
-@media screen and (min-width: 436px) {
+
+@media screen and (min-width: 620px) {
     section.description {
         display: grid;
         background-color: lightcyan;
         grid-template-rows: 1fr 1fr;
         grid-template-columns: 1fr 1fr;
-        height: 40vh;
+    }
+    .Relaxation {
+        margin-top: 20px;
     }
     h4 {
         font-size: 2em;
@@ -444,9 +446,9 @@ footer p span {
         height: 145vh;
     }
     .form {
-        margin-top: 20px;
-        width: 50vw;
+        width: 80vw;
     }
+    
 }
 
 @media screen and (min-width: 878px) {
@@ -457,6 +459,9 @@ section.description {
     display: flex;
     justify-content: center;
     align-items: center;
+}
+.description div {
+    margin-top: 20px;
 }
 .about {
     display: flex;
@@ -482,14 +487,19 @@ section.description {
     height: 25vh;
 }
 .card {
-    display: grid;
-    grid-template-columns: 1fr 1fr 1fr;
+    display: flex;
+    height: 10px;
 }
 .allform{
     display: flex;
     flex-direction: row;
     align-items: flex-start;
-    height: 50vh;
+}
+.form {
+    margin-top: 10px;
+}
+.contact {
+    margin-left: 20px;
 }
 }
 

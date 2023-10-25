@@ -1,8 +1,7 @@
 "use strict"
 
 /*
-    Lorsque l'on veut récupérer des données depuis un autre fichier, ou bien depuis une API (interface logicielle qui permet de « connecter » un logiciel ou un service à un autre logiciel ou service afin d'échanger des données et des fonctionnalités.).
-    Nous avons besoin que JS envoi une requête (de préférence asynchrone (envoie la demande et continue son exécution. Il traitera la réponse quand elle arrivera) à ce fichier ou au site de l'API.
+    Lorsque l'on veut récupérer des données depuis un autre fichier, ou bien depuis une API (interface logicielle qui permet de « connecter » un logiciel ou un service à un autre logiciel ou service afin d'échanger des données et des fonctionnalités.), nous avons besoin que JS envoi une requête (de préférence asynchrone (envoie la demande et continue son exécution. Il traitera la réponse quand elle arrivera) à ce fichier ou au site de l'API.
     Pour cela 2 solutions :
         - le plus ancien XMLHttpRequest();
         - la solution actuelle fetch() qui est compatible avec les navigateurs modernes.
