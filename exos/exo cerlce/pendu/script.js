@@ -1,7 +1,23 @@
 "use strict"
 
-const findWord = ["love"];
-let selectedWord = findWord[0].toUpperCase();
+const findWord = [
+	"javascript",
+	"callback",
+	"fonction",
+	"recurcive",
+	"responsive",
+	"serveur",
+	"navigateur",
+	"script",
+	"index",
+	"style",
+	"document",
+	"body",
+	"boucle",
+	"condition",
+	"variable"
+]
+let selectedWord = findWord[Math.floor(Math.random() * findWord.length)].toUpperCase();
 
 let usedLetters = [];
 let errors = 0;
@@ -9,7 +25,16 @@ const bonhommeMembre = document.querySelectorAll(".bonhomme-membre")
 const mot = document.getElementById("mot")
 const bonneslettre = [""]
 const rejouer = document.getElementById("rejouer")
-console.log(bonneslettre);
+console.log(selectedWord);
+
+// interprétation pour le clavier 
+
+document.addEventListener("keypress", (e)=>{
+    const letter = e.key.toUpperCase()
+    if (/[A-Z]/.test(letter) && !usedLetters.includes(letter)) {
+        checkLetter(letter);
+    }
+})
 
 
 // afficher le mot si on inclut la lettre on fait sinon on laisse vide
@@ -21,6 +46,7 @@ function afficherMot() {
     .join('')
 }
 `;
+// Sélection des différents membres pour les faires apparaître si mon index est inférieur aux erreurs
 bonhommeMembre.forEach((membre, index)=>{
     if(index < errors){
         membre.style.display ='block'
@@ -28,12 +54,13 @@ bonhommeMembre.forEach((membre, index)=>{
     else {
         membre.style.display = 'none'
     }
-    console.log(membre);
+    //console.log(membre);
 })
 
 }
 afficherMot()
 
+// Création des boutons pour les lettres 
 function btnLetter() {
     document.getElementById("errorCount").textContent= `Erreur : ${errors}`
     document.getElementById("usedLetters").textContent = `Lettres 
@@ -52,7 +79,7 @@ function btnLetter() {
     }
 }
 function checkLetter(letter) {
-    console.log(selectedWord, letter, selectedWord.includes(letter));
+   // console.log(selectedWord, letter, selectedWord.includes(letter));
     usedLetters.push(letter);
     if (selectedWord.includes(letter)) {
         for(let i=0; i < selectedWord.length; i++){
@@ -74,21 +101,43 @@ function Gamestatus() {
     const messagePerdu = document.querySelector(".message")
     if(bonneslettre.join("") === selectedWord){
         messageFinal.style.display ="block"
+        button.disabled = true
     } 
     else if( errors >= 6) {
         messagePerdu.innerText = "vous avez perdu"
         messageFinal.style.display ="block"
+        button.disabled = true
     }
 }
+const btn = document.querySelector("#selectedLetters button")
+console.log(btn);
+bonhommeMembre.forEach((btn, index)=>{
+    if(bonneslettre.join("") === selectedWord){
+        index.disabled = true
+    }
+    else if( errors >= 6){
+        index.disabled = true
+    }
+    //console.log(membre);
+})
+
+
+
+
+
+
 rejouer.addEventListener("click", resetGame)
 console.log(rejouer);
 function resetGame() {
-    selectedWord = findWord
+    selectedWord = findWord[Math.floor(Math.random() * findWord.length)].toUpperCase();
     const messageFinal = document.querySelector(".messageFinal")
     usedLetters = [];
+     // Clear bonneslettre to start a new game
+    bonneslettre.length = 0;
     errors = 0;
     messageFinal.style.display ="none"
     btnLetter()
+    afficherMot()
 }
 
 
