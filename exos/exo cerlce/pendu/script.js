@@ -63,8 +63,7 @@ afficherMot()
 // Création des boutons pour les lettres 
 function btnLetter() {
     document.getElementById("errorCount").textContent= `Erreur : ${errors}`
-    document.getElementById("usedLetters").textContent = `Lettres 
-    utilisées : ${usedLetters.join(', ')}`
+    document.getElementById("usedLetters").textContent = `Lettres utilisées : ${usedLetters.join(', ')}`
     const selectedLetters = document.getElementById("selectedLetters")
         selectedLetters.innerHTML = "";
     for(let i=65; i<=90; i++) {
