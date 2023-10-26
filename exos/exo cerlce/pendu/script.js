@@ -43,7 +43,7 @@ function afficherMot() {
         .split('')
         .map(lettre => `<span class= "letter">${bonneslettre.includes(lettre) ? lettre : ''}</span>`
     )
-    .join('')
+    .join('') // tableau retransformé en string (''  pour ne rien mettre entre)
 }
 `;
 // Sélection des différents membres pour les faires apparaître si mon index est inférieur aux erreurs
@@ -95,20 +95,7 @@ function checkLetter(letter) {
     Gamestatus();
     afficherMot()
 }
-
-function Gamestatus() {
-    const messageFinal = document.querySelector(".messageFinal")
-    const messagePerdu = document.querySelector(".message")
-    if(bonneslettre.join("") === selectedWord){
-        messageFinal.style.display ="block"
-        button.disabled = true
-    } 
-    else if( errors >= 6) {
-        messagePerdu.innerText = "vous avez perdu"
-        messageFinal.style.display ="block"
-        button.disabled = true
-    }
-}
+/*
 const btn = document.querySelector("#selectedLetters button")
 console.log(btn);
 bonhommeMembre.forEach((btn, index)=>{
@@ -120,9 +107,21 @@ bonhommeMembre.forEach((btn, index)=>{
     }
     //console.log(membre);
 })
+*/
 
-
-
+function Gamestatus() {
+    const messageFinal = document.querySelector(".messageFinal")
+    const messagePerdu = document.querySelector(".message")
+    if(bonneslettre.join("") === selectedWord){
+        messageFinal.style.display ="block"
+        //button.disabled = true
+    } 
+    else if( errors >= 6) {
+        messagePerdu.innerText = "vous avez perdu"
+        messageFinal.style.display ="block"
+        //button.disabled = true
+    }
+}
 
 
 
