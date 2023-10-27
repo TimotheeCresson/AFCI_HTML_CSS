@@ -1,5 +1,37 @@
+"use strict"
+const feuVert = document.querySelector(".feuVert")
+const feuOrange = document.querySelector(".feuOrange")
+const feuRouge = document.querySelector(".feuRouge")
+
+function trafficLightTime() {
+    return new Promise(resolve=>setTimeout(()=>resolve(feuVert.style.backgroundColor = "green"), 1000));
+}
+function trafficLightTime2() {
+    return new Promise(resolve=>setTimeout(()=>resolve(feuOrange.style.backgroundColor = "orange",feuVert.style.backgroundColor = "gray", feuRouge.style.backgroundColor = "gray"), 2000));
+}
+function trafficLightTime3() {
+    return new Promise(resolve=>setTimeout(()=>resolve(feuRouge.style.backgroundColor = "red",feuVert.style.backgroundColor = "gray", feuOrange.style.backgroundColor = "gray"), 3000));
+}
+function reset() {
+    return new Promise(resolve=>setTimeout(()=>resolve(feuOrange.style.backgroundColor = "gray",feuVert.style.backgroundColor = "gray", feuRouge.style.backgroundColor = "gray"), 4000));
+}
 
 
+function feuCirculation() {
+    trafficLightTime().then()
+    trafficLightTime2().then()
+    trafficLightTime3().then()
+    reset().then()
+}
+
+feuCirculation()
+
+
+
+
+
+
+/*
 const feuVert = document.querySelector(".feuVert")
 const feuOrange = document.querySelector(".feuOrange")
 const feuRouge = document.querySelector(".feuRouge")
@@ -15,7 +47,7 @@ function change(){
     lightTime(change, 4000)
     }
     change()
-    
+    */
 
 
 /*
