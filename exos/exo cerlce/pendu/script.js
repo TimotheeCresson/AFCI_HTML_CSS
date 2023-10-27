@@ -112,14 +112,20 @@ bonhommeMembre.forEach((btn, index)=>{
 function Gamestatus() {
     const messageFinal = document.querySelector(".messageFinal")
     const messagePerdu = document.querySelector(".message")
+    const button = document.querySelectorAll("#selectedLetters button") 
     if(bonneslettre.join("") === selectedWord){
         messageFinal.style.display ="block"
-        //button.disabled = true
+        button.forEach(function(b){
+            b.disabled = true
+        })
     } 
     else if( errors >= 6) {
         messagePerdu.innerText = "vous avez perdu"
         messageFinal.style.display ="block"
-        //button.disabled = true
+        
+        button.forEach(function(b){
+            b.disabled = true
+        })
     }
 }
 

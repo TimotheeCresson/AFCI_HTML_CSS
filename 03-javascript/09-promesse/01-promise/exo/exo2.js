@@ -1,30 +1,87 @@
-"use strict"
+
+
 const feuVert = document.querySelector(".feuVert")
 const feuOrange = document.querySelector(".feuOrange")
 const feuRouge = document.querySelector(".feuRouge")
 
+function change(){
+    function lightTime() {
+        new Promise(resolve=>setTimeout(()=>resolve(feuVert.style.backgroundColor = "green"), 1000));
+        new Promise(resolve=>setTimeout(()=>resolve(feuOrange.style.backgroundColor = "orange", feuVert.style.backgroundColor = "gray", feuRouge.style.backgroundColor = "gray"), 2000));
+        new Promise(resolve=>setTimeout(()=>resolve(feuRouge.style.backgroundColor = "red", feuVert.style.backgroundColor = "gray", feuOrange.style.backgroundColor = "gray"), 3000));
+        new Promise(resolve=>setTimeout(()=>resolve(feuRouge.style.backgroundColor = "gray", feuVert.style.backgroundColor = "gray", feuOrange.style.backgroundColor = "gray"), 4000));
+        setTimeout(change, 4000) // relancer la fonction 
+    }
+    lightTime(change, 4000)
+    }
+    change()
+    
+
+
+/*
+function change(){
+    function lightTime() {
+        new Promise(resolve=>setTimeout(()=>resolve(feuVert.style.backgroundColor = "green", feuOrange.style.backgroundColor = "gray", feuRouge.style.backgroundColor = "gray"), 1000));
+        new Promise(resolve=>setTimeout(()=>resolve(feuOrange.style.backgroundColor = "orange", feuVert.style.backgroundColor = "gray", feuRouge.style.backgroundColor = "gray"), 2000));
+        new Promise(resolve=>setTimeout(()=>resolve(feuRouge.style.backgroundColor = "red", feuVert.style.backgroundColor = "gray", feuOrange.style.backgroundColor = "gray"), 3000));
+        setTimeout(change2, 4000) // relancer la fonction 
+    }
+    lightTime(change2, 1000)
+    }
+    function change2() {
+        new Promise(resolve=>setTimeout(()=>resolve(feuOrange.style.backgroundColor = "orange", feuVert.style.backgroundColor = "gray", feuRouge.style.backgroundColor = "gray"), 1000));
+        new Promise(resolve=>setTimeout(()=>resolve(feuVert.style.backgroundColor = "green", feuOrange.style.backgroundColor = "gray", feuRouge.style.backgroundColor = "gray"), 2000));
+        setTimeout(change, 1000)
+    }
+    change()
+   
+*/
+
+
+/*
+function change() {
+
+setTimeout(function () {
+    feuVert.style.backgroundColor = "green"
+},1000)
+
+
+setTimeout(function () {
+    feuOrange.style.backgroundColor = "orange"
+    feuRouge.style.backgroundColor = "grey"
+    feuVert.style.backgroundColor = "grey"
+},2000)
+
+setTimeout(function () {
+    feuRouge.style.backgroundColor = "red"
+    feuOrange.style.backgroundColor = "grey"
+    feuVert.style.backgroundColor = "grey"
+},3000)
+
+setTimeout(function () {
+    feuRouge.style.backgroundColor = "grey"
+    feuOrange.style.backgroundColor = "grey"
+    feuVert.style.backgroundColor = "grey"
+},4000)
+setTimeout(change, 4000)
+}
+change()
+*/
+/*
 function lightTime() {
     return new Promise(resolve=>setTimeout(()=>resolve(feuVert.style.backgroundColor = "green"), 1000));
 }
 function lightTime2() {
-    return new Promise(resolve=>setTimeout(()=>resolve(feuOrange.style.backgroundColor = "orange"), 3000));
+    return new Promise(resolve=>setTimeout(()=>resolve(feuOrange.style.backgroundColor = "orange", feuVert.style.backgroundColor = "gray", feuRouge.style.backgroundColor = "gray"), 2000));
 }
-
-    
-    setInterval(function () {
-        // Passage au vert, supprime le précédent
-        feuOrange.style.backgroundColor = "gray";
-        feuRouge.style.backgroundColor = "gray";
-        lightTime2(function (color) {
-            feuVert.style.backgroundColor = color;
-        }, "green", 3000);
-    })
-function feuCirculation() {
-    lightTime().then()
-    lightTime2().then()
+function lightTime3() {
+    return new Promise(resolve=>setTimeout(()=>resolve(feuRouge.style.backgroundColor = "red", feuVert.style.backgroundColor = "gray", feuOrange.style.backgroundColor = "gray"), 3000));
 }
+function reset() {
+    return new Promise(resolve=>setTimeout(()=>resolve(feuRouge.style.backgroundColor = "gray", feuVert.style.backgroundColor = "gray", feuOrange.style.backgroundColor = "gray"), 4000));
+}
+*/
 
-feuCirculation()
 
 
 /*
