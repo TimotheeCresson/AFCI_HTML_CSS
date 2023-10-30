@@ -9,11 +9,11 @@ const canvas = document.querySelector('canvas');
 Pour intéragir avec le canvas, nous avons besoin de connaître son "contexte".
 On va utiliser la méthode "getContext()" en lui donnant en argument, un string indiquant le context voulu.
 
-Ici, on lu donnera "2d" pour travailler en 2 dimensions.
+Ici, on lui donnera "2d" pour travailler en 2 dimensions.
 Mais la 3D est utilisable grâce à "webgl"
-La 3D étant plus compliqué à gérer, beaucoup utilisent une bibliothèque gérant les claculs les plus complexe comme "three.js" 
+La 3D étant plus compliqué à gérer, beaucoup utilisent une bibliothèque gérant les calculs les plus complexe comme "three.js" 
 */
-const ctx = canvas.getContext("2d");
+const ctx = canvas.getContext("2d"); // ctx comme contexte
 // Optionnellement, je vais faire que mon canvas s'adapte à la taille de mon écran :
 function resize() {
     // sauvegarde la partie de l'image indiqué (on peut redimensionner la taille de la page)

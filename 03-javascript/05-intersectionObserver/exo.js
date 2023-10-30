@@ -20,7 +20,7 @@ function setIndicator(entries, observer) {
     entries.forEach((entry)=> {
         if(entry.isIntersecting) {
             entry.target.style.visibility ="visible"
-            observer.unobserve(entry.target);
+            observer.observe(entry.target);
         }
     });
 }
