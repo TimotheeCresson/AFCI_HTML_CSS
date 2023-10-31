@@ -59,9 +59,12 @@ function animation2() {
         };
         const anime = mot2.animate(keyframes, {
             duration: 5000,
-            fill: "forwards",
-
+            fill: "forwards", 
         });
+        barre.animate(keyframes, {
+            duration: 5000,
+            fill: "forwards",
+        })
     });
 }
 

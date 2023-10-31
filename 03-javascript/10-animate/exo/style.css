@@ -24,6 +24,7 @@
 p {
     /* display: inline-block; */
     font-size: 2em;
+    font-family: fantasy;
     width: fit-content;
     overflow: hidden;
     position: absolute;
