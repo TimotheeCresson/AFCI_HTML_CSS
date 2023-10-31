@@ -1,50 +1,61 @@
-// // // slider.js
+"use strict";
 
-// // function createSlider(imagePaths) {
-// //     // Créer l'élément du slider et ajouter des styles (vous pouvez également utiliser un fichier CSS)
-// //     const sliderElement = document.createElement('div');
-// //     sliderElement.classList.add('slider');
-    
-// //     // Créer les éléments d'image pour chaque chemin d'image
-// //     imagePaths.forEach((imagePath, index) => {
-// //       const imageElement = document.createElement('img');
-// //       imageElement.src = imagePath;
-// //       imageElement.classList.add('slider-image');
-// //       imageElement.style.display = index === 0 ? 'block' : 'none'; // Afficher la première image, masquer les autres
-// //       sliderElement.appendChild(imageElement);
-// //     });
-  
-// //     return sliderElement;
-// //   }
-  
-// //   function startSlider() {
-// //     const sliderImages = document.querySelectorAll('.slider-image');
-// //     let currentIndex = 0;
-  
-// //     function showImage(index) {
-// //       sliderImages.forEach((image, i) => {
-// //         if (i === index) {
-// //           image.style.display = 'block';
-// //         } else {
-// //           image.style.display = 'none';
-// //         }
-// //       });
-// //     }
-// function nextImage() {
-//     currentIndex++; // Augmenter l'indice
-  
-//     if (currentIndex >= sliderImages.length) {
-//       currentIndex = 0; // Revenir à la première image si on dépasse la dernière
-//     }
-  
-//     showImage(currentIndex);
-//   }
-  
-// //     // Ajouter des gestionnaires d'événements pour les actions de l'utilisateur (par exemple, clic, touches)
-// //     document.addEventListener('click', nextImage);
-  
-// //     // Lancer le slider en affichant la première image
-// //     showImage(currentIndex);
-// //   }
-  
-// //   export { createSlider as default, startSlider };
+// Fonction pour créer le carrousel
+export function create(images) {
+  const sliderElement = document.createElement('div');
+  const imageElements = [];
+  const buttonElements = [];
+
+  images.forEach((image, index) => {
+    const imageElement = document.createElement('img');
+    imageElement.classList.add("slider-image");
+    imageElement.src = image;
+    imageElement.style.display = index === 0 ? 'block' : 'none';
+    imageElements.push(imageElement);
+
+    // Créez un bouton pour chaque image
+    const button = document.createElement('button');
+    button.textContent = `Image ${index + 1}`;
+    button.addEventListener('click', () => showImage(index));
+    buttonElements.push(button);
+  });
+
+  // Ajoutez les boutons et les images au carrousel
+  imageElements.forEach((imageElement) => sliderElement.appendChild(imageElement));
+  buttonElements.forEach((button) => sliderElement.appendChild(button));
+
+  return sliderElement;
+}
+
+export default function startSlider() {
+  const sliderImages = document.querySelectorAll('.slider-image');
+  const sliderButtons = document.querySelectorAll('button');
+  let currentIndex = 0;
+
+  function showImage(index) {
+    sliderImages.forEach((image, i) => {
+      if (i === index) {
+        image.style.display = 'block';
+        sliderButtons[i].classList.add('active'); // Ajoute une classe "active" au bouton correspondant
+      } else {
+        image.style.display = 'none';
+        sliderButtons[i].classList.remove('active'); // Supprime la classe "active" des autres boutons
+      }
+    });
+  }
+
+  // Gérez le clic sur les boutons pour passer d'une image à l'autre
+  sliderButtons.forEach((button, index) => {
+    button.addEventListener('click', () => showImage(index));
+  });
+
+  // Initialiser le premier bouton comme actif
+  sliderButtons[currentIndex].classList.add('active');
+
+  function nextImage() {
+    currentIndex = (currentIndex + 1) % sliderImages.length;
+    showImage(currentIndex);
+  }
+
+  document.addEventListener('click', nextImage);
+}
