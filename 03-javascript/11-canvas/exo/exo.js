@@ -7,6 +7,10 @@ const input = document.getElementById('color');
 const lineWidthInput = document.getElementById('lineWidth')
 // const Historique = [ctx.getImageData(0, 0, canvas.width, canvas.height)];
 // let histoIndex = 0
+let painting = false;
+let color = input.value
+let x=0;
+let y=0; 
 
 function resize() {
    
@@ -21,25 +25,10 @@ function resize() {
 resize();
 window.addEventListener("resize", resize);
 
-let painting = false;
-let color = input.value
-let x=0;
-let y=0; 
+
 input.addEventListener("change", ()=>{
     color = input.value
 })
-
-
-// document.addEventListener('keydown', function(e) {
-//     if (e.key === "z" && e.ctrlKey) {
-//         histoIndex = histoIndex === 0 ? 0: histoIndex-1;
-//         console.log(Historique);
-//         ctx.putImageData(Historique[histoIndex], 0,0)
-//         console.log("ctrlZ");
-//     }
-// })
-
-
 
 /*
 ===========================
@@ -50,8 +39,8 @@ Ici on ajoute des événements en rapport à la souris
 canvas.addEventListener("mousemove", (e)=>{
     if(painting){
     draw(ctx, x, y, e.offsetX, e.offsetY)
-    x= e.offsetX ; //La propriété en lecture seule offsetX de l'interface MouseEvent fournit le décalage sur l'axe X du pointeur de la souris entre cet évènement et la bordure de la marge intérieure du noeud cible.
-    y = e.offsetY;
+    x= e.offsetX  //- rect.left; La propriété en lecture seule offsetX de l'interface MouseEvent fournit le décalage sur l'axe X du pointeur de la souris entre cet évènement et la bordure de la marge intérieure du noeud cible.
+    y = e.offsetY // - rect.right;  rect.left or right permet que lorsque le canvas ne prend pas toute la largeur de la page de dessiner à l'intérieur même si on dessine à l'extérieur, elle retranscrit les données (si a 50px du canvas, va reprendre à 50px dans canvas)
     }
 })
 canvas.addEventListener("mousedown", (e)=>{

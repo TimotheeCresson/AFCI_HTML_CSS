@@ -18,7 +18,7 @@ const ctx = canvas.getContext("2d"); // ctx comme contexte
 function resize() {
     // sauvegarde la partie de l'image indiqué (on peut redimensionner la taille de la page)
     const snapshot = ctx.getImageData(0,0, canvas.width, canvas.height);
-    const size = document.body.getBoundingClientRect();
+    const size = document.body.getBoundingClientRect(); // permete de récupérer la taille et la position d'un élément
     // console.log(size);
     canvas.width = size.width;
     canvas.height = size.height;
