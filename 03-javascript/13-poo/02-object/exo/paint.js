@@ -9,7 +9,7 @@ const Paint = {
     color: "",
      // on crée notre canvas 
      
-     initDraw() {
+    initDraw() {
         this.create(); // Je met ma fonction avant le reste afin que mon input color soit créer avant et que je puisse lui donner le nom this.input = document.getElementById('color');
         const canvas = document.createElement('canvas')
         document.body.append(canvas)
@@ -58,7 +58,7 @@ const Paint = {
 
         this.canvas.addEventListener("mousemove", (e)=>{
             if(this.painting){
-            draw(this.ctx, this.x, this.y, e.offsetX, e.offsetY)
+            this.draw(this.ctx, this.x, this.y, e.offsetX, e.offsetY)
             this.x= e.offsetX 
             this.y = e.offsetY 
             }
@@ -78,17 +78,30 @@ const Paint = {
             this.saveDrawingState() 
         })
 
-        document.addEventListener('keydown', function(e) {
+        document.addEventListener('keydown', (e) => {
             if (e.key === "z" && e.ctrlKey) {
                 e.preventDefault();
-                this.undo(); // Appeler la fonction undo pour annuler
-                
-                }
-                if (e.ctrlKey && e.key === "y") {
-                    e.preventDefault();
-                    this.redo();
-                }
-            });
+                this.undo(); // Utiliser une fonction fléchée pour conserver le contexte
+            }
+            if (e.ctrlKey && e.key === "y") {
+                e.preventDefault();
+                this.redo();
+            }
+        });
+
+        // document.addEventListener('keydown', function(e) {
+        //     const self = this; // Stocker le contexte this dans une variable
+        
+        //     if (e.key === "z" && e.ctrlKey) {
+        //         e.preventDefault();
+        //         self.undo(); // Appeler la fonction undo pour annuler
+        //     }
+        
+        //     if (e.ctrlKey && e.key === "y") {
+        //         e.preventDefault();
+        //         self.redo();
+        //     }
+        // });
             window.addEventListener("resize", this.resize)
     },
 
@@ -137,13 +150,13 @@ const Paint = {
         }
     },
     
-    // redo() {
-    //     if (currentStep < drawingHistory.length - 1) {
-    //         currentStep++;
-    //         ctx.putImageData(drawingHistory[currentStep], 0, 0);
-    //         console.log(currentStep);
-    //     }
-    // }
+    redo() {
+         if (this.currentStep < this.drawingHistory.length - 1) {
+            this.currentStep++;
+            this.ctx.putImageData(this.drawingHistory[this.currentStep], 0, 0);
+            console.log(this.currentStep);
+        }
+     }
 
 }
 export default Paint;

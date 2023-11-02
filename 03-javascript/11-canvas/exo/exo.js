@@ -95,7 +95,9 @@ function saveDrawingState() {
      console.log(drawingHistory);
 }
 // Event créer sur les boutons ctrl + z et ctrl + y
-document.addEventListener('keydown', function(e) {
+
+
+document.addEventListener('keydown', (e) => {
     if (e.key === "z" && e.ctrlKey) {
         e.preventDefault();
         undo(); // Appeler la fonction undo pour annuler

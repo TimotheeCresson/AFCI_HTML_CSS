@@ -12,3 +12,23 @@ const slide = slider.create(images);
 appli.append(slide)
 slider.init();
 
+const select = document.querySelector('#appli');
+select.addEventListener("input", selectAppli)
+
+if (option.value === 'justePrix') {
+    // Display the Juste Prix project
+    appli.append(JustePrix);
+}
+else if (option.value === 'paint') {
+    // Display the Paint project
+    appli.append(paint);
+} else if (option.value === 'slider') {
+    // Display the Slider project
+    const slide = slider.create(images);
+    appli.append(slide);
+    slider.init();
+}
+
+
+
+
