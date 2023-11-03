@@ -35,8 +35,7 @@ input.addEventListener("change", ()=>{
 Ici on ajoute des événements en rapport à la souris
 ===========================
 */
-
-canvas.addEventListener("mousemove", (e)=>{
+canvas.addEventListener("mousemove", function(e){
     if(painting){
     draw(ctx, x, y, e.offsetX, e.offsetY)
     x= e.offsetX  //- rect.left; La propriété en lecture seule offsetX de l'interface MouseEvent fournit le décalage sur l'axe X du pointeur de la souris entre cet évènement et la bordure de la marge intérieure du noeud cible.
@@ -95,9 +94,7 @@ function saveDrawingState() {
      console.log(drawingHistory);
 }
 // Event créer sur les boutons ctrl + z et ctrl + y
-
-
-document.addEventListener('keydown', (e) => {
+document.addEventListener('keydown', function(e) {
     if (e.key === "z" && e.ctrlKey) {
         e.preventDefault();
         undo(); // Appeler la fonction undo pour annuler
@@ -118,8 +115,8 @@ function undo() {
     }else
     {
         ctx.clearRect(0,0,canvas.width,canvas.height);
-        drawingHistory.length = 0;
-        currentStep--
+        // drawingHistory.length = 0;
+        currentStep = -1;
         console.log(currentStep);
     }
 }

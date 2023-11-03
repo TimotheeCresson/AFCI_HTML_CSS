@@ -11,16 +11,16 @@ const jeu = {
 
     // On crée une fonction démarrant le jeu
     InitGame() {
+        const container = document.createElement("div") // on met dnas un container afin que cela se retrouve dans notre div .appli
         const h1 = document.createElement("h1")
         h1.textContent = this.titre;
-        document.body.appendChild(h1);
+        container.appendChild(h1);
         const p = document.createElement("p")
         p.textContent = this.Description
-        document.body.append(p)
-        this.createInput()
-        this.createButton()
-        this.createMessage()
+        container.append(p)
+        container.append(this.createInput(),this.createButton(),this.createMessage()) // on met tout dans notre div
         console.log(this.targetNumber);
+        return container;
     },
 
     // On crée les éléments que l'on a besoin dans le jeu (input, button, textmessage)
@@ -28,20 +28,20 @@ const jeu = {
         const input = document.createElement("input");
         input.setAttribute("type", "text");
         input.setAttribute("id", "guessInput");
-        document.body.append(input);
+        return input; // on retourne l'input déclaré avant
     },
     
     createButton() {
         const button = document.createElement("button");
         button.textContent = "Proposer";
         button.onclick = this.checkGuess.bind(this);
-        document.body.append(button);
+        return button // on retourne boutton déclaré avant
     },
 
     createMessage() {
         const message = document.createElement("p");
         message.setAttribute("id", "message");
-        document.body.append(message);
+        return message // on retourne message déclaré avant
     },
 
         // on crée une fonction permettant à l'utilisateur de pouvoir deviner le nombre et de dire si le nombre choisi est plus grand ou plus petit 
