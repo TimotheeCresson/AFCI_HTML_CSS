@@ -12,6 +12,7 @@ const jeu = {
     // On crée une fonction démarrant le jeu
     InitGame() {
         const container = document.createElement("div") // on met dnas un container afin que cela se retrouve dans notre div .appli
+        container.classList.add("justeprix")
         const h1 = document.createElement("h1")
         h1.textContent = this.titre;
         container.appendChild(h1);

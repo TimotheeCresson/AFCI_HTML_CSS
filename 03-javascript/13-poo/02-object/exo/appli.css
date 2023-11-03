@@ -1,0 +1,49 @@
+*, ::before, ::after
+{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+body{
+    padding: 1.5rem;
+    overflow: hidden;
+    height: 100vh;
+}
+#appli {
+    background-color: gray;
+    color: white;
+}
+div.appli {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 50vw;
+    height: 50vh;
+    margin: auto;
+    border: 1px solid black;
+    box-shadow: 1px 1px 2px black;
+}
+.justeprix {
+    padding: 1rem;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    
+}
+.justeprix h1 {
+    font-size: 2em;
+    text-align: center;
+}
+.justeprix p {
+    text-align: center;
+    font-size: 1.3em;
+}
+.justeprix button {
+    width: 60px;
+    align-self: center;
+}

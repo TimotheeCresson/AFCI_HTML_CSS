@@ -26,6 +26,7 @@ function selectAppli() {
     } else if (optionSelected === 'paint') {
         paint.initDraw();
         appli.append(paint.canvas);
+       
         currentProject = paint.canvas;
     } else if (optionSelected === 'slider') {
         const images = [
