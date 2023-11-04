@@ -8,34 +8,32 @@ const Paint = {
     currentStep: -1,
     color: "",
     container2: null,
-
+    // Fonction initialisant notre dessin
     initDraw() {
+        this.appli = document.querySelector(".appli")
         this.container2 = document.createElement("div");
+        this.container2.classList.add("contain")
         this.container2.append(this.create());
-
         const canvas = document.createElement('canvas');
         this.canvas = canvas;
-        this.container2.append(canvas);
-        this.ctx = this.canvas.getContext("2d");
+        this.appli.append(canvas);
+        this.ctx = canvas.getContext("2d");
         this.input = document.getElementById('color');
         this.lineWidthInput = document.getElementById('lineWidth');
-
-
-        canvas.addEventListener('load', () => {
-            this.resize();
-            this.saveDrawingState();
-        });
         this.listeners();
+
+       
         return this.container2;
     },
-
+    // fonction créant nos élément html
     create() {
-        const div = document.createElement("div");
+        
         const colorInput = document.createElement("input");
         colorInput.type = 'color';
         colorInput.id = 'color';
         colorInput.value = "";
-        div.append(colorInput);
+        this.container2.append(colorInput);
+        this.input = colorInput
         this.colorInput = colorInput;
         this.color = colorInput.value;
 
@@ -45,20 +43,26 @@ const Paint = {
         sizeInput.min = "1";
         sizeInput.max = "50";
         sizeInput.value = "1";
-        div.append(sizeInput);
+        this.lineWidthInput = sizeInput; 
+        this.sizeInput = sizeInput;
+        this.size = sizeInput.value
+        this.lineWidthInput.addEventListener("input", () => {
+            this.size = this.sizeInput.value;
+        });
 
         const label = document.createElement('label');
         label.htmlFor = "lineWidth";
         label.textContent = "Choisissez la taille du trait";
-        div.append(label);
-        
 
-        return div;
+        const div2 = document.createElement('div')
+        div2.classList.add("WidthInput")
+        this.container2.append(div2)
+        div2.append(label, sizeInput)
     },
-
+    // fonction pour créer nos différents event listener
     listeners() {
         this.colorInput.addEventListener("change", () => {
-            this.color = this.input.value;
+            this.color = this.colorInput.value;
         });
 
         this.canvas.addEventListener("mousemove", (e) => {
@@ -94,10 +98,20 @@ const Paint = {
         });
 
         window.addEventListener("resize", () => {
-            this.resize();
+            this.resize.bind(this);
         });
     },
-
+    draw(x, y, offsetX, offsetY) {
+        this.ctx.beginPath();
+        this.ctx.moveTo(x, y);
+        this.ctx.strokeStyle = this.color
+        this.ctx.lineWidth = this.size;
+        this.ctx.lineCap = "round";
+        this.ctx.lineTo(offsetX, offsetY);
+        this.ctx.stroke();
+        this.ctx.closePath();
+    },
+ // fonction pour redimentionner notre canvas
     resize() {
         const canvas = this.canvas;
         const snapshot = this.ctx.getImageData(0, 0, this.canvas.width, this.canvas.height);
@@ -107,13 +121,6 @@ const Paint = {
         this.ctx.putImageData(snapshot, 0, 0);
     },
 
-    draw(x, y, offsetX, offsetY) {
-        this.ctx.beginPath();
-        this.ctx.moveTo(x, y);
-        this.ctx.lineTo(offsetX, offsetY);
-        this.ctx.stroke();
-        this.ctx.closePath();
-    },
 
     saveDrawingState() {
         this.currentStep++;
@@ -140,7 +147,7 @@ const Paint = {
         }
     }
 };
-
+// event pour télécharger toute la page du dom avant le reste
 document.addEventListener("DOMContentLoaded", function() {
     const appContainer = document.querySelector(".appli");
     appContainer.appendChild(Paint.initDraw());

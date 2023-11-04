@@ -71,7 +71,7 @@ if(ville == null) ville = "pas de réponse";
     switch permet de vérifier plusieurs cas, il prendra une variable entre parenthèse, puis autant de "case" que l'on souhaite.
         Chacun représentera une valeur possible de notre variable, il sera suivi des instructions voulu, puis d'un "break" qui mettra fin au "case"
 */
-switch (ville.toLowerCase()){   // .toLowerCase permet à l'utilisateur d'écrire la ville avec une majuscule en première lettre et de ne pas avoir d'erreur.
+switch (ville.toLowerCase()){   // .toLowerCase permet à l'utilisateur d'écrire la ville avec une majuscule en première lettre et de ne pas avoir d'erreur. car le convertit en minuscule
     
     // Plusieurs cas sans break pour les séparer, entrainera la lecture de tout le code jusqu'au prochain break, ici si l'utilisteur entre londres ou tokyo, le message affiché sera De la capital donc ?
     case "tokyo":

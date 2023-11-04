@@ -4,19 +4,8 @@
     padding: 0;
     box-sizing: border-box;
 }
-body {
-    height: 100vh;
-    overflow: hidden;
+
+#color {
+    align-self: flex-start;
 }
-#color{
-    position: absolute;
-    top: 80%;
-}
-#lineWidth {
-    position: absolute;
-    top: 90%;
-}
-label{
-    position: absolute;
-    top: 88%;
-}
+

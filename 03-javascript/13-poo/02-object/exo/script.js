@@ -24,8 +24,10 @@ function selectAppli() {
         appli.append(test);
         currentProject = test;
     } else if (optionSelected === 'paint') {
-        paint.initDraw();
-        appli.append(paint.canvas);
+        const p = paint.initDraw();
+        appli.append(p);
+        paint.resize()
+        paint.saveDrawingState();
        
         currentProject = paint.canvas;
     } else if (optionSelected === 'slider') {

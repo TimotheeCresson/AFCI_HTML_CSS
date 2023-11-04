@@ -11,7 +11,10 @@ body{
 }
 #appli {
     background-color: gray;
+    height: 100px;
+    width: 100px;
     color: white;
+    overflow-y: scroll;
 }
 div.appli {
     display: flex;
@@ -46,4 +49,101 @@ div.appli {
 .justeprix button {
     width: 60px;
     align-self: center;
+}
+
+
+
+/* Slider*/
+.slider-container {
+    width: 100%;
+    height: 100%;
+    position: relative;
+    margin: auto;
+}
+
+.slider-container img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.slider-container .items {
+    width: 100%;
+    height: 100%;
+    display: none;
+}
+/* Next & previous buttons */
+.prev,
+.next {
+    cursor: pointer;
+    position: absolute;
+    top: 50%;
+    width: auto;
+    margin-top: -22px;
+    padding: 16px;
+    color: white;
+    font-weight: bold;
+    font-size: 18px;
+    transition: 0.6s ease;
+    border-radius: 0 3px 3px 0;
+    user-select: none;
+}
+.next {
+    right: 0;
+    border-radius: 3px 0 0 3px;
+}
+.prev:hover,
+.next:hover {
+    background-color: rgba(0, 0, 0, 0.8);
+}
+.dots{
+    text-align: center;
+}
+.dot {
+    position: relative;
+    bottom: 20px;
+    cursor: pointer;
+    height: 15px;
+    width: 15px;
+    margin: 0 2px;
+    background-color: #bbb;
+    border-radius: 50%;
+    display: inline-block;
+    transition: background-color 0.6s ease;
+    z-index: 10;
+}
+
+.active,
+.dot:hover {
+    background-color: #717171;
+}
+
+/* Fading animation */
+.fade {
+    animation-name: fade;
+    animation-duration: 1.5s;
+}
+
+@keyframes fade {
+    from {
+        opacity: .4
+    }
+
+    to {
+        opacity: 1
+    }
+}
+/* paint*/
+
+.WidthInput {
+    display: flex;
+    flex-direction: column;
+    position: absolute;
+    bottom: 20px;
+    left: 20px;
+}
+#color {
+    position: absolute;
+    bottom: 20px;
+    right: 20px;
 }

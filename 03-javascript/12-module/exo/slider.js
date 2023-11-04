@@ -17,7 +17,16 @@ export function create(images) {
     })
       imageElements.forEach((imageElement) => sliderElement.append(imageElement));
       buttonElements.forEach((button) => sliderElement.append(button));
+      const next = document.createElement('a')
+      next.classList.add("next")
+      next.innerHTML = "&#10095;"
+      const prev = document.createElement('a')
+      prev.classList.add("prev")
+      prev.innerHTML = "&#10094;"
+      sliderElement.append(next, prev)
+
     return sliderElement
+
 }
 
 export default function startSlider() {
