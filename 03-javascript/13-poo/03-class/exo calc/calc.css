@@ -1,0 +1,28 @@
+body {
+    height: 100vh;
+}
+.screen {
+    height: 60px;
+    width: 250px;
+    background-color: white;
+    border: 1px solid rgb(0, 0, 0);
+    margin: 0 0 10px 10px
+}
+.calculatrice {
+    padding: 5px;
+    background-color: lightgray;
+    position: absolute;
+    top: 40%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+.button{
+    display: grid;
+    grid-template-rows: repeat(5, 25%);
+    grid-template-columns: repeat(4, 25%);
+    gap: 5px;
+}
+.button button {
+    height: 50px;
+    width: 50px;
+}
