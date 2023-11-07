@@ -42,7 +42,7 @@ export default class Calculatrice {
     }
 
     evaluationExpression(expression) {
-        return new Function('return ' + expression)();
+        return new Function('return ' + expression)(); // Function. La chaîne que vous passez au constructeur commence par "return ", suivi de l'expression que vous avez passée en argument. Donc, dans l'exemple donné, la chaîne passée au constructeur Function ressemblerait à "return 2 + 3". et () permet de renvoyer 5
     }
   
 
@@ -112,66 +112,6 @@ export default class Calculatrice {
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-// class Calculatrice {
-//     constructor() {
-//         this.resultat = '';
-//         this.ecranResultat = document.querySelector('.result');
-//         this.ecranCalcul = document.querySelector('.calcul');
-//         this.boutons = document.querySelectorAll('.button button');
-//         this.initBoutons();
-//     }
-
-//     initBoutons() {
-//         this.boutons.forEach(bouton => {
-//             bouton.addEventListener('click', () => {
-//                 this.gererClic(bouton.textContent);
-//             });
-//         });
-//     }
-
-//     gererClic(valeur) {
-//         if (valeur === '=') {
-//             this.calculerResultat();
-//         } else if (valeur === 'clear') {
-//             this.clear();
-//         } else {
-//             this.resultat += valeur;
-//             this.afficherResultat();
-//         }
-//     }
-
 //     calculerResultat() {
 //         try {
 //             this.resultat = eval(this.resultat);
@@ -187,10 +127,27 @@ export default class Calculatrice {
 //         this.afficherResultat();
 //     }
 
-//     afficherResultat() {
-//         this.ecranResultat.textContent = this.resultat;
-//         this.ecranCalcul.textContent = this.resultat;
-//     }
-// }
 
-// export default Calculatrice;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
