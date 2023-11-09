@@ -99,6 +99,7 @@ let x = 100, y = 100, vv = 5, vh = 5, r = 80;
 // cercle();
 function cercle() {
     // Todo clearRect
+    // arc(x, y, rayon, angleDépart, angleFin, sensAntiHoraire);
     /*
     ctx.clearRect(0,0, canvas.width, canvas.height)
     ctx.beginPath();
