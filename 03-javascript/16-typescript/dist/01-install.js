@@ -64,4 +64,7 @@ btn.addEventListener("pointerdown", () => {
 
     On verra dans le chapitre suivant comment corriger nos erreurs.
 */
+/*
+    Nos dossiers sont mis dans tsconfig.json puis ensuite nous pourrons faire notre npx tsc --watch
+*/
 console.log("coucoiu");
