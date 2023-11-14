@@ -1,0 +1,39 @@
+*, ::before, ::after
+{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+.container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    margin: 10px;
+}
+.title {
+    text-align: center;
+    font-size: 1.2em;
+    color: red;
+}
+table, td
+{
+    margin: 20px;
+    border: 2px solid gray;
+    border-collapse: collapse;
+}
+td {
+    height: 20px;
+    width: 400px;
+}
+.textList {
+    text-align: center;
+    text-decoration: line-through;
+}
+.Texte {
+    color: red;
+}
+.centerText {
+    text-align: center;
+}

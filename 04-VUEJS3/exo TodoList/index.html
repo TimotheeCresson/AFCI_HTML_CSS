@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <script src="script.js" defer></script>
+    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+    <title>todoList</title>
+</head>
+<body>
+    <div id="app">
+        <div class="container">
+            <h1 class="title">{{title}}</h1>
+            <input type="text" v-model="liste" class="liste">{{liste}}
+            <button class="tacheAjouter" @click="Ajouter">Ajouter</button>
+        </div>
+        <table>
+            <tr v-for="(tache, index) in taches" :key='tache.id'>
+                
+                <td><input type="checkbox" v-model="tache.checked" name="checkbox" id="checkbox"></td>
+
+                <td> 
+                    <span v-if="index !== indexToEdit" v-bind:class="{'centerText': !tache.checked, 'textList': tache.checked, 'Texte': tache.checked}">
+                        {{ tache.texte }}
+                    </span>
+                    <input v-else
+                    v-model="editedText" class="editedText" @keyup.enter="Modifier(index)">
+                </td>
+                
+                <td>
+                    <button class="buttonSupprimer" @click="Supprimer(tache)">Supprimer</button>
+                    <button v-if="index !== indexToEdit" class="buttonEditer" @click="Editer(tache, index)"> Editer </button>
+                    <button v-else class="buttonModifier" @click="Modifier(index)">Modifier</button>
+                </td>
+            </tr>
+        </table>
+    </div>
+</body>
+</html>

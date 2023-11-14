@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="script.js" defer></script>
+    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script> <!-- script pour notre vueJS-->
+    <title>VUE JS3</title>
+</head>
+<body>
+    <div id="app"> <!-- En vue JS on doit mettre un id souvent "app" qui va appeler dans la parti script -->
+        <!-- pour afficher nous avons toujours les dbles accolades-->
+        {{titre}} <!-- Mettre en Majuscule  {{titre.toUpperCase()}} -->
+        <br> <!-- je met un br pour remttre mon titre en haut car le titre est en inline donc se met en bas-->
+        <!-- <img src="{{ image }}" alt="image"> l'image ne s'affiche pas car ne fonctionne pas, on doit avoir un attribut avec v-bind, bonne solution juste en dessous -->
+        <!------------------ Liaisons d'attribut ----------------->
+        <!-- <img v-bind:src="image" alt="image">   v-bind est l'attribut afin de lier, notre image apparaît  -->
+        <!-- <img :src="image" alt="image"> contraction, le :  remplace le v-bind -->
+
+        <!-------------------- Le rendu Conditionnel ------------------>
+        <!-- <p v-if="inStock">En stock 1</p> si notre variable inStock est en true, on affiche cela, si on met en false, on ne l'affiche plus, elle disparaît
+        <p v-else="inStock">En rupture de stock</p> ici on fait un sinon donc on a faux au dessus donc ici on arrive la, cela s'utilise comme en JS -->
+        <!-- <p v-if="inStock>=3">En stock {{inStock}}</p>  On peut faire cela est augmenter avec notre {{}}
+        <p v-else="inStock<3">En rupture de stock</p> le v représente VueJS -->
+
+            <!---------------- Afficher ou masquer --------------->
+            <p v-show="inStock">En stock</p> <!-- afin d'afficher le text si notre "inStock" est vrai et si il est false, il nous l'affiche pas, fonctionne un peu comme un v-if-->
+
+            <!------------ Suivre un model  ------------->
+            <!-- <input type="text" v-model="model" class="list">{{model}} tout ce qu'on tape et taper à côté de l'input, pas oublier de déclarer variable en js et sauvegarde dans variable, v-model est une convention
+            v-model de VueJS. Cette directive permet de lier un champs de formulaire à une variable.-->
+
+            <!-- Logique conditionnel chaînée-->
+            <p v-if="inventaire > 10">en stock {{inventaire}}</p>
+            <p v-else-if="inventaire <=10 && inventaire >2"> presque en Rupture {{inventaire}}</p> <!-- else if-->
+            <p v-else>En rupture {{inventaire}}</p>
+
+            <!-- Ternaire-->
+            <!-- {{ variable == 25 ? 'Modifier' : 'Ajouter'}} -->
+            <!--------------- Rendu de liste ------------------>
+            <ul>
+                <li v-for="detail in details">{{ detail }}</li>  <!-- boucle for in  ici on veut boucle for dans tableau élément par élément, on met {{ detail }} et pas {{ details }} pour afficher élément par élément-->
+            </ul>
+
+            <!----------------- variante rendu de liste ---------------->
+            <ul>
+                <li v-for="variant in variants" :key="variant.id">{{ variant.color }}</li> <!-- il vaut mieux binder une clé key avec ":key" dans les tableaux d'Objets-->
+            </ul>
+
+            <!--------------- Gestion des événements ---------------->
+            <div class="cart">Panier ({{ cart }})</div> 
+            <!-- <button class="button" v-on:click="Ajouter">Ajouter au Panier</button> nouvelle directive v-on:click (pour onclick) puis derrière on met la fonction de la façon d'une variable, nous avons créer la méthode dans JS dans methods -->
+            <button class="button" @click="Ajouter">Ajouter au Panier</button> <!-- on remplace v-on par @ pour une façon simplifié de la ligne du dessus-->
+            <button v-if="cart>0" class="button" @click="Supprimer">Supprimer au panier</button> <!-- si notre cart est > 0, on ajoute notre bouton supprimer sinon on ne l'affiche pas -->
+            
+            <!-- on bind une image vide dans js et ici on la bind également comme si dessus afin de pouvoir ajouter nos images -->
+            <img v-bind:src="image2" alt="image">
+            <div v-for="variant2 in variants2" :key="variant2.id" @mouseover="updateImage(variant2.image2)">
+                {{ variant2.color }}
+            </div>
+    </div>
+</body>
+</html>
