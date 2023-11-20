@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <script src="script.js" defer></script>
+    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+    <title>ExoVueJS</title>
+</head>
+<body>
+    <div id="app">
+        <div class="container">
+            <a href="" class="home" @click.prevent="showButtonsSection">Home</a>
+            <a href="" class="connexion" @click.prevent="showPasswordSection">Connexion</a>
+            <a href="" class="accès" @click.prevent="showAccessSection">Administration</a>
+        </div>
+
+        <div v-if="showMaxValueInput" class="maxValueInput">
+            <label for="maxValue">Valeur maximale du stock :</label>
+            <input type="number" v-model="maxValue" id="maxValue" placeholder="Max value" />
+            <button @click="setMaxValue">Valider</button>
+        </div>
+        
+
+        <div v-if="showButtons" class="buttonSection">
+            <button class="incrémenter" @click="incrementer">incrémenter</button>
+            <p v-if="showStock">Votre compteur est à : {{ stock }}</p>
+            <button class="décrémenter" @click="decrementer">décrémenter</button>
+        </div>
+        <div v-if="showPassword" class="password">
+            <label for="motDepasse">mot de passe :</label>
+            <input type="password" v-model="password" id="motDepasse" placeholder="Mot de passe" />
+            <button @click="validatePassword">Connexion</button>
+        </div>
+        <div v-if="showAccessMessage" class="accessMessage">
+            <p>Administration <br> welcome</p>
+        </div>
+    </div>
+</body>
+</html>
