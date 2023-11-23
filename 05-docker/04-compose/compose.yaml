@@ -1,0 +1,65 @@
+# yaml: format utilisé config pour stocker info, attention au indentation, très important en yaml
+# on lie tout nos dossier pour créer le network
+
+# web est dans service et build est dans web, voila pourquoi il y a les indantations
+
+# build . pour dire on le met ici
+
+# restart : si crash il va se relancer
+
+# port: ! 80 ne doit pas changer et 8080, on choisit le port ou on veut placer
+
+# Les volumes en Docker sont utilisés pour partager des données entre des conteneurs Docker ou entre le système hôte et un conteneur. Ils permettent de persister les données même lorsque le conteneur est arrêté. Dans votre exemple, vous avez configuré un volume avec ./var/www/html. Cela signifie que le répertoire local var/www/html sur votre machine hôte sera monté dans le conteneur. Cela peut être utile pour partager des fichiers, des configurations ou d'autres données avec le conteneur.  monte le répertoire local ./var/www/html dans le conteneur, probablement pour partager des fichiers ou des données avec le serveur web (par exemple, le contenu du site web).
+
+# volumes : .:/var/www/html   .:  Cela fait référence au répertoire local actuel où se trouve le fichier Docker Compose. Le point (.) représente le répertoire courant. Cela signifie que tous les fichiers et sous-répertoires du répertoire local seront partagés avec le conteneur. /var/www/html : C'est le chemin du répertoire dans le conteneur où les données seront montées. Dans ce cas, cela ressemble au chemin typique d'un serveur web (Apache ou Nginx) qui s'attend à trouver les fichiers du site dans /var/www/html.
+
+# environnement : Les variables d'environnement sont des valeurs dynamiques qui peuvent être lues par le système d'exploitation ou par des applications à l'intérieur d'un conteneur Docker. Dans votre exemple, vous avez défini une variable d'environnement appelée SUPER_ENVIRONNEMENT_VARIABLE avec la valeur "Mon Super Site". Cette variable d'environnement sera accessible à l'intérieur du conteneur, et vous pouvez utiliser ces variables pour configurer le comportement de votre application ou de votre serveur web.
+
+# attention, mettre espace après un "-"
+
+# mysql est mis dans services, voir indantation : En résumé, cette configuration lance un conteneur MariaDB avec un mot de passe root spécifié, expose le port 3308 sur le système hôte, et utilise un volume pour persister les données de la base de données en dehors du conteneur (volumes: quand initialise la base de données, va être chargé automatiquement) .C'est le nom du service que vous déclarez dans un fichier de configuration Docker Compose. Ce service utilise l'image Docker de MariaDB pour créer un conteneur, ce qui peut sembler un peu déroutant au premier abord.
+
+# va lancer mysql avant services
+services:
+  web:
+    build: .
+    container_name: monSuperServerApache
+    restart: always
+    ports:
+      - "8080:80"
+    volumes:
+      - .:/var/www/html
+    environment:
+      - SUPER_ENVIRONNEMENT_VARIABLE=Mon Super Site
+  mysql: 
+    image: mariadb
+    container_name: monSuperServerMariadb
+    restart: always
+    environment:
+      - MARIADB_ROOT_PASSWORD=root
+    ports:
+      - "3308:3306"
+    volumes:
+      - ./mysql.sql:/docker-entrypoint-initdb.d/mysql.sql
+  phpmyadmin: 
+    image: phpmyadmin
+    container_name: serverPHPMyAdmin
+    restart: always
+    depends_on: 
+      - mysql
+    ports:
+      - "8081:80"
+    environment:
+      PMA_ARBITRARY: 1
+      PMA_HOST: mysql
+
+ # ensuite dans le terminal, à l'endroit où l'on a le fichier, ici 05-docker\04-compose> : on fait :       docker compose up
+ # on obtient sur docker notre container qui conteint lui même 3 container 
+ # si je veux le faire à la maison: je fais juste un docker compose up
+ # ctrl c pour stopper 
+ # pour supprimer nos conteneurs: docker compose rm
+
+
+ # docker-compose -p cours-docker up -d                  docker-compose : C'est la commande principale pour travailler avec Docker Compose. Elle vous permet de construire, démarrer et gérer des applications multi-conteneurs.  -p cours-docker : Cela spécifie un nom de projet pour votre configuration Docker Compose. Le nom du projet est utilisé pour préfixer les noms des conteneurs, des réseaux et des volumes créés par Docker Compose. Dans cet exemple, le projet est nommé "cours-docker".   up : C'est l'option qui indique à Docker Compose de démarrer les services définis dans le fichier Docker Compose.   -d : Cette option signifie "détaché". Elle permet d'exécuter les conteneurs en arrière-plan, ce qui libère votre terminal pour d'autres commandes sans bloquer l'affichage des journaux des conteneurs.
+
+# Pour stopper   docker-compose -p cours-docker up -d    on fait  :    docker compose -p cours-docker stop   et si on veut supprimer  après avoir stopper : docker compose -p cours-docker down et pour redémarrer docker compose -p cours-docker start
