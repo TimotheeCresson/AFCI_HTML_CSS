@@ -47,9 +47,149 @@ services:
       - MONGO_INITDB_ROOT_PASSWORD=root
     ports:
       - "27018:27017"
+  # on installe diverse serveur, php... pour les cours back
+  # avant de commencer une base de données, on le schématise
+#voir exercice-database et cahier
 
-      # pour lancer docker après l'avoir ouvert :    docker compose -p cours-back-end up -d
-      # on installe diverse serveur, php... pour les cours back
 
-      # avant de commencer une base de données, on le schématise
-  #voir dans carnet
+
+
+# pour lancer docker après l'avoir ouvert :    docker compose -p cours-back-end up -d    docker-compose: C'est la commande principale pour interagir avec Docker Compose.   -p cours-back-end: Cela spécifie un nom de projet personnalisé pour votre application.   -up  permet le démarrage   -d signifie en arrière plan (les conteneurs seront exécutés en arrière-plan)
+
+#   docker exec -it serverMySQL bash     afin de se connecter avec bash
+
+# mariadb -u root -p             commande pour se connecter à un serveur MariaDB,  mariadb: C'est le client en ligne de commande pour MariaDB, qui est un système de gestion de base de données. Le client MariaDB est utilisé pour interagir avec un serveur MariaDB.  -u root: utilisateur qu'on'utilisez pour vous connecter au serveur MariaDB. Ici l'utilisateur est "root". L'utilisateur "root" est généralement le superutilisateur qui a des privilèges étendus sur la base de données.
+
+#   on rentre root mais n'écrit pas, on appuye sur entré   puis     CREATE USER "Timothee"@"localhost" IDENTIFIED BY "chaussette";     chaussette étant le mot de passe et ne pas oublier le  ";"   à la fin
+
+#    Grant: donne droit ,         all privileges, tous les privileges, sur quoi il a les droits : on * (toutes bases de données et tables)   :         GRANT ALL PRIVILEGES ON * . * TO "Timothee"@"localhost";        (à la place de all privilèges , on peut mettre lesquels on a le droit:  DROP, DELETE)
+
+# FLUSH PRIVILEGES;      pour sauvegarder ce qu'on a fait, pour confirmer nos changements
+
+# REVOKE DELETE ON * . * FROM "Timothee"@"localhost";     pour enlever le droit de delete
+
+# quit;   pour quitter mariadb ici
+
+#  mariadb -u Timothee -p    on se connecte au serveur mariadb  avec le nom d'utilisateur Timothee
+
+# SHOW GRANTS FOR "Timothee"@"localhost";          pour pouvoir voir tous les grants (soit tous les droits permis)
+
+# Select User FROM mysql.user;     pour voir tous les utilisateurs
+
+# ALTER USER "Timothee"@"localhost" IDENTIFIED BY "machin";    afin de changer le mot de passe "chaussette" prédéfini auparavant par "machin"
+
+# DROP USER "Timothee"@"localhost";     pour supprimer l'utilisateur
+
+
+
+####################
+# Création de base de donnée
+#####################
+
+# CREATE DATABASE firstBDD;    crée une base de donnée appelé "firstBDD"
+
+# SHOW DATABASES;  voir toutes les bases de données
+
+# mySQL ne prend pas en compte les majuscules, il traduit donc avec des minuscules
+
+#  USE firstBDD   pour se déplacer dans firstDBB  pour utiliser cette base de donnée
+
+#####
+#Création table 
+#####
+
+# exemple création table :  CREATE TABLE users(id int NOT NULL AUTO_INCREMENT, username varchar(50) NOT NULL, email varchar(255) NOT NULL, password text NOT NULL, active bool DEFAULT 0, createdAt datetime DEFAULT CURRENT_DATE(), PRIMARY KEY (id), UNIQUE(id), UNIQUE(email));   automatiquement incrémentée à chaque nouvel enregistrement (AUTO_INCREMENT). L'auto-incrémentation est souvent utilisée pour garantir que chaque enregistrement a une clé primaire unique.    NOT NULL (pas le droit d'être vide)    on donne a "active" une valeur par défaut de 0 (faux) pour indiquer que l'utilisateur n'est pas actif, et "createdAt" aura une valeur par défaut de la date actuelle.
+
+# active bool : voir si l'utilisateur est actif ou non
+
+# supprimer table : DROP TABLE users;
+
+# SHOW CREATE TABLE users;   voir toutes les tables utilisateurs déjà créé
+
+# SHOW TABLES; voir toutes les tables dans la base de donnée
+
+# ALTER TABLE users MODIFY COLUMN createdAt datetime DEFAULT CURRENT_TIMESTAMP;  pour modifier notre table, ici on modifie createdAt   CURRENT_TIMESTAMP date et l'heure actuelles du système   CURRENT_DATE renvoie la date sans l'heure
+
+# ALTER TABLE users ADD birthday date NOT NULL;    pour rajouter birthday dans notre table 
+
+#  ALTER TABLE users DROP COLUMN birthday;        supprimer la colonne concerné
+
+###### 
+
+#  INSERT INTO users (username, email, password) VALUES ('Maurice', 'mo@gmail.com', 'chausette');           pour ajouter un utilisateur dans la table 'users'    (attention à l'ordre dans les parenthèse, ici username en premier donc Maurice en premier dans l'autre)
+
+# pour en créer 2 : INSERT INTO users (username, email, password) VALUES ('Maurice2', 'mo2@gmail.com', 'chausette'),("Maurice3","mo3@gmail.com", "chaussette");
+
+# SELECT users.username, users.email FROM users;    récupère les colonnes "username" et "email" de la table "users". Cette requête retournera tous les enregistrements de la table "users" avec uniquement les colonnes spécifiées dans le résultat.
+
+# SELECT username FROM users WHERE id = 8;   on peut changer l'id en reprenant cette commandde et en en mettant un autre
+
+# SELECT username, email FROM users WHERE email LIKE '%gmail.com';
+# SELECT username, email FROM users WHERE email LIKE "%il%";
+# SELECT username, email FROM users WHERE email LIKE "%il%" AND email LIKE "%gmail.com";   username, email spécifie les colonnes que vous souhaitez récupérer.  FROM users indique la table à partir de laquelle vous récupérez les données.   WHERE email LIKE "%il%" AND email LIKE "%gmail.com" filtre les résultats pour inclure uniquement les enregistrements où la colonne "email" contient la sous-chaîne "il" et se termine par "gmail.com". Les clauses AND permettent de combiner plusieurs conditions.
+
+# SELECT username, email FROM users WHERE username  LIKE "%il%" AND email LIKE "%gmail.com";           cherche des enregistrements dans la table "users" où le nom d'utilisateur contient la sous-chaîne "il" et où l'adresse e-mail contient la sous-chaîne "gmail.com".
+
+#   SELECT username, email FROM users WHERE email  like "%gmail.com" OR email LIKE "%laposte.net";          recherche des enregistrements dans la table "users" où l'adresse e-mail contient soit la sous-chaîne "gmail.com" soit la sous-chaîne "laposte.net".
+
+#  SELECT username, email FROM users WHERE NOT email LIKE "%gmail.com";    nous retourne tous ceux qui non pas gmail.com
+
+# SELECT username FROM users WHERE username <> "Maurice"       je veux sélectionné les usernames qui ont un username différent de Maurice
+
+#  SELECT id, username FROM users WHERE id >= 5 and id <= 8;   on cherche les utilisateurs qui ont un id compris qui est plus grand que 5 et plus petit que 8 
+
+# SELECT id, username FROM users WHERE id  BETWEEN 5 AND 8;   on cherche les utilisateurs qui ont un id compris entre 5 et 8 
+
+# SELECT id, username FROM users WHERE username IN ("Maurice", "Hypolite", "Florestant");  pour sélectionner les prénoms dans notre parenthèse
+
+# SELECT username FROM users WHERE username IN (SELECT username FROM users WHERE email LIKE "%gmail%");  rechercher des utilisateurs dont l'adresse e-mail contient la sous-chaîne "gmail", puis elle sélectionne les noms d'utilisateur de ces utilisateurs.
+
+# SELECT username FROM users WHERE password IS NULL;   pour récupérer le résultats de cette colonne qui est nulle
+
+#  SELECT id, username, createdAt FROM users ORDER BY id;         pour ordonner nos colonnes  selon l'id
+
+# SELECT id, username, createdAt FROM users ORDER BY id  DESC;     pour ordonner nos colonnes  selon l'id par ordre descroissant et (ASC pour ordre ascendant)
+
+# SELECT username, active FROM users ORDER BY active DESC;     trie par ordre décroissant de l'état d'activité de l'utilisateur     on obtient un trie dans un trie
+
+##########
+# limite des offsets 
+#########
+
+# SELECT username, id FROM users LIMIT 5;   je veux que les 5 premiers résultats 
+
+# SELECT username, id FROM users LIMIT 5 OFFSET 3;     Offset 3 : on fait sauté les 3 premiers résultats utilisé souvent pour la pagination  (ici on commence donc à 5 puis 6, 7,8,9) selon le nombre restant
+
+########### 
+# Bonus
+##########
+
+# DELETE FROM users  pour supprimer le contenue de toute notre table
+
+# DELETE FROM users WHERE username = "Maurice";     on supprimer spécifiquement le username "Maurice"
+
+# UPDATE users SET active = 1, createdAt = CURRENT_TIMESTAMP;  on supprime pour tous les utilisateurs 
+
+# UPDATE users SET active = 1, createdAt = CURRENT_TIMESTAMP WHERE email LIKE "%gmail.com";    pour les utilisateurs qui on une adresse gmail.com
+
+# "%gmail.com" : utilisateurs avec une adresse e-mail contenant "gmail.com" seront affectés.     "%gmail.com%" :  L'utilisation de % avant et après "gmail.com" dans le motif LIKE permet de rechercher cette sous-chaîne n'importe où dans la colonne "email".
+
+# SELECT DISTINCT password FROM users;    pour récupérer que les password qui sont différents (si 2 mêmes, on en récupère qu'un seul)
+
+# SELECT COUNT(id) FROM users;   pour savoir combien j'ai d'id dans ma requête
+
+# SELECT COUNT(id) FROM users WHERE email LIKE "%gmail%";
+
+# SELECT COUNT(id) AS TotalUser FROM users WHERE email LIKE "%gmail%";   renomme la colonne résultante COUNT(id) en "TotalUser". 
+
+# SELECT username as u FROM users; renomme username en u
+
+# SELECT username from users u;  
+
+# SELECT AVG(id) FROM users   (avg pour average pour avoir la moyenne)  (sum à la place pour la somme,  min et max pour le minimum et maximum)
+
+# SELECT MONTH(createdAt) FROM users;   on récupère les mois dans createdAt
+
+# SELECT CONCAT(username, " : ", email) As listUser FROM users;     combiner les valeurs des colonnes "username" et "email" dans une seule chaîne et on la nomme listUser
+
+# SELECT CAST((SELECT COUNT(id) FROM users WHERE email LIKE "%gmail%") / (SELECT COUNT(id) FROM users)*100 AS INT) AS prc;   convertir un résultat de calcul en un entier. Elle calcule le pourcentage d'utilisateurs dont l'adresse e-mail contient la sous-chaîne "gmail.com"   (on peut mettre float à la place de int)
