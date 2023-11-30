@@ -1,3 +1,19 @@
 {
-    "liveServer.settings.port": 5503
+    "liveServer.settings.port": 5503,
+    "sqltools.connections": [
+        {
+            "mysqlOptions": {
+                "authProtocol": "default",
+                "enableSsl": "Disabled"
+            },
+            "previewLimit": 50,
+            "server": "localhost",
+            "port": 3302,
+            "driver": "MariaDB",
+            "name": "FirstBDD",
+            "database": "firstBDD",
+            "username": "root",
+            "askForPassword": true
+        }
+    ]
 }

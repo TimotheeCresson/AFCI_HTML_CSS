@@ -52,7 +52,7 @@ services:
 #voir exercice-database et cahier
 
 
-
+# faire un compose.yaml et un dockerfile 
 
 # pour lancer docker après l'avoir ouvert :    docker compose -p cours-back-end up -d    docker-compose: C'est la commande principale pour interagir avec Docker Compose.   -p cours-back-end: Cela spécifie un nom de projet personnalisé pour votre application.   -up  permet le démarrage   -d signifie en arrière plan (les conteneurs seront exécutés en arrière-plan)
 
@@ -193,3 +193,117 @@ services:
 # SELECT CONCAT(username, " : ", email) As listUser FROM users;     combiner les valeurs des colonnes "username" et "email" dans une seule chaîne et on la nomme listUser
 
 # SELECT CAST((SELECT COUNT(id) FROM users WHERE email LIKE "%gmail%") / (SELECT COUNT(id) FROM users)*100 AS INT) AS prc;   convertir un résultat de calcul en un entier. Elle calcule le pourcentage d'utilisateurs dont l'adresse e-mail contient la sous-chaîne "gmail.com"   (on peut mettre float à la place de int)
+
+
+########
+# pour y réaccéder
+#############
+
+#docker exec -it serverMySQL bash
+#mariadb -u root -p                   mdp: root
+#use firstBDD
+
+
+
+# SELECT id, (email LIKE "%gmail%") as gmail FROM users;       récupérer les identifiants d'utilisateurs et un indicateur booléen indiquant si l'adresse e-mail contient "gmail" à partir d'une table appelée "users" dans une base de données
+
+# SELECT COUNT(id), (email LIKE "%gmail%") as gmail FROM users;       compter le nombre d'identifiants d'utilisateurs et créer un indicateur booléen indiquant si l'adresse e-mail contient "gmail" à partir de la table "users". 
+
+# SELECT COUNT(id), (email LIKE "%gmail%") as gmail FROM users GROUP BY gmail HAVING COUNT(id) >= 5;     compter le nombre d'identifiants d'utilisateurs et créer un indicateur booléen indiquant si l'adresse e-mail contient "gmail", tout en regroupant les résultats en fonction de la valeur de cet indicateur.     HAVING COUNT(id) >= 5   filtre ces groupes pour inclure uniquement ceux qui ont un décompte d'au moins 5.    GROUP BY permet de créer des groupes
+
+# l'ordre est imprtant, on commence toujours par un SELECT, ensuite il y a un FROM   pouvant être suivant du WHERE    
+#  HAVING suit uniqement un GROUP BY
+
+##########
+# clé étrangère
+##########
+
+
+#  CREATE TABLE messages (id int NOT NULL AUTO_INCREMENT, content text NOT NULL, createdAt datetime DEFAULT CURRENT_TIMESTAMP, UserId int NOT NULL, PRIMARY KEY(id), UNIQUE(id), CONSTRAINT fk_userId FOREIGN KEY (userId) REFERENCES users(id));    on rajoute une contrainte(règle) ajouté à notre table, une clé etrangère(userId) qui fait référence à la clé primaire(id) de la table users. Cela signifie que chaque utilisateur dans la table messages doit avoir un correspondant dans la table users.
+
+#Contrainte (Constraint) : En SQL, une contrainte est une règle qui est définie pour les données dans une table. Elle est utilisée pour garantir l'intégrité des données. Les contraintes peuvent être appliquées à une ou plusieurs colonnes dans une table. Les types courants de contraintes incluent la clé primaire, la clé étrangère, la contrainte UNIQUE, et d'autres.
+
+#Clé Étrangère (Foreign Key) : Une clé étrangère est une colonne ou un ensemble de colonnes dans une table qui fait référence à la clé primaire d'une autre table. Elle établit une relation entre les deux tables. Les clés étrangères sont utilisées pour maintenir l'intégrité référentielle entre les tables. Elles garantissent qu'une valeur dans la colonne de la clé étrangère correspond à une valeur existante dans la colonne de la clé primaire de la table référencée.
+
+#REFERENCES : Lorsque vous déclarez une clé étrangère, vous utilisez la clause REFERENCES pour spécifier la table et la colonne à laquelle la clé étrangère fait référence. Cela établit la relation entre les deux tables. Par exemple, dans la requête que vous avez fournie, la clause REFERENCES users(id) indique que la clé étrangère UserId dans la table messages fait référence à la colonne id dans la table users.
+
+
+# INSERT INTO messages (content, UserId) VALUES ("bla bla bla", (SELECT id FROM users WHERE username = "Basile"));     insère une nouvelle ligne dans la table messages avec le contenu "bla bla bla" et l'ID de l'utilisateur dont le nom d'utilisateur est "Basile"       l'utilisateur "Basile" existe dans la table users et que la clé étrangère UserId dans la table messages fait référence à la clé primaire id de la table users.
+
+# DELETE FROM users WHERE username = "Basile";  ne fonctionne pas car clé étrangère bloque par défaut la suppression, tant que les messages sont encore liés aux utilisateurs, on ne peut pas le supprimer
+
+# ALTER TABLE messages DROP FOREIGN KEY fk_userId;        utilisée pour supprimer une contrainte de clé étrangère de la table messages. Voici une explication détaillée de cette instruction :    ALTER TABLE messages : Indique que vous allez apporter une modification à la structure de la table messages. DROP FOREIGN KEY fk_userId; : Spécifie que vous allez supprimer la contrainte de clé étrangère ayant le nom "fk_userId".   fk_userId est le nom de la contrainte de clé étrangère. Lorsque vous créez une clé étrangère avec une contrainte nommée, il est courant de spécifier un nom pour cette contrainte, et dans ce cas, le nom est "fk_userId"
+
+#  ALTER TABLE messages ADD CONSTRAINT fk_userId FOREIGN KEY (userId) REFERENCES users(id) ON DELETE CASCADE ON UPDATE CASCADE;           on remet une nouvelle contrainte à notre clé étrangère qu'on a rerajouter  ON DELETE CASCADE : Spécifie l'action à effectuer lorsque la ligne correspondante dans la table parente (users) est supprimée. Dans ce cas, "CASCADE" signifie que si une ligne dans la table users est supprimée, toutes les lignes correspondantes dans la table messages seront également supprimées.    ON UPDATE CASCADE : Spécifie l'action à effectuer lorsque la valeur de la clé primaire dans la table parente (users) est mise à jour. Ici, "CASCADE" signifie que si la valeur de la clé primaire dans la table users est mise à jour, la valeur correspondante dans la table messages sera également mise à jour.      
+# On peut donc faire DELETE FROM users WHERE username ="Basile";    afin de supprimer l'utilsateur basile avec  les messages ajoutés   grâce à la commande si dessus
+
+#  SELECT * FROM messages;   regarder tous les messages
+
+
+
+###########
+# Les jointures
+#############
+################ on rajoute des messages:
+# INSERT INTO messages (content, UserId) 
+# VALUES 
+# ('Bonjour', (SELECT id FROM users WHERE username = "Cécilius")), 
+# ('mange du pain', (SELECT id FROM users WHERE username = "Cécilius")), 
+# ('Pizza time', (SELECT id FROM users WHERE username = "Cécilius")), 
+# ('salade niçoise ou rien', (SELECT id FROM users WHERE username = "Cécilius")), 
+# ('Vive les regex', (SELECT id FROM users WHERE username = "Elzemond")), 
+# ('JS logic', (SELECT id FROM users WHERE username = "Elzemond")), 
+# ('Coucou', (SELECT id FROM users WHERE username = "Elzemond")), 
+# ('Bonsoir', (SELECT id FROM users WHERE username = "Hypolite")), 
+# ('Je fais la loi !', (SELECT id FROM users WHERE username = "Hypolite")), 
+# ('Ne regarde pas derrière toi.', (SELECT id FROM users WHERE username = "Hypolite")), 
+# ('Connaissez vous les trois coquillages?', (SELECT id FROM users WHERE username = "Hypolite")), 
+# ('42', (SELECT id FROM users WHERE username = "Hypolite")), 
+# ('salut', (SELECT id FROM users WHERE username = "Florestan")), 
+# ('mangez 5 fruits et légumes par jour', (SELECT id FROM users WHERE username = "Florestan")); 
+##########################################
+
+# SELECT username, content, createdAt FROM users INNER JOIN messages ON userId = id;  (ne fonctionne pas car createdAt existe dans message et dans users il faut donc précisé, voir ci dessous)
+# SELECT username, content, messages.createdAt FROM users INNER JOIN messages ON userId = users.id;
+# on peut faire des alias: SELECT u.username, m.content, m.createdAt FROM users u INNER JOIN messages m ON m.userId = u.id;  (cette ligne est la même que celle au dessus) récupère les colonnes username de la table users, ainsi que les colonnes content et createdAt de la table messages, pour toutes les lignes où il y a une correspondance entre la colonne userId de la table messages et la colonne id de la table users.
+
+# SELECT u.username, m.content, m.createdAt FROM users u LEFT JOIN messages m ON m.userId = u.id;   (Left à la place de inner ): inner join récupère ce qui à en commun    et left join récupère ce qu'il y a en commun mais aussi ce q'uon les utilisateurs,  il existe aussi right : ici il va récupérer ce qu'il y a en commun et  les messages    left et right prenne l'argument qui est à gauche ou à droite(ici pour left users   et si right messages)
+
+# SELECT u.username, m.content, m.createdAt FROM users u CROSS JOIN messages m; ( le cross join essaye totues les compositions possibles  si  on a une talbe avec A B C et 1 2 3, il va faire A1, A2, A3, B1, B2 ...)
+
+# SELECT u1.username AS Name1, u2.username AS Name2 FROM users u1, users u2 WHERE u1.id != u2.id AND u1.createdAt = u2.createdAt;     (!= : différent, peut s'écrire égalment <>)  donne tous les utilisateurs créer au même moement able 1 et 2 mais quand on un id différents, regarde si résultat est bon dans les 2 cas
+
+# SELECT u.username, m.content, m.createdAt FROM users u LEFT JOIN messages m ON m.userId = u.id WHERE m.userId IS NULL;   ceci est un excluding join, on a gardé que ce qui est NULL , on obtient les utilisateurs inactif qui non pas posté de message
+
+######################
+# Sauvegarder notre base de donnée
+######################
+
+# pour faire export, il faut être déconnecter 
+
+# exit;
+
+# mariadb-dump -u root -p firstBDD > sauvegarde.sql;    dans container mariadb on sauvegarde firstBDD qu'on met dans un fichier sauvegarde.sql
+# on obtient mdp: ici root 
+# puis pour vérifier sauvegarder   on  met   ls  (on le retrouve dans files dasn notre container)  on obtient des données avec tmp en vert
+# ensuite on quitte le container docker   en refesant exit  
+# ensuite avec  cd .\06-php\  je vais dans mon document 06-php pour mettre ma sauvegarde dedans 
+# docker cp serverMySQL:sauvegarde.sql .          afin d'y mettre ma sauvegarde, je vais chercher ma sauvegarde dans serveMySQL q'uon avait appelé sauvegarde.sql  puis on met un  .   pour dire de le mettre dans cette emplacement ici .\06-php\  vu que je suis déjà au bonne endroit
+# on obtient un fichier appelé sauvegarde.sql (il crée que les tables et insertion, il faudra juste donc créer la base de données  :  CREATE DATABASE firstBDD;    crée une base de donnée appelé "firstBDD")  
+
+# rm sauvegarde.sql   supprimer sauvegarde de notre container
+
+# pour copier notre sauvegarde et la mettre dans notre container, on fait l'inverse   docker cp sauvegarde.sql  serverMySQL:.
+
+# en étant sur le container MariaDB[(none)] : drop database firstBDD supprimer base données
+# create database firstBDD  pour la créer mais vu qu'on l'avait supprimer, elle est vide 
+# exit  on la quitte
+
+# mariadb -u root -p firstBDD < sauvegarde.sql  pour récupérer notre sauvegarde dans notre fichier   puis mariadb -u root -p   pour accéder au serveur mariadb
+# use firstBDD
+
+# sur le côté extension sql cest un cylindre, faire add new connection ensuite mariaDB  connectionname: firstBDD   port: voir container serverMySQl (premier port ici c'est 3302   car 3302:3306)   username: root   password sélectionner: ask on connect   Attention aux espaces   tester connection, demande mot de passe ici root puis save connection si cest bon    puis ensuite  faire connect, il demande de nouveau le mdp (root)
+# on peut noter ce qu'on veut   SELECT * FROM messages;    et le voir en faisant Run on active connection  qui se trouve juste au dessus
+
+# dans les container  on a serverPHPMyAdmin, on peut le lancer avec le symbole carré avec une flèche à l'intérieur puis ensuite on obtient une page, on met utilisateur root et mdp root
+# Ensuite dans firstBDD, on fait nouvelle table
