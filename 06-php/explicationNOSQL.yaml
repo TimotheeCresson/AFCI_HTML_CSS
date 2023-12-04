@@ -1,0 +1,81 @@
+# Pour voir SQL, aller dans compose.yaml 
+
+
+#################################
+# No SQL      souvent utilisé avec mongodB
+################################
+# on ouvre docker
+# On ouvre invite de commande 
+
+# on rentre  docker exec -it serverMongo bash      selon serverMongo 
+
+# ensuite on rentre mongosh -u root -p        et mdp: root 
+
+# use admin       pour se mettre sur base de données admin
+
+# on crée un utilisateur :  db (toutes les tables auquels on donne les droits)          db.createUser({user:"Maurice", pwd:"password", roles:[{role:"root", db:"admin"}]})     /   roles: [...]: Cela spécifie les rôles que l'utilisateur aura. Les rôles définissent les autorisations de l'utilisateur. Dans cet exemple, un seul rôle est défini./     role: "root": Cela spécifie le rôle attribué à l'utilisateur. "root" est un rôle très puissant avec des privilèges étendus. Cela donne à l'utilisateur des autorisations administratives complètes.
+
+#  pour changer valeur   db.updateUser("Maurice", {pwd:"chaussette"})    la on met à jour, on change le mdp password par chaussette
+
+# db.getUsers()     pour afficher tous les utilisateurs de la base de donnée
+# pour clean la page :       cls
+
+# si on utilise use sur quelquechose qui n'est pas créé, le crée mais tant quel est vide, si je quitte, elle est supprimée:  use myFirstBDD          ici on crée une base de donnée myFirstBDD
+
+# show databases pour voir toutes les bases de données
+
+# db.dropDatabase() pour supprimer les bases de données
+
+# db.createCollection("users")     pour créer une table (appelé collection dans noSql)
+
+# show collections;     voir nos tables
+
+# pour supprimer collection:       db.test.drop();              db.nomdelacollection.drop();
+
+#      db.users.insertOne({username:"Charles", email:"ch@gmail.com"})             on insére un document dans notre collection soit une ligne      users est le nom de la collection
+
+# db.users.insertMany([{username:"Pierre", email:"pi@outlook.com"},{username:"Thomas",email:"toto@lasposte.net"}])    pour insérer plusieurs utilisateurs à la fois
+
+# db.users.find()      pour trouver plusieurs utilisateurs  
+
+# db.users.findOne()   pour trouver le premier utilisateur 
+
+#  db.users.find({username:"Charles"})   pour trouver l'utilisateur spécifié, on peut en chercher plusieurs à la fois, attention cette commande est sensible à la casse, si le prénom à une majuscule, il faut la mettre
+
+# pour vérifier l'âge,  db.users.find({age:{$ne:"18"}})   $eg: égal   , $lt: less than,  $lte (less than egal), $gt (greater than), $ne (none egal)
+
+# db.users.find({username:{$ne:"Pierre"}})
+
+# db.users.find({usernmae:{$in:["Pierre", "Thomas"]}})   on obtient les infos de Pierre et Thomas  ($in veut dire in ), pour cherhcer plusieurs infos, on utilise un tableau
+
+# db.users.find({username:{$nin:["Pierre", "Thomas"]}})   on obtient les tableaux sauf ce de Pierre et thomas ($nin :  not in )
+
+# db.users.find({$or:[{username:"Thomas"}, {email:/gmail.com$/}]})    on veut  les 2 utilisateurs, un ayant "Thomas" comme nom d'utilisateur et un autre avec gmail.com dans l'email   (ici /gmail.com$/ est une regex) et pour dire  ni l'un  ni l'autre :       db.users.find({$nor:[{username:"Thomas"}, {email:/gmail.com$/}]})
+
+# db.users.find({$and:[{username:"Charles"}, {email:/gmail.com$/}]})   pour chercher utilisateur qui contient les 2
+
+# db.users.updateOne({fruit:"pomme"}, {$set:{username:"Jean"}})  on rajoute à notre document fruit, une propriété à celle-ci : username:"Jean"  
+
+# db.users.deleteOne({fruit:"pomme"})    on supprime le document     pour supprimer plusieurs, on fait deleteMany
+
+# pour sortir   :  exit
+
+#######################
+# Exporter
+###################
+# pour exporter :   mongodump -u root     (mdp: root)
+# ls  pour voir nos données
+# cd dump  pour se mettre dans notre dossier 
+# cd myFirstBDD  on se met sur notre base de donnée
+# on refait un  ls    , on obtient un fichier .bson et un .json
+
+################
+# pour importer fichier depuis mongo
+###############
+# cd /    on revient à la racine
+# mongorestore -u root    (mdp: root)
+
+# db.dropDatabase() supprimer base de données
+
+
+# en noSql, les jointures avec join n'existe pas 
