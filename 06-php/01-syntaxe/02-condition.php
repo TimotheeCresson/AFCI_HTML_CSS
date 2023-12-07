@@ -1,6 +1,6 @@
 <?php
 /* 
-    rand retourne oar défaut une valeur aléatoire entre 0 et "getrandmax()"
+    rand retourne par défaut une valeur aléatoire entre 0 et "getrandmax()"
     Mais on peut lui donner en paramètre un nombre minimum et maximum
 */
 $r = rand(0,100);

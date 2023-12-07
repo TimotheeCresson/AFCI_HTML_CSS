@@ -40,7 +40,7 @@ var_export("Banane");
 
 // phpinfo(); affiche toute la configuration de PHP 
 // phpinfo();
-// Petit bonus, le raccourci <= permet d'ouvrir php juste pour un echo
+// Petit bonus, le raccourci <?= permet d'ouvrir php juste pour un echo
 ?>
 Test raccourci echo :
 <?= "Salut ! <hr>" ?>
@@ -137,7 +137,7 @@ echo $nom, "<br>";
 #------------------------------------
 // Quelques fonctions utiles
 #------------------------------------
-# La longeur du string :
+# La longueur du string :
 echo strlen($nom), '<br>';
 
 # Le nombre de mots :
@@ -251,7 +251,7 @@ var_dump($a);
 
 // Pour sélectionner un élément d'un tableau, on utilisera l'index de celui-ci :
 echo "<br>J'aime la $a[0] !<br>";
-// Pour connaître la taille d'un talbeau, on utilisera la fonction count() : 
+// Pour connaître la taille d'un tableau, on utilisera la fonction count() : 
 echo count($a), "<br>";
 
 // Pour ajouter un élément à mon tableau : 
@@ -284,7 +284,7 @@ var_dump($person); // on voit bien que age a été supprimé
 // Ce qui ne pose aucun problème sur un tableau associatif, mais sur un indexé  :
 echo "<br>";
 unset($a[1]);  // on supprime [1] soit pizza
-var_dump($a); // On constate que pizza est disparu du tableau   on obtient [0][2][3]
+var_dump($a); // On constate que pizza a disparu du tableau   on obtient [0][2][3]
 echo "<br>";
 // on se retrouve avec un trou, mais on peut réparer cela soit en réindexant tout dans un nouveau tableau : 
 $a = array_values($a);  // on ajoute de nouveau la case [1] mais sans la valeur pizza , on remet [0][1][2]
@@ -298,7 +298,7 @@ array_splice($a, 1, 1);  // Suppression de 1 élément à partir de l'index 1
 var_dump($a);  // on obtient [0][1]
 echo "<br>";
 
-// Optionnellement, on peut ajouter un 4ème argument pour fiare du remplacement
+// Optionnellement, on peut ajouter un 4ème argument pour faire du remplacement
 array_splice($b, 1, 1, ['pomme', "pamplemousse"]);  // on rajoute pomme en [1] et pamplemousse en [2]
 var_dump($b);  
 echo "<br>";
