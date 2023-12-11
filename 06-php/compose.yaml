@@ -50,7 +50,7 @@ services:
   # on installe diverse serveur, php... pour les cours back
   # avant de commencer une base de données, on le schématise
 #voir exercice-database et cahier
-
+# WSL 2 à télécharger et ensuite télécharger docker
 
 # faire un compose.yaml et un dockerfile 
 
