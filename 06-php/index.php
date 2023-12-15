@@ -4,31 +4,31 @@ require "./ressources/template/_header.php";
 ?>
     <ol class="sommaire">
         <li>
-            <h3>01 - Syntaxeeee :</h3>
+            <h3>01 - Syntaxe :</h3>
             <ol>
                 <li>
-                    <a href="./01-syntaxe/01-variable.php">Variables</a>
+                    <a href="/variables">Variables</a>
                 </li>
                 <li>
-                    <a href="./01-syntaxe/02-condition.php">Conditions</a>
+                    <a href="/conditions">Conditions</a>
                 </li>
                 <li>
-                    <a href="./01-syntaxe/03-boucle.php">Boucles</a>
+                    <a href="/boucle">Boucles</a>
                 </li>
                 <li>
-                    <a href="./01-syntaxe/04-fonction.php">Fonctions</a>
+                    <a href="/fonction">Fonctions</a>
                 </li>
                 <li>
-                    <a href="./01-syntaxe/05-include.php">Include</a>
+                    <a href="/include">Include</a>
                 </li>
                 <li>
-                    <a href="./01-syntaxe/06-a-session.php">session</a>
+                    <a href="/session">session</a>
                 </li>
                 <li>
-                    <a href="./01-syntaxe/07-date.php">Dates</a>
+                    <a href="/date">Dates</a>
                 </li>
                 <li>
-                    <a href="./01-syntaxe/08-a-header.php">header</a>
+                    <a href="/header">header</a>
                 </li>
                 <li>
                     <a href="./01-syntaxe/10-a-poo.php">POO part 1</a>

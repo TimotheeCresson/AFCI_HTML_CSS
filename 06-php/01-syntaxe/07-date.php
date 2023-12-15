@@ -1,6 +1,6 @@
 <?php 
 $title = "Gestion du Temps en PHP";
-require "../ressources/template/_header.php";
+require __DIR__. "/../ressources/template/_header.php";
 
 // si on souhaite utiliser le timestamp, on pourra utiliser la fonction :
 echo time(), "<br>";
