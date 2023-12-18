@@ -20,10 +20,12 @@ if($users):
                 <td><?= $u["username"] ?></td>
                 <td>
                     <a href="">Voir les messages</a>
+                    <?php if(isset($_SESSION["idUser"]) && $_SESSION["idUser"]==$u["idUser"]):?>
                     &nbsp;|&nbsp;
                     <a href="">éditer l'utilisateur</a>
                     &nbsp;|&nbsp;
                     <a href="">supprimer l'utilisateur</a>
+                    <?php endif;?>
                 </td>
             </tr>
         <?php endforeach;?>
