@@ -45,25 +45,25 @@ require "./ressources/template/_header.php";
             <h3>02 - Formulaire :</h3>
             <ol>
                 <li>
-                    <a href="./02-form/01-get.php">GET</a>
+                    <a href="./get">GET</a>
                 </li>
                 <li>
-                    <a href="./02-form/02-post.php">POST</a>
+                    <a href="./post">POST</a>
                 </li>
                 <li>
-                    <a href="./02-form/03-file.php">FILE</a>
+                    <a href="./file">FILE</a>
                 </li>
                 <li>
-                    <a href="./02-form/04-connexion.php">Connexion</a>
+                    <a href="./connexion">Connexion</a>
                 </li>
                 <li>
-                    <a href="./02-form/05-deconnexion.php">Déconnexion</a>
+                    <a href="./deconnexion">Déconnexion</a>
                 </li>
                 <li>
-                    <a href="./02-form/06-security.php">Sécurité</a>
+                    <a href="./security">Sécurité</a>
                 </li>
                 <li>
-                    <a href="./02-form/07-mail.php">Mailer</a>
+                    <a href="./mail">Mailer</a>
                 </li>
             </ol>
         </li>
@@ -80,7 +80,7 @@ require "./ressources/template/_header.php";
                     <h4>Exercice :</h4>
                     <ul>
                         <li>
-                            <a href="./03-crud/exercice/connexion.php">connexion</a>
+                            <a href="./connexionBDD">connexion</a>
                         </li>
                         <li>
                             <a href="./03-crud/exercice/deconnexion.php">déconnexion</a>

@@ -25,9 +25,9 @@ if (rand(0,100) < 50) {
     */
 }
 $title = "Gestion des headers de requête";
-require "../ressources/template/_header.php";
+require  __DIR__. "/../ressources/template/_header.php";
 // Sans paramètre, affihce le code de la page :
 echo http_response_code();
 echo "<br> Ceci est ma page 1 !";
-require "../ressources/template/_footer.php";
+require  __DIR__. "/../ressources/template/_footer.php";
 ?>

@@ -69,8 +69,8 @@ setcookie("PHPSESSID", "", time()-3600);
 */
 
 $title = "Session page 2";
-require "../ressources/template/_header.php";
+require __DIR__. "/../ressources/template/_header.php";
 echo $message ??"";
 echo "<a href='./06-a-session.php'>Page 1</a>";
-require "../ressources/template/_footer.php";
+require __DIR__. "/../ressources/template/_footer.php";
 ?>

@@ -13,7 +13,7 @@
 */
 session_start();
 $title = "Session page 1";
-require "../ressources/template/_header.php";
+require __DIR__. "/../ressources/template/_header.php";
 
 // On peut retrouver l'id de la session dans les cookies ou avec la fonction "session_id()"
 var_dump($_COOKIE, session_id()); // dans $_cookie, il y a tous les cookies dont notre identifiant de session qu'on retrouve aussi dans session_id(),
@@ -28,7 +28,7 @@ $_SESSION["username"] = "Maurice";
 ?>
 <a href="./06-b-session.php">Page 2</a>
 <?php 
-require "../ressources/template/_footer.php";
+require  __DIR__."/../ressources/template/_footer.php";
 ?>
 
 

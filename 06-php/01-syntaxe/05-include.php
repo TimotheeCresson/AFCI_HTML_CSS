@@ -6,13 +6,13 @@
 */
 $title = "Include"; // on va chercher cela dans "_header.php" et on peut donc changer le titre
 $mainClass = "includeNav"; // donne une classe à notre main
-require ("../ressources/template/_header.php");
+require __DIR__. "/../ressources/template/_header.php";
 /* 
     La seule différence entre require et include est le niveau d'erreur lancé :
         - require en cas de problème provoque une "fatal error" mettant fin au code
         - include lui lance un "warning" et le code continue
 */
-include("../ressources/template/_nav.php");
+include(__DIR__ . "/../ressources/template/_nav.php");
 ?>
 <div>
 </div>
@@ -23,7 +23,7 @@ include("../ressources/template/_nav.php");
     L'utilisation de "require_once" ou "include_once" règle ce problème.
     Car ces derniers avant d'inclure vérifient si le fichier n'a pas déjà été inclu (ils sont cela dit, un peu plus gourmand en ressource)
 */
-require("../ressources/template/_footer.php");
+require(__DIR__ . "/../ressources/template/_footer.php");
 // require("../ressources/template/_footer.php")
-require_once("../ressources/template/_footer.php");
+// require_once("../ressources/template/_footer.php");
 ?>

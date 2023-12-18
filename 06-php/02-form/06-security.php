@@ -53,7 +53,16 @@
     Ou bien un captcha pour bloquer ou ralentir les bots.  (création voir services  _captcha.php)
 
 */
-require "../ressources/services/_csrf.php";
+if (!function_exists('set_CSRF')) {
+    // Déclarer la fonction seulement si elle n'existe pas déjà
+    function set_CSRF() {
+        include_once(__DIR__ . "/../ressources/services/_csrf.php");
+    }
+}
+
+
+
+
 
 $error = $password = "";
 if ($_SERVER['REQUEST_METHOD']=== 'POST' && isset($_POST['password'])) {
@@ -90,7 +99,7 @@ if ($_SERVER['REQUEST_METHOD']=== 'POST' && isset($_POST['password'])) {
 }
 
 $title = "Sécurité";
-require "../ressources/template/_header.php"
+require __DIR__. "/../ressources/template/_header.php"
 ?>
 <!-- <form action="https://www.google.fr/search">
     <input type="text" placeholder="Comment allez vous?">
@@ -121,5 +130,5 @@ require "../ressources/template/_header.php"
     </div>
 <?php 
 endif;
-require "../ressources/template/_footer.php"
+require __DIR__. "/../ressources/template/_footer.php"
 ?>

@@ -4,7 +4,7 @@
     Si votre session ne sert qu'à la connexion, on peut tout simplement, tout supprimer
 */
 session_start();
-require "../ressources/services/_shouldBeLogged.php";
+require __DIR__. "/../ressources/services/_shouldBeLogged.php";
 shouldBeLogged(true, "/");
 unset($_SESSION); // vide la superglobal, plus besoin de recharger la page
 session_destroy();
