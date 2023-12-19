@@ -45,33 +45,33 @@ require "./ressources/template/_header.php";
             <h3>02 - Formulaire :</h3>
             <ol>
                 <li>
-                    <a href="./get">GET</a>
+                    <a href="/get">GET</a>
                 </li>
                 <li>
-                    <a href="./post">POST</a>
+                    <a href="/post">POST</a>
                 </li>
                 <li>
-                    <a href="./file">FILE</a>
+                    <a href="/file">FILE</a>
                 </li>
                 <li>
-                    <a href="./connexion">Connexion</a>
+                    <a href="/connexion">Connexion</a>
                 </li>
                 <li>
-                    <a href="./deconnexion">Déconnexion</a>
+                    <a href="/deconnexion">Déconnexion</a>
                 </li>
                 <li>
-                    <a href="./security">Sécurité</a>
+                    <a href="/security">Sécurité</a>
                 </li>
                 <li>
-                    <a href="./mail">Mailer</a>
+                    <a href="/mail">Mailer</a>
                 </li>
             </ol>
         </li>
-        <li>
+        <!-- <li>
             <h3>03 - CRUD :</h3>
             <ol>
                 <li>
-                    <a href="./03-crud/02-read.php">Liste Utilisateur</a>
+                    <a href="./userlist">Liste Utilisateur</a>
                 </li>
                 <li>
                     <a href="./03-crud/01-create.php">Inscription</a>
@@ -88,8 +88,8 @@ require "./ressources/template/_header.php";
                     </ul>
                 </li>
             </ol>
-        </li>
-        <li>
+        </li> -->
+        <!-- <li>
             <h3>04 - ROUTER :</h3>
             <ol>
                 <li>
@@ -110,30 +110,30 @@ require "./ressources/template/_header.php";
                     </ul>
                 </li>
             </ol>
-        </li>
+        </li> -->
         <li>
             <h3>05 - MVC :</h3>
             <ol>
                 <li>
-                    <a href="./05-mvc/">Liste Utilisateur</a>
+                    <a href="/userlist">Liste Utilisateur</a>
                 </li>
                 <li>
-                    <a href="./05-mvc/inscription">Inscription</a>
+                    <a href="/inscription">Inscription</a>
                 </li>
                 <li>
                     <h4>Exercice :</h4>
                     <ul>
                         <li>
-                        <a href="./05-mvc/connexion">Connexion</a>
+                        <a href="/connexionBDD">Connexion</a>
                     </li>
                     <li>
-                        <a href="./05-mvc/deconnexion">Déconnexion</a>
+                        <a href="/deconnexionBDD">Déconnexion</a>
                     </li>
                     </ul>
                 </li>
             </ol>
         </li>
-        <li>
+        <!-- <li>
             <h3>06 - POO :</h3>
             <ol>
                 <li>
@@ -155,7 +155,7 @@ require "./ressources/template/_header.php";
                 </li>
             </ol>
         </li>
-    </ol>
+    </ol> -->
 <?php 
 require "./ressources/template/_footer.php";
 ?>

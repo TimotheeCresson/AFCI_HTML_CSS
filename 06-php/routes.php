@@ -27,7 +27,19 @@ get("/connexion", "./02-form/04-connexion.php");
 get("/deconnexion", "./02-form/05-deconnexion.php");
 get("/security", "./02-form/06-security.php");
 
+// Section message
+// Voir message
+get("/message", function() {
+    require "./03-crud/controller/messageController.php";
+    listMessage();
+});
 
+// Créer message 
+// get("/createMessage", function() {
+//     require "./03-crud/controller/messageController.php";
+//     createMessage();
+// });
+any("/createMessage", "./03-crud/view/message/createMessage.php");
 
 
 
@@ -47,7 +59,7 @@ get("/userdelete", function() {
     deleteUser();
 });
 // Mise à jour
-get("/userupdate", function() {
+any("/userupdate", function() {
     require "./03-crud/controller/UserController.php";
     updateUser();
 });
@@ -58,7 +70,8 @@ any("/connexionBDD", function() {
     connexion();
 });
 
-get("/deconnexionBDD", function() {
+// Déconnexion
+get("/deconnexionBDD", function(){
     require "./03-crud/controller/AuthController.php";
     deconnexion();
 });

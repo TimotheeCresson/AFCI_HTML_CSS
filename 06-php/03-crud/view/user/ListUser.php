@@ -19,12 +19,14 @@ if($users):
                 <td><?= $u["idUser"] ?></td>
                 <td><?= $u["username"] ?></td>
                 <td>
-                    <a href="">Voir les messages</a>
+                    <a href="/message?id=<?= $u["idUser"] ?>">Voir les messages</a>
+                    &nbsp;|&nbsp;
+                    <a href="/createMessage?id=<?= $u["idUser"] ?>">Créer un message</a>
                     <?php if(isset($_SESSION["idUser"]) && $_SESSION["idUser"]==$u["idUser"]):?>
                     &nbsp;|&nbsp;
-                    <a href="">éditer l'utilisateur</a>
+                    <a href="/userupdate?id=<?= $u["idUser"] ?>">éditer l'utilisateur</a>
                     &nbsp;|&nbsp;
-                    <a href="">supprimer l'utilisateur</a>
+                    <a href="/userdelete?id=<?= $u["idUser"] ?>">supprimer l'utilisateur</a>
                     <?php endif;?>
                 </td>
             </tr>
