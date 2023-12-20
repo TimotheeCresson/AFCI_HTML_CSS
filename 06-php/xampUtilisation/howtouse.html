@@ -1,0 +1,28 @@
+<!-- Attention, ne pas oublier d'allumer son pc
+Ouvrir xamp
+démarrer apache et sql si besoin 
+nous allons à la racine soit notre disque dur C 
+- ensuite on ouvre le fichier xamp puis htdocs  (ici nous pouvons coller notre fichier php visual studio)
+le chemin est donc localhost/06-php    (nom du dossier) 
+
+Pour créer un raccourci, on ouvre xamp, dans config <browse> [Apache], ensuite on va dans config, puis dans extra et on ouvre avec visual studio le fichier vhosts.conf et on note notre raccourci 
+
+<VirtualHost *:80>
+    DocumentRoot "/xampp/htdocs/06-php"
+    ServerName php.localhost
+    ErrorLog "logs/php-error.log"
+    CustomLog "logs/php-access.log" common
+</VirtualHost>
+
+<VirtualHost *:80>
+    DocumentRoot "/xampp/htdocs/"
+    ServerName localhost
+    ErrorLog "logs/php-error.log"
+    CustomLog "logs/php-access.log" common
+</VirtualHost>
+
+ensuite redémarrer le serveur apache
+
+
+
+avec my sql, on peut cliquer sur admin pour lancer phpMyAdmin -->
