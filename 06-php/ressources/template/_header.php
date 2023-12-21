@@ -21,9 +21,20 @@
     <!-- On ouvre le body ici mais on ne le ferme pas, il sera fermé
     dans le footer. -->
     <main class="<?php echo $mainClass??"" ?>"> 
-
+    <!-- 
+        Si j'ai un message flash en session, alors je l'affiche 
+        Puis je le supprime de la session
+    -->
+        <?php if(isset($_SESSION["flash"])):?>
+            <div class="flash">
+                <?= $_SESSION["flash"] ?>
+            </div>
+        <?php 
+            unset($_SESSION["flash"]);
+        endif;
+        ?>
     <!--  
         si jamais on change une couleur, le serveur concerve la page actuelle en cache donc ne change pas la couleur, pour changer
         il faut vider le cache de la page web, on fait ctrl f5 ou mettre : 
         <link rel="stylesheet" href="/ressources/style/style.css?v=2"> ou un autre nombre pour que cela génére une nouvelle page
-     -->
+    -->

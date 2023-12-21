@@ -1,4 +1,6 @@
 <?php 
+// on met dans le model toutes les requête sql
+
 
 /* Le terme "CRUD" fait référence à un ensemble d'opérations de base souvent utilisées dans la manipulation des données dans les bases de données ou les systèmes d'information. CRUD est un acronyme qui représente les quatre opérations fondamentales :
 

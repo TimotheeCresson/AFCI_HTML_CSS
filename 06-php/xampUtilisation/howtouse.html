@@ -8,7 +8,7 @@ le chemin est donc localhost/06-php    (nom du dossier)
 Pour créer un raccourci, on ouvre xamp, dans config <browse> [Apache], ensuite on va dans config, puis dans extra et on ouvre avec visual studio le fichier vhosts.conf et on note notre raccourci 
 
 <VirtualHost *:80>
-    DocumentRoot "/xampp/htdocs/06-php"
+    DocumentRoot "/xampp/htdocs/AFCI_HTML_CSS/06-php"
     ServerName php.localhost
     ErrorLog "logs/php-error.log"
     CustomLog "logs/php-access.log" common
@@ -25,4 +25,10 @@ ensuite redémarrer le serveur apache
 
 
 
-avec my sql, on peut cliquer sur admin pour lancer phpMyAdmin -->
+avec my sql, on peut cliquer sur admin pour lancer phpMyAdmin
+
+jai importer le sql de docker 
+
+pour lancer my sql il faut mettre la route du dossier ici  DocumentRoot "/xampp/htdocs/AFCI_HTML_CSS/06-php"
+puis dans ressources/config/ _blogConfig mettre  "password"=>$_ENV["DB_PASSWORD  "]??"",  au lieu de "password"=>$_ENV["DB_PASSWORD  "]??"root", car phpmyAdmin de xamp par défaut n'a pas de password
+-->

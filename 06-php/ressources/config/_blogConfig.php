@@ -14,7 +14,7 @@ return [
     "user"=>$_ENV["DB_USER"]??"root",
 
     // Le mot de passe 
-    "password"=>$_ENV["DB_PASSWORD  "]??"root",
+    "password"=>$_ENV["DB_PASSWORD  "]??"",
 
     // Le set de caractère utilisé
     "charset"=>$_ENV["DB_CHARSET"]??"utf8mb4",

@@ -100,6 +100,7 @@ function inscription():void
         if(empty($error))
         {
             addUser($username, $email, $password);
+            // sendMail("superBlog@gmail", $email, "Inscription","Votre inscription a bien été prise en compte <a href='http://localhost:8851/confirmation'> Veuillez confirmer votre mail </a>)
             header("Location: /");
             exit;
         }

@@ -27,22 +27,9 @@ get("/connexion", "./02-form/04-connexion.php");
 get("/deconnexion", "./02-form/05-deconnexion.php");
 get("/security", "./02-form/06-security.php");
 
-// Section message
-// Voir message
-get("/message", function() {
-    require "./03-crud/controller/messageController.php";
-    listMessage();
-});
-
-// Créer message 
-// get("/createMessage", function() {
-//     require "./03-crud/controller/messageController.php";
-//     createMessage();
-// });
-any("/createMessage", "./03-crud/view/message/createMessage.php");
 
 
-
+// ----------------  crud ---------------------------
 // Liste utilisateur 
 get("/userlist", function() {
     require "./03-crud/controller/UserController.php";
@@ -64,6 +51,7 @@ any("/userupdate", function() {
     updateUser();
 });
 
+//----------------- Authentification 
 // Connexion BDD
 any("/connexionBDD", function() {
     require "./03-crud/controller/AuthController.php";
@@ -76,6 +64,29 @@ get("/deconnexionBDD", function(){
     deconnexion();
 });
 
+// ------------------Crud message ------------------
+
+post("/blog/ajout", function() {
+    require "./03-crud/controller/MessageController.php";
+    createMessage();
+});
+any('/blog/update/$id', function($id) {
+    require "./03-crud/controller/MessageController.php";
+    updateMessage($id);
+});
+get('/blog/delete/$id', function($id) {
+    require "./03-crud/controller/MessageController.php";
+    deleteMessage($id);
+});
+
+get('/blog/$id', function($id) {
+    require "./03-crud/controller/MessageController.php";
+    readMessage($id);
+});
+
+
+
+//----------------------- 404 ---------------------
 // page 404  doit être tout en bas
 any("/404", "./404.php");
 
