@@ -1,6 +1,7 @@
 <?php 
 require __DIR__ . "/../../ressources/services/_shouldBeLogged.php";
-require __DIR__ . "/../model/UserModel.php";
+require __DIR__ . "/../model/UserModel.php";  //on change pour utiliser sql
+// require __DIR__."/../model/UserMongoModel.php";   pour utiliser no sql
 
 function connexion()
 {

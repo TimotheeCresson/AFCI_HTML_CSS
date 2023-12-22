@@ -1,4 +1,5 @@
-<!-- on met dans le controlelr tout ce qui ne touche pas au sql -->
+<?php 
+/* <!-- on met dans le controlelr tout ce qui ne touche pas au sql -->
 
 <!-- 
 require __DIR__ . "/../../ressources/services/_shouldBeLogged.php";
@@ -27,10 +28,7 @@ function createMessage() {
 
     require __DIR__ . "/../view/message/createMessage.php";
     }
-} -->
-
-<?php 
-
+} --> */
 require __DIR__. "/../../ressources/services/_shouldBeLogged.php";
 require __DIR__. "/../model/UserModel.php";
 require __DIR__. "/../model/MessageModel.php";

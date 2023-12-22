@@ -1,5 +1,5 @@
-
-<!-- require_once __DIR__."/../../ressources/services/_pdo.php";
+<?php 
+/*<!-- require_once __DIR__."/../../ressources/services/_pdo.php";
 
 function getMessageByUser($idUser) {
     $pdo = connexionPDO();
@@ -12,11 +12,7 @@ function addMessage() {
 $pdo = connexionPDO();
 $sql = $pdo->prepare("INSERT INTO messages(message, idUser)");
 $sql->execute();
-} -->
-
-
-
-<?php 
+} --> */
 require_once __DIR__ . "/../../ressources/services/_pdo.php";            // on le fait en require once pour ne pas inclure plusieurs fois pdo           // on le fait en require once pour ne pas inclure plusieurs fois pdo
 
 /**
