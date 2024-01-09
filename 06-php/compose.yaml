@@ -307,3 +307,7 @@ services:
 
 # dans les container  on a serverPHPMyAdmin, on peut le lancer avec le symbole carré avec une flèche à l'intérieur puis ensuite on obtient une page, on met utilisateur root et mdp root
 # Ensuite dans firstBDD, on fait nouvelle table
+
+
+
+# créer un nouveau serveur apache  :  docker run -p 8081:80 --name php_mvc -v C:/Users/AFCI851/Desktop/AFCI_HTML_CSS/exo-php-MVC:/var/www/html php:8.2-apache

@@ -1,4 +1,6 @@
 <?php 
+// créer un nouveau serveur apache  :   docker run -p 8081:80 --name php_mvc -v C:/Users/AFCI851/Desktop/AFCI_HTML_CSS/exo-php-MVC:/var/www/html php:8.2-apache
+
 $title = "Sommaire PHP";
 require "./ressources/template/_header.php";
 ?>
