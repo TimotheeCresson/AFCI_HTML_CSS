@@ -14,13 +14,13 @@ return [
     "user"=>$_ENV["DB_USER"]??"root",
 
     // Le mot de passe 
-    "password"=>$_ENV["DB_PASSWORD  "]??"root",
+    "password"=>$_ENV["DB_PASSWORD  "]??"",
 
     // Le set de caractère utilisé
     "charset"=>$_ENV["DB_CHARSET"]??"utf8mb4",
 
     /* 
-        Ce tableau d'option sera utilisé oar "PDO"
+        Ce tableau d'option sera utilisé par "PDO"
         PHP Data Object est un objet servant à la connexion aux bases de données  
     */
     "options"=>[

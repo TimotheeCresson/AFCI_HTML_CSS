@@ -5,7 +5,6 @@ require __DIR__ . "/../model/UserModel.php";  //on change pour utiliser sql
 
 function connexion()
 {
-    
     shouldBeLogged(false, "/");
     
     $email = $pass = "";
@@ -62,6 +61,7 @@ function connexion()
 
     require __DIR__."/../view/auth/connexion.php";
 }
+
 function deconnexion()
 {
     shouldBeLogged(true, "/");

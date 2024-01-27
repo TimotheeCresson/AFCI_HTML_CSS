@@ -53,7 +53,7 @@ function inscription():void
         {
             $email = clean_data($_POST["email"]);
             /* 
-                La fonction filter_var prendra en premeir argument
+                La fonction filter_var prendra en premr argument
                 la variable à filter, et en second une constante correspondant au filtre à appliquer.
                 Il y a deux types de filtres
                     FILTER_SANITIZE_***
@@ -102,6 +102,8 @@ function inscription():void
         {
             addUser($username, $email, $password);
             // sendMail("superBlog@gmail", $email, "Inscription","Votre inscription a bien été prise en compte <a href='http://localhost:8851/confirmation'> Veuillez confirmer votre mail </a>)
+            echo "User successfully registered!";
+
             header("Location: /");
             exit;
         }

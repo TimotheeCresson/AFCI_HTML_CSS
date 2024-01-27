@@ -74,7 +74,7 @@ function getOneUserById(string $id): array|bool {
 /**
  * Ajoute un utilisateur en base de donnée
  *
- * @param string $us nom d'uilisateur
+ * @param string $us nom d'utilisateur
  * @param string $em email
  * @param string $pass mot de passe 
  * @return void
