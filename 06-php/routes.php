@@ -84,7 +84,8 @@ get('/blog/$id', function($id) {
     readMessage($id);
 });
 
-
+//------------------- API ---------------------------
+any('/api/user', './04-api/controller/UserController.php');
 
 //----------------------- 404 ---------------------
 // page 404  doit être tout en bas
