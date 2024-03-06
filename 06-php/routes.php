@@ -87,6 +87,10 @@ get('/blog/$id', function($id) {
 });
 
 //------------------- API ---------------------------
+get("/api", function() {
+    require "./04-api/front/index.html";
+});
+
 any('/api/user', './04-api/controller/UserController.php');
 
 //----------------------- 404 ---------------------
