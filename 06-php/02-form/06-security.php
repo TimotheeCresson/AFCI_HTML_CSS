@@ -116,7 +116,7 @@ require __DIR__. "/../ressources/template/_header.php"
     <div>
         <label for="captcha">Veuillez recopiez le texte ci-dessus :</label>
         <br>
-        <img src="../ressources/services/_captcha.php" alt="captcha">
+        <img src="/captcha" alt="captcha">
         <br>
         <input type="text" name="captcha" id="captcha" pattern="^[A-Z0-9]{6}"> 
         <!-- Pattern attribute: L'attribut "pattern" spécifie une expression régulière que la valeur du champ de texte doit satisfaire. Ici, il exige que le texte soit composé de lettres majuscules (A-Z) ou de chiffres (0-9) et qu'il ait une longueur de 6 caractères. -->

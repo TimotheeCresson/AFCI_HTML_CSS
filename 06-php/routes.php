@@ -26,6 +26,8 @@ get("/file", "./02-form/03-file.php");
 get("/connexion", "./02-form/04-connexion.php");
 get("/deconnexion", "./02-form/05-deconnexion.php");
 get("/security", "./02-form/06-security.php");
+get("/captcha", "./ressources/services/_captcha.php");
+
 
 
 
